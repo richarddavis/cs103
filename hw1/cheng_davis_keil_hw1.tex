@@ -1,0 +1,236 @@
+%Modified from a template provided by Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+\usepackage{pdfsync}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+	% packages that allow mathematical formatting
+
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+% package that specifies normal margins
+
+\usepackage[parfill]{parskip}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem{nthm}{Theorem}
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+\title{Problem Set 1: CS103}
+
+\author{Katherine Cheng, Richard Davis, Marty Keil}
+
+% \date{Friday April 10, 2015}
+	% Note: when you omit this command, the current date is automatically included
+ 
+\maketitle 
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Problem 1: Set Theory Warmup}
+
+\paragraph{i)} The only sets that are equal are A and B.
+
+\paragraph{ii)} D is not a member of A because D is a set and A only contains numbers. However, D is a subset of A.
+
+\paragraph{iii)} D is a member of the powerset of A but it is not a subset of the powerset of A. The numbers 1 and 3 do not occur in the powerset of A, therefore D (which contains the numbers 1 and 3) cannot be a subset of P(A).
+
+\paragraph{iv)} ${1}$ is the only member of $A \cap C$. $A \cup C$ is $\{1, 2, 3, 4, \{2\}, \{\{3, 4\}\}\}$. $A \bigtriangleup C$ is $\{2, 3, 4, \{2\}, \{\{3, 4\}\}\}$.
+
+\paragraph{v)} $|B|$ is 4. $|E|$ is $\aleph_0$. $|F|$ is 1.
+
+\section*{Problem 2: Much Ado About Nothing}
+
+\paragraph{i)} $\varnothing \cup \{\varnothing\}$ is $\{\varnothing\}.$ $\varnothing \cap \{\varnothing\}$ is $\varnothing$.
+
+\paragraph{ii)} $\{\varnothing\} \cup \{\{\varnothing\}\}$ is $\{ \varnothing, \{\varnothing\} \}$. $\{\varnothing\} \cap \{\{\varnothing\}\}$ is $\varnothing$.
+
+\paragraph{ii)} The cardinality of this set is 2.
+
+\paragraph{iv)} The powerset of this set is $\{ \varnothing, \{\{\varnothing\}\}, \{\{\varnothing, \{\varnothing\}\}\}, \{\{\varnothing\}, \{\varnothing, \{\varnothing\}\}\}\}$.
+
+\section*{*Problem 3: Properties of Sets}
+
+\paragraph{i)} False. To prove this, I will show that the negation of this statement is true. \begin{thm} There exist three sets A, B, and C such that if $A \in B$ and $B \in C$, then $A \not \in C$. \end{thm} \begin{proof} Let $A = \{1\}$, $B = \{\{1\}\}$, and $C = \{ \{ \{1\}\}\}$. We see that C contains only $\{\{1\}\}$ and $\varnothing$. Neither of these are equal to A, so $A \not \in C$. \end{proof}
+
+\paragraph{ii)} True.
+
+The powerset of S is defined as the set of all subsets of S. If A and B are sets, then A = B precisely when they have the same elements as one another.
+
+\paragraph{iii)} True.
+
+\paragraph{iv)} False.
+
+\section*{Problem 4: Two is Irrational?}
+In the second paragraph of the proof this assertion is made: ``Since $q^2$ is an integer and $p^2 = 4q^2$, we see that $p^2$ is a multiple of four, and therefore that $p$ is a multiple of four.'' This statement is made without proof and is false. If $p$ = 2, then we have the case where $p^2$ is a multiple of four (it is four) and $p$ is not (it is two).
+
+This proof follows the same form as the similar proofs that $\sqrt{2}$ and $\sqrt{3}$ are irrational, but neither of these makes this mistake. In the proof that the $\sqrt{2}$ is irrational, the statement that if $p^2$ is even then $p$ must also be even is the result of a prior proof. In the proof that the $\sqrt{3}$ is irrational, the statement that if $p^2$ is a multiple of 3 then $p$ is a multiple of three is the result of a prior proof. 
+
+\section*{*Problem 5: Modular Arithmetic}
+\paragraph{i)} 
+\begin{thm}
+  For any integer $x$ and any integer $k$ $x \equiv_k x$.
+\end{thm}
+\begin{proof}
+  From the definition of $\equiv_k$ we know that if $x \equiv_k x$ then there must exist some integer $q$ such that $x - x = kq$ for any $x$.
+  \begin{align*}
+    x - x &= kq\\
+    0 &= kq\\
+  \end{align*}
+  $q = 0$ satisfies this equation for any $k$ and any $x$.
+\end{proof}
+            
+\paragraph{ii)}
+\begin{thm}
+  For any integers $x$ and $y$ and any integer $k$ if $x \equiv_kₖ y$, then $y \equiv_kₖ x$.
+\end{thm}
+\begin{proof}
+  Assume for the sake of contradiction that there exist some integers $x$, $y$, and $k$ such that if $x \equiv_kₖ y$, then $y \not \equiv_kₖ x$. From the definition of $\equiv_k$ we know that $x \equiv_k y$ implies that there exists some integer $p$ such that $x - y = kp$ (1) and that $y \not \equiv_k x$ implies that there is no integer $q$ such that $y - x = kq$ (2). Rearranging (1) gives us $\frac{x-y}{k} = p$ and rearranging (2) gives us $\frac{y-x}{k} = q$ (3). Multiplying both sides of (3) by -1 gives us $\frac{x-y}{k} = -q$. Combining (1) and (3):
+  \begin{align*}
+    p &= \frac{x-y}{k} = -q\\
+    p &= -q\\
+    -p &= q\\
+  \end{align*}
+  But this is a contradiction. We have shown that if $p$ exists then $q$ must exist, but if $q$ exists this violates our assumption that $y \not \equiv_k x$. We have reached a contradiction, therefore our original assumption must be false.
+\end{proof}
+       
+\paragraph{*iii)}
+\begin{thm}
+  For any integers $x$, $y$, and $z$ and any integer $k$ if $x \equiv_kₖ y$ and $y \equiv_kₖ z$, then $x \equiv_kₖ z$.
+\end{thm}
+\begin{proof}
+  This is where the proof goes.
+\end{proof}
+
+\section*{Problem 6: Tiling a Chessboard}
+\paragraph{i)}
+\begin{thm} It is impossible to tile an $8 \times 8$ chessboard missing two opposite corners with right triominoes.
+\end{thm}
+\begin{proof}
+  An 8x8 chessboard has 64 squares. When the two corner squares are removed, there are 62 squares left. 62 is not a multiple of three, so it is impossible to tile the chessboard with right triominoes.
+\end{proof}
+\paragraph{*ii)}
+\begin{thm}
+  For $n \geq 3#$, it is never possible to tile an $n \times n$ chessboard missing two opposite corners with right triominoes.
+\end{thm}
+\begin{proof}
+  The side length of the chessboard, $n$, is either a multiple of three and can be written as $3k$, congruent to one modulo three and can be written $3k + 1$, or congruent to two modulo three and can be written $3k + 2$. We will show that in each of these cases, squaring $n$ and subtracting two results in a number that is not divisible by three. This means that in each case the resulting chessboard can not be tiled with right triominoes.
+  \item Case $n = 3k$: Squaring $n$ and subtracting two gives $n^2-2 = 3(3k^2)-2$. Setting $m = 3k^2$ gives us $n^2 -2 = 3m - 2$. Because $3m-2$ is not a multiple of three, $n^2-2$ is also not a multiple of three. Therefore a chessboard with side length $3k$ can not be tiled with right triominoes.
+  \item Case $n = 3k + 1$: Squaring $n$, subtracting two, and some algebra gives us the following:
+    \begin{align*}
+      n^2-2 &= ((3k+1)^2)-2\\
+      n^2-2 &= (9k^2 + 6k + 1-2\\
+      n^2-2 &= 9k^2 + 6k - 1\\
+      n^2-2 &= 3(3k^2 + 2k) - 1\\
+    \end{align*}
+    Setting $3k^2 + 2 = m$ gives us $n^2 - 2 = 3m - 1$. Because $3m-1$ is not a multiple of three, $n^2-2$ is also not a multiple of three. Therefore a chessboard with side length $3k$ can not be tiled with right triominoes.
+  \item Case $n = 3k + 2$: Squaring $n$, subtracting two, and some algebra gives us the following:
+    \begin{align*}
+      n^2-2 &= ((3k+2)^2)-2\\
+      n^2-2 &= (9k^2 + 12k + 4 - 2\\
+      n^2-2 &= 9k^2 + 12k + 2\\
+      n^2-2 &= 3(3k^2 + 4k) + 2\\
+    \end{align*}
+    Setting $3k^2 + 4k = m$ gives us $n^2 - 2 = 3m + 2$. Because $3m+2$ is not a multiple of three, $n^2-2$ is also not a multiple of three. Therefore a chessboard with side length $3k$ can not be tiled with right triominoes.
+\end{proof}
+      
+\section*{*Problem 7: Malleable Encryption}
+\paragraph{i)} XOR the message with $(M_1 \oplus M_2)$. 
+\paragraph{ii)} Proof by cases.
+
+Case 1: Alice sends $(M_1 \oplus K)$. Using the procedure from section i:
+\begin{alignat*}{2}
+  &(M_1 \oplus K) \oplus (M_1 \oplus M_2) \\
+  &(M_1 \oplus M_1) \oplus (K \oplus M_2) &\quad &\text{(Since $\oplus$ is associative)}\\
+  &0 \oplus (K \oplus M_2) &\quad &\text{(since $\oplus$ is self-inverting)}\\  
+  &(K \oplus M_2) &\quad &\text{(Since 0 is an identity of $\oplus$)}\\
+\end{alignat*}
+
+Case 2: Alice sends $(M_2 \oplus K)$. Using the procedure from section i:
+\begin{alignat*}{2}
+  &(M_2 \oplus K) \oplus (M_1 \oplus M_2) \\
+  &(M_2 \oplus M_2) \oplus (K \oplus M_1) &\quad &\text{(Since $\oplus$ is associative)}\\
+  &0 \oplus (K \oplus M_1) &\quad &\text{(since $\oplus$ is self-inverting)}\\  
+  &(K \oplus M_1) &\quad &\text{(Since 0 is an identity of $\oplus$)}\\
+\end{alignat*}
+
+\section*{Problem 8: Yablo's Paradox}
+\paragraph{Problem Statement}
+Consider the following collection of infinitely many statements numbered $S_0, S_1, S_2, \ldots$, where there is a statement $S_n$ for each natural number $n$. These statements are ordered in a list as follows:
+
+\begin{align*}
+&(S_0): \text{All statements in this list after this one are false.}\\
+&(S_1): \text{All statements in this list after this one are false.}\\
+&(S_2): \text{All statements in this list after this one are false.}\\
+&\ldots\\
+\end{align*}
+
+% Another (perhaps better) way of doing the above.
+% \begin{itemize}
+% \item $(S_0)$: All statements in this list after this one are false.
+% \item $(S_1)$: All statements in this list after this one are false.
+% \item $(S_2)$: All statements in this list after this one are false.
+% \item: \ldots
+% \end{itemize}
+
+Interestingly, the interplay beween these statements makes every statement in this list a paradox. Now consider the following modification to this paradox. Instead of having infinitely many statements, suppose that there are ``only'' 10,000,000,001 of them. Specifically, suppose we have these statements:
+
+\begin{align*}
+&(T_0): \text{All statements in this list after this one are false.}\\
+&(T_1): \text{All statements in this list after this one are false.}\\
+&(T_2): \text{All statements in this list after this one are false.}\\
+&\ldots\\
+&(T_{10,000,000,000}): \text{All statements in this list after this one are false.}\\
+\end{align*}
+
+Interestingly, these statements are all perfectly consistent with one another and do not result in any paradoxes.
+
+\paragraph{i)}
+\begin{thm}Every statement in the first list is a paradox.\end{thm}
+\begin{proof}Pick an arbitrary member of the first list $S_k$. that claims All statements in this list after this one are false. This statement can either be true or false. We will show that in either case, the logical result is a contradiction.
+\item Case 1: $S_k$ is true. This implies that all of the statements after $S_k$ in the list are false. However, if $S_{k+1}$ is false, this implies that one of the statements in the list $S_{k+2}, \ldots$ must be true. This directly contradicts the earlier assertion that all of the all of the statements after $S_k$ are false. Therefore, $S_k$ must be false.
+\item Case 2: $S_k$ is false. The negation of $S_k$ implies that there is at least one statement in the list following $S_k$ (called $S_l$) that is true. However, as we showed in the first case, no statement in the list $S_l$ can be true because this directly results in a contradiction. Therefore, $S_k$ must be true.
+In the first case, we conclude that $S_k$ must be false. But when we presume that $S_k$ is false in the second case, we conclude that $S_k$ must be true. 
+\end{proof}
+
+\paragraph{ii)} For each statement in the second list, determine whether it's true or false and explain why your choices are consistent with one another.
+
+This case is easier to think about than the previous one. We can start with the final member of the list $T_{10,000,000,000}$: All statements in the list after this one are false. Because there are no statements in the list after this one, this statement is vacuously true. If final statement in the list is true, this means that every other statement in the list (all of which have the form All statements in this list after this one are false) must be false. So, we know that the statements $T_0 - T_{9,999,999,999}$ are all false and $T_{10,000,000,000}$ is true.
+
+\section*{*Problem 9: Symmetric Latin Squares}
+\paragraph{Problem Information}
+A Latin square is an $n \times n$ grid filled with the numbers $1, 2, 3, \ldots, n$ such that every number appears in every row and every column exactly once. A symmetric Latin square is symmetric across the main diagonal. That is, the elements at positions $(i, j)$ and $(j, 1)$ are always the same.
+
+\begin{thm}In any $n \times n$ symmetric Latin square where $n$ is odd, every number $1, 2, 3, \ldots, n$ must appear at least once on the diagonal from the upper-left corner to the lower-right corner.\end{thm}
+
+\begin{proof}
+  This is where the proof goes.
+\end{proof}
+
+% \section*{Appendix: Referencing Equations}
+% \begin{equation} \label{eq:divbyzero}
+%   \frac {1} {0}
+% \end{equation}
+
+% This references \ref{eq:divbyzero}.
+
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
