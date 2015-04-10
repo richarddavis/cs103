@@ -42,13 +42,13 @@
 
 \section*{Problem 1: Set Theory Warmup}
 
-\paragraph{i)} The only sets that are equal are A and B.
-
+\paragraph{i)} The only sets that are equal are A and B, because distinct objects in A are the same as the distinct objects in B.
 \paragraph{ii)} D is not a member of A because D is a set and A only contains numbers. However, D is a subset of A.
 
-\paragraph{iii)} D is a member of the powerset of A but it is not a subset of the powerset of A. The numbers 1 and 3 do not occur in the powerset of A, therefore D (which contains the numbers 1 and 3) cannot be a subset of P(A).
+\paragraph{iii)} The set D = ${\{1,3\}}$ is a member of the powerset of A but it is not a subset of the powerset of A. The numbers 1 and 3 do not occur in the powerset of A, therefore D (which contains the numbers 1 and 3) cannot be a subset of $\wp(A)$:
+$$ \wp(A) = \{ \varnothing, \{1\}, \{2\}, \{3\}, \{4\}, \{1,2\}, \{1,3\}, \{1,4\}, \{2,3\}, \{2,4\}, \{3,4\}, \{1,2,3\}, \{1,2,4\}, \{2,3,4\}, \{1,2,3,4\}\}$$
 
-\paragraph{iv)} ${1}$ is the only member of $A \cap C$. $A \cup C$ is $\{1, 2, 3, 4, \{2\}, \{\{3, 4\}\}\}$. $A \bigtriangleup C$ is $\{2, 3, 4, \{2\}, \{\{3, 4\}\}\}$.
+\paragraph{iv)} $A \cap C$ is ${\{1\}}$. $A \cup C$ is $\{1, 2, 3, 4, \{2\}, \{\{3, 4\}\}\}$. $A \bigtriangleup C$ is $\{2, 3, 4, \{2\}, \{\{3, 4\}\}\}$.
 
 \paragraph{v)} $|B|$ is 4. $|E|$ is $\aleph_0$. $|F|$ is 1.
 
@@ -62,24 +62,32 @@
 
 \paragraph{iv)} The powerset of this set is $\{ \varnothing, \{\{\varnothing\}\}, \{\{\varnothing, \{\varnothing\}\}\}, \{\{\varnothing\}, \{\varnothing, \{\varnothing\}\}\}\}$.
 
-\section*{*Problem 3: Properties of Sets}
+\section*{Problem 3: Properties of Sets}
 
-\paragraph{i)} False. To prove this, I will show that the negation of this statement is true. \begin{thm} There exist three sets A, B, and C such that if $A \in B$ and $B \in C$, then $A \not \in C$. \end{thm} \begin{proof} Let $A = \{1\}$, $B = \{\{1\}\}$, and $C = \{ \{ \{1\}\}\}$. We see that C contains only $\{\{1\}\}$ and $\varnothing$. Neither of these are equal to A, so $A \not \in C$. \end{proof}
+\paragraph{i)} False. To prove this, we show that the negation of this statement is true. \begin{thm} There exist three sets A, B, and C such that if $A \in B$ and $B \in C$, then $A \not \in C$. \end{thm} \begin{proof} Let $A = \{1\}$, $B = \{\{1\}\}$, and $C = \{ \{ \{1\}\}\}$. We see that C contains only $\{\{1\}\}$ and $\varnothing$. Neither of these are equal to A, so $A \not \in C$. \end{proof}
 
-\paragraph{ii)} True.
+\paragraph{ii)} True. \begin{thm} For all sets $A$ and $B$, if $\wp(A) = \wp(B)$, then $A = B$.\end{thm} \begin{proof} The powerset of S is defined as the set of all subsets of S. A set is a subset of S if all elements of that set are also elements of S. Thus, all elements of each subset in $\wp(A)$ are also an element of A, and all elements of each subset in $\wp(B)$ are also an element of B. If $\wp(A) = \wp(B)$, then all subsets of A are matched to all subsets of B, and A and B must comprised of the same elements. Thus, when $\wp(A) = \wp(B)$, then $A = B$.\end{proof}
 
-The powerset of S is defined as the set of all subsets of S. If A and B are sets, then A = B precisely when they have the same elements as one another.
+\paragraph{iii)} False. To prove this, we show that the negation of this statement is true. \begin{thm} 
+There exist three sets A, B, and C where $A \cup C = B \cup C$, and $A \neq B$. \end{thm} \begin{proof} Let $A = \{1\}, B = \{2\}$, and $C = \{1,2\}$. $A \cup C = \{1,2\}$ and $B \cup C = \{1,2\}$, thus $A \cup C = B \cup C$. However, $A \neq B$. \end{proof}
 
-\paragraph{iii)} True.
 
-\paragraph{iv)} False.
+\paragraph{iv)} True.
+\begin{thm}
+  There exists a set A where $ \wp(A) = \{A\} $
+\end{thm}
+\begin{proof}
+   Take A = $\varnothing$.
+   $\wp(\varnothing) = \{\varnothing\}$. 
+   Therefore, A is a set whose power set is equal to the regular set.
+\end{proof}
 
 \section*{Problem 4: Two is Irrational?}
 In the second paragraph of the proof this assertion is made: ``Since $q^2$ is an integer and $p^2 = 4q^2$, we see that $p^2$ is a multiple of four, and therefore that $p$ is a multiple of four.'' This statement is made without proof and is false. If $p$ = 2, then we have the case where $p^2$ is a multiple of four (it is four) and $p$ is not (it is two).
 
 This proof follows the same form as the similar proofs that $\sqrt{2}$ and $\sqrt{3}$ are irrational, but neither of these makes this mistake. In the proof that the $\sqrt{2}$ is irrational, the statement that if $p^2$ is even then $p$ must also be even is the result of a prior proof. In the proof that the $\sqrt{3}$ is irrational, the statement that if $p^2$ is a multiple of 3 then $p$ is a multiple of three is the result of a prior proof. 
 
-\section*{*Problem 5: Modular Arithmetic}
+\section*{Problem 5: Modular Arithmetic}
 \paragraph{i)} 
 \begin{thm}
   For any integer $x$ and any integer $k$ $x \equiv_k x$.
@@ -107,12 +115,30 @@ This proof follows the same form as the similar proofs that $\sqrt{2}$ and $\sqr
   But this is a contradiction. We have shown that if $p$ exists then $q$ must exist, but if $q$ exists this violates our assumption that $y \not \equiv_k x$. We have reached a contradiction, therefore our original assumption must be false.
 \end{proof}
        
-\paragraph{*iii)}
+\paragraph{iii)}
 \begin{thm}
   For any integers $x$, $y$, and $z$ and any integer $k$ if $x \equiv_kₖ y$ and $y \equiv_kₖ z$, then $x \equiv_kₖ z$.
 \end{thm}
 \begin{proof}
-  This is where the proof goes.
+Assume there is an integer q such that x-y = kq (1). There is an integer p such that y-z = kp (2). There is an integer r such that x-z = kr (3). Solving for z in equation 3, we get:\\
+  \begin{align*}z = x -kr  \end{align*}
+We plug this value of z into equation 2:
+  \begin{align*}y-(x-kr)=kp  \end{align*}
+We then add equation 1 to this  current equation which results in:
+  \begin{align*}
+y-(x-kr) + (x-y)=kp + kq\\
+(y-y) + (x-x) + kr = kp + kq \\
+kr = kp + kq \\
+  \end{align*}
+If we then plug in this result for kr into equation 3  we get: 
+\begin{align*}
+x-z = kp + kq\\
+ \end{align*}
+We then insert the value of kp and kq from equations 1 and 2:
+ \begin{align*}
+x-z = (x-y) + (y-z) \\
+x-z = x-z 
+ \end{align*}
 \end{proof}
 
 \section*{Problem 6: Tiling a Chessboard}
@@ -122,14 +148,14 @@ This proof follows the same form as the similar proofs that $\sqrt{2}$ and $\sqr
 \begin{proof}
   An 8x8 chessboard has 64 squares. When the two corner squares are removed, there are 62 squares left. 62 is not a multiple of three, so it is impossible to tile the chessboard with right triominoes.
 \end{proof}
-\paragraph{*ii)}
+\paragraph{ii)}
 \begin{thm}
-  For $n \geq 3#$, it is never possible to tile an $n \times n$ chessboard missing two opposite corners with right triominoes.
+  For $n \geq 3$, it is never possible to tile an $n \times n$ chessboard missing two opposite corners with right triominoes.
 \end{thm}
 \begin{proof}
-  The side length of the chessboard, $n$, is either a multiple of three and can be written as $3k$, congruent to one modulo three and can be written $3k + 1$, or congruent to two modulo three and can be written $3k + 2$. We will show that in each of these cases, squaring $n$ and subtracting two results in a number that is not divisible by three. This means that in each case the resulting chessboard can not be tiled with right triominoes.
-  \item Case $n = 3k$: Squaring $n$ and subtracting two gives $n^2-2 = 3(3k^2)-2$. Setting $m = 3k^2$ gives us $n^2 -2 = 3m - 2$. Because $3m-2$ is not a multiple of three, $n^2-2$ is also not a multiple of three. Therefore a chessboard with side length $3k$ can not be tiled with right triominoes.
-  \item Case $n = 3k + 1$: Squaring $n$, subtracting two, and some algebra gives us the following:
+  The side length of the chessboard, $n$, is either a multiple of three and can be written as $3k$, congruent to one modulo three and can be written $3k + 1$, or congruent to two modulo three and can be written $3k + 2$. We will show that in each of these cases, squaring $n$ and subtracting two (for the two missing pieces) results in a number that is not divisible by three. This means that in each case the resulting chessboard can not be tiled with right triominoes.
+  \item \textbf{Case 1:} $n = 3k$. Squaring $n$ and subtracting two gives $n^2-2 = 3(3k^2)-2$. Setting $m = 3k^2$ gives us $n^2 -2 = 3m - 2$. Because $3m-2$ is not a multiple of three, $n^2-2$ is also not a multiple of three. Therefore a chessboard with side length $3k$ can not be tiled with right triominoes.
+  \item \textbf{Case 2:} $n = 3k + 1$. Squaring $n$, subtracting two, and some algebra gives us the following:
     \begin{align*}
       n^2-2 &= ((3k+1)^2)-2\\
       n^2-2 &= (9k^2 + 6k + 1-2\\
@@ -137,7 +163,7 @@ This proof follows the same form as the similar proofs that $\sqrt{2}$ and $\sqr
       n^2-2 &= 3(3k^2 + 2k) - 1\\
     \end{align*}
     Setting $3k^2 + 2 = m$ gives us $n^2 - 2 = 3m - 1$. Because $3m-1$ is not a multiple of three, $n^2-2$ is also not a multiple of three. Therefore a chessboard with side length $3k$ can not be tiled with right triominoes.
-  \item Case $n = 3k + 2$: Squaring $n$, subtracting two, and some algebra gives us the following:
+  \item \textbf{Case 3:} $n = 3k + 2$. Squaring $n$, subtracting two, and some algebra gives us the following:
     \begin{align*}
       n^2-2 &= ((3k+2)^2)-2\\
       n^2-2 &= (9k^2 + 12k + 4 - 2\\
@@ -147,11 +173,16 @@ This proof follows the same form as the similar proofs that $\sqrt{2}$ and $\sqr
     Setting $3k^2 + 4k = m$ gives us $n^2 - 2 = 3m + 2$. Because $3m+2$ is not a multiple of three, $n^2-2$ is also not a multiple of three. Therefore a chessboard with side length $3k$ can not be tiled with right triominoes.
 \end{proof}
       
-\section*{*Problem 7: Malleable Encryption}
+\section*{Problem 7: Malleable Encryption}
 \paragraph{i)} XOR the message with $(M_1 \oplus M_2)$. 
-\paragraph{ii)} Proof by cases.
+\paragraph{ii)}
+\begin{thm}
+  If Eve intercepts a message that was encrypted with key $K$, and Eve knows that the message was either $M_1$ or $M_2$, she can XOR the encrypted message with $(M_1 \oplus M_2)$ to make it seem as though the opposite message was actually sent.
+\end{thm}
+\begin{proof}
+Proof by cases.
 
-Case 1: Alice sends $(M_1 \oplus K)$. Using the procedure from section i:
+\textbf{Case 1:} Alice sends $(M_1 \oplus K)$. Using the procedure from section i:
 \begin{alignat*}{2}
   &(M_1 \oplus K) \oplus (M_1 \oplus M_2) \\
   &(M_1 \oplus M_1) \oplus (K \oplus M_2) &\quad &\text{(Since $\oplus$ is associative)}\\
@@ -159,7 +190,7 @@ Case 1: Alice sends $(M_1 \oplus K)$. Using the procedure from section i:
   &(K \oplus M_2) &\quad &\text{(Since 0 is an identity of $\oplus$)}\\
 \end{alignat*}
 
-Case 2: Alice sends $(M_2 \oplus K)$. Using the procedure from section i:
+\textbf{Case 2:} Alice sends $(M_2 \oplus K)$. Using the procedure from section i:
 \begin{alignat*}{2}
   &(M_2 \oplus K) \oplus (M_1 \oplus M_2) \\
   &(M_2 \oplus M_2) \oplus (K \oplus M_1) &\quad &\text{(Since $\oplus$ is associative)}\\
@@ -208,16 +239,21 @@ In the first case, we conclude that $S_k$ must be false. But when we presume tha
 
 \paragraph{ii)} For each statement in the second list, determine whether it's true or false and explain why your choices are consistent with one another.
 
-This case is easier to think about than the previous one. We can start with the final member of the list $T_{10,000,000,000}$: All statements in the list after this one are false. Because there are no statements in the list after this one, this statement is vacuously true. If final statement in the list is true, this means that every other statement in the list (all of which have the form All statements in this list after this one are false) must be false. So, we know that the statements $T_0 - T_{9,999,999,999}$ are all false and $T_{10,000,000,000}$ is true.
+We can start with the final member of the list $T_{10,000,000,000}$: All statements in the list after this one are false. Because there are no statements in the list after this one, this statement is vacuously true. If final statement in the list is true, this means that every other statement in the list (all of which have the form All statements in this list after this one are false) must be false. So, we know that the statements $T_0 - T_{9,999,999,999}$ are all false and $T_{10,000,000,000}$ is true.
 
-\section*{*Problem 9: Symmetric Latin Squares}
+\section*{Problem 9: Symmetric Latin Squares}
 \paragraph{Problem Information}
-A Latin square is an $n \times n$ grid filled with the numbers $1, 2, 3, \ldots, n$ such that every number appears in every row and every column exactly once. A symmetric Latin square is symmetric across the main diagonal. That is, the elements at positions $(i, j)$ and $(j, 1)$ are always the same.
+A Latin square is an $n \times n$ grid filled with the numbers $1, 2, 3, \ldots, n$ such that every number appears in every row and every column exactly once. A symmetric Latin square is symmetric across the main diagonal. That is, the elements at positions $(i, j)$ and $(j, i)$ are always the same.
 
 \begin{thm}In any $n \times n$ symmetric Latin square where $n$ is odd, every number $1, 2, 3, \ldots, n$ must appear at least once on the diagonal from the upper-left corner to the lower-right corner.\end{thm}
 
 \begin{proof}
-  This is where the proof goes.
+When n is odd we know that $ n^2 $ is odd as proven earlier in class. Therefore we can assume an odd number of squares for each n x n cube, when n is odd. There will also be n squares of each value because they can only appear once in each column, and there are n rows. 
+
+Take the region below the main diagonal. We know that because of the (i,j) = (j,i) property of the Symmetric Latin Square that the region above the main diagonal must have the same values as the region below, but in an inverted location. We also know that if a value appears once in either region it must also appear once in the other region. Therefore, when combining the lower and upper regions, there are an even number of occurrences of each value. However we know that each value occurs n times, which is an odd number of occurrences. So one square of each value must be added to create this odd number of occurrences.  
+
+The main diagonal has no repeats of number because i = j, and consists of exactly n values. Each of these n squares must be a different
+value, since there are exactly n different values, each of must occur one more time to reach an odd number of occurrences. 
 \end{proof}
 
 % \section*{Appendix: Referencing Equations}
