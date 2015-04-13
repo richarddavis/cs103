@@ -1,0 +1,137 @@
+%Modified from a template provided by Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+\usepackage{pdfsync}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+	% packages that allow mathematical formatting
+
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+% package that specifies normal margins
+
+\usepackage[parfill]{parskip}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem{nthm}{Theorem}
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+\title{Problem Set 2: Checkpoint}
+
+\author{Katherine Cheng, Richard Davis}
+
+% \date{Friday April 10, 2015}
+	% Note: when you omit this command, the current date is automatically included
+ 
+\maketitle 
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Checkpoint Question: Recurrence Relations}
+
+\paragraph{i)} 
+
+\begin{thm}
+  Given the recurrence relation
+  \begin{align*}
+    a_0 &= 1\\
+    a_{n+1} &= 2a_n
+  \end{align*}
+
+  For any $n \in \mathbb{N}$, we have $a_n = 2^n$.
+\end{thm}
+
+\begin{proof}
+  Let $P(n)$ be the statement ``any element of the recurrence relation is defined as $a_n = 2^n$.'' We will prove by induction that this holds for any natural number.
+
+  For our base case, we need to show that $P(0)$ is true, meaning that $a_0 = 1 = 2^0$. Because $2^0 = 1$ we show that $P(0)$ is true.
+
+  For the inductive step, assume that for some $k \in \matbb{N}$ that $P(k)$ holds, meaning that
+  \begin{equation} \label{eq:squares}
+    a_{k} = 2a_{k-1} = 2^k
+  \end{equation}
+  We need to show that $P(k+1)$ holds, meaning that $a_{k+1} = 2^{k+1}$. According to the recurrence relation, to get $a_{k+1}$ we do the following:
+  \begin{align*}
+    a_{k+1} &= 2a_k\\
+    &= 2(2a_{k-1})\\ 
+    &= 2(2^k) \quad (\text{via } \ref{eq:squares})\\
+    &= 2^{k+1}
+  \end{align*}
+\end{proof}
+
+\paragraph{ii)} Consider the following two recurrence relations:
+\begin{align*}
+  b_0 &= 1 &\quad c_0 &= 1\\
+  b_{n+1} &= 2b_n - 1 &\quad c_{n+1} &= 2c_n + 1
+\end{align*}
+We will show that $b_n = 1$ and $c_n = 2^{n+1} - 1$.
+
+\begin{thm}
+  For any $n \in \mathbb{N}$, we have $b_n = 1$.
+\end{thm}
+\begin{proof}
+  Let $P(n)$ be the statement ``any element of the recurrence relation is defined as $a_n = 1$.'' We will prove by induction that this holds for any natural number.
+  
+  For our base case we need to show that $P(0) = 1$, and this is true by definition.
+
+  For the inductive step, assume that for some $k \in \matbb{N}$ that $P(k)$ holds, meaning that
+  \begin{equation} \label{eq:triv}
+    b_{k} = 2b_{k-1} - 1 = 1.
+  \end{equation}
+  We need to show that $P(k+1)$ holds, meaning that $b_{k+1} = 1$. According to the recurrence relation, to get $b_{k+1}$ we do the following:
+  \begin{align*}
+    b_{k+1} &= 2b_k - 1\\
+    &= 2(2b_{k-1}) - 1 \\
+    &= 2(1) - 1\quad (\text{via } \ref{eq:triv})\\
+    &= 1
+  \end{align*}
+\end{proof}
+
+\begin{thm}
+  For any $n \in \mathbb{N}$, we have $c_n = 2^{n+1} - 1$.
+\end{thm}
+\begin{proof}
+  Let $P(n)$ be the statement ``any element of the recurrence relation is defined as $c_n = 2^{n+1} - 1$.'' We will prove by induction that this holds for any natural number.
+  
+  For our base case we need to show that $P(0) = 1$. $P(0) = 2^{0 + 1} - 1 = 1$. 
+
+  For the inductive step, assume that for some $k \in \matbb{N}$ that $P(k)$ holds, meaning that
+  \begin{equation} \label{eq:fin}
+    c_{k} = 2c_{k-1} + 1 = 2^{k+1} - 1.
+  \end{equation}
+  We need to show that $P(k+1)$ holds, meaning that $c_{k+1} = 2^{k+2} - 1$. According to the recurrence relation, to get $c_{k+1}$ we do the following:
+  \begin{align*}
+    c_{k+1} &= 2c_k + 1 \\
+            &= 2(2^{k+1} - 1) + 1 \\
+            &= 2^{k+2} - 2 + 1\quad (\text{via } \ref{eq:fin})\\\\
+            &= 2^{k+2} - 1
+  \end{align*}
+\end{proof}
+
+% \section*{Appendix: Referencing Equations}
+% \begin{equation} \label{eq:divbyzero}
+%   \frac {1} {0}
+% \end{equation}
+
+% This references \ref{eq:divbyzero}.
+
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
