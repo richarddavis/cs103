@@ -42,6 +42,57 @@
 	% tells latex to follow your header (e.g., title, author) commands.
 
 
+\section*{Problem 1: Fibonacci Numbers}
+
+\begin{thm}The sum of the squares of the first $n$ Fibonacci numbers is $F_{n}(F_{n+1})$\end{thm}
+\begin{proof}
+Let $P(n)$ be the statement "the sum of the squares of the first $n$ Fibonacci numbers is $F_{n}(F_{n+1})$. We will prove, by induction, that $P(n)$ is true for all $n\geq1$, from which the theorem follows. 
+
+\item For our base case, we need to show that P(0) is true, meaning that the sum of the squares of the first zero Fibonacci numbers is $F_{0}(F_{0+1})$. Since the sum of the first zero Fibonacci numbers is zero, and $F_{0}(F_{0+1})$ is zero as well, we see that $P(0)$ is true.
+
+\item For the inductive step, assume that for some $k \in \mathbb{N} \geq 1$ that P(k) holds, meaning that:
+
+\begin{equation} \label{eq:1}
+0^2 + 1^2 + 1^2 + 2^2 + 3^2 + 5^2 ... F_{k}^2 = F_{k}(F_{k+1})
+\end{equation}
+
+\item We need to show that $P(k+1)$ holds, meaning that the sum of the squares of the first $k+1$ Fibonacci numbers is $F_{k+1}(F_{k+1+1}) = F_{k+1}(F_{k+2})$. To see this, notice that:
+\begin{align*}
+0^2 + 1^2 + 1^2 + 2^2 + 3^2 + 5^2 ... F_{k+1}^2 &= (0^2 + 1^2 + 1^2 + 2^2 + 3^2 + 5^2 ... F_{k}^2) + F_{k+1}^2\\
+&= F_{k}(F_{k+1}) + F_{k+1}^2 \tag{via (1)}\\ 
+&= F_{k}(F_{k+1}) + F_{k+1}(F_{k+1})\\
+&= F_{k+1}(F_{k}+F_{k+1})\\
+&= F_{k+1}(F_{k+2})\tag{via Fibonacci recurrence relation}
+\end{align*}
+Therefore, $P(k+1)$ is true, completing the induction. 
+\end{proof}
+
+\pagebreak
+
+\section*{Problem 2: A Lot of Rocks?}
+
+\begin{thm}No natural number of rocks is a lot of rocks\end{thm}
+\begin{proof}
+Let $P(n)$ be the statement that ``no natural number of rocks is a lot of rocks," where ``a lot of rocks" is defined as, ``a number of rocks that isn't zero and where if you remove one of the rocks, you're left with a lot of rocks." We will prove, by induction, that $P(n)$ is true for all $n \in N$, from which the theorem follows. 
+
+\item For our base case, we need to show that P(0) is true, meaning that zero is not ``a lot of rocks". Since the definition of ``a lot of rocks" states that the number of rocks cannot be zero, we see that $P(0)$ is true.
+
+\item For the inductive step, assume that for some $k \in \mathbb{N}$ that $P(k)$ holds, meaning that:
+\begin{equation} \label{eq:2}
+k \neq \mbox{a lot of rocks}
+\end{equation}
+
+\item We need to show that $P(k+1)$ holds, meaning that $k+1$ is not ``a lot of rocks". To see this, notice that:
+\begin{align*}
+n &= k+1\\
+n-1 &= k+1-1 \tag{remove one rock}\\ 
+&= k+(1-1)\\
+&= k\\
+&\neq \mbox{a lot of rocks} \tag{via (2)}
+\end{align*}
+Since the definition of ``a lot of rocks" states that ``if you remove one of the rocks, you're left with a lot of rocks," we conclude that $k+1$ is not ``a lot of rocks." Therefore, $P(k+1)$ is true, completing the induction. 
+\end{proof}
+
 \section*{Problem 3: Tiling with Triominoes}
 \begin{thm}
   It is always possible to tile a grid of size $2^n \times 2^n$ that's missing exactly one square with right triominoes.
@@ -119,7 +170,7 @@ For the inductive step, assume that for some $k \in \mathbb{N}$ that $P(k)$ is t
 \end{proof}
 
 \section{Problem 5: Binomial Trees}
-Binomial trees are a specific family of directed trees defined as follows: a binomial tree of order $n$ is a single node with $n$ children, which are binomial trees of order $0, 1, 2, \ldots, n – 1$. 
+Binomial trees are a specific family of directed trees defined as follows: a binomial tree of order $n$ is a single node with $n$ children, which are binomial trees of order $0, 1, 2, \ldots, n-1$. 
 
 \begin{thm}
 A binomial tree of order $n$ has exactly $2^n$ nodes.
@@ -132,7 +183,16 @@ As our base case, we will prove that $P(0)$ is true. A binomial tree of order 0 
 
 For the inductive step, assume that for some $n \in \mathbb{N}$, that for any $k \le n$, that $P(k)$ holds and that a binomial tree of order $k$ has exactly $2^k$ nodes. 
 
-By definition, we know that a binomial tree of order $k+1$ has $k+1$ children, which are themselves binomial trees of order $0, 1, 2, \ldots, k$. To find the total number of nodes in a binomial tree of order $k+1$ we need to add all of the nodes of the children plus one for the root node. By the inductive hypothesis we know that each of the children trees have $2^0, 2^1, 2^2, \ldots, 2^k$ nodes. Thus, the total number of nodes in the binomial tree of order $k+1$ is given by 
+By definition, we know that a binomial tree of order $k+1$ has $k+1$ children, which are themselves binomial trees of order $0, 1, 2, \ldots, k$ (see figure \ref{fig:binTree}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{binTree.png}
+    \caption{Binomial tree of order $k+1$}
+    \label{fig:binTree}
+\end{figure}
+
+To find the total number of nodes in a binomial tree of order $k+1$ we need to add all of the nodes of the children plus one for the root node. By the inductive hypothesis we know that each of the children trees have $2^0, 2^1, 2^2, \ldots, 2^k$ nodes. Thus, the total number of nodes in the binomial tree of order $k+1$ is given by 
 \begin{equation} \label{eq:bintree}
 1 + \sum_{i=0}^{k} 2^i.
 \end{equation} 
@@ -148,6 +208,48 @@ Plugging this into \ref{eq:bintree} gives us
 \begin{equation*}
 1 + 2^{k+1} - 1 = 2^{k+1}
 \end{equation*}
+
+\end{proof}
+
+\section*{Problem 6: Nim}
+\begin{thm}
+If the game of Nim  is played with just two piles of stones, each of which begins with exactly the same number of stones, then the second player can always win the game. 
+\end{thm}
+\begin{proof}
+Let P(n) be the statement "In every game which begins with two stone piles and with the exact same number of stones, n, the second player can always win." We will prove by induction that P(n) is true for all n $\geq$ 1, from which the theorem follows.
+
+As a base case, we prove P(1), with two piles of 1 rock each the second player can always win. Player 1 must remove at least one rock and cannot remove rocks from more than one pile. Therefore, Player 1 will empty one pile. Player 2 can then always empty pile 2, leaving Player 1 with all empty piles. Player 2 then wins the game. 
+
+For the inductive step, we assume there are there are k  $\in \mathbb{N}$ that P(1), P(2),..., P(k) are all true. In other words, we assume that in any game with k rocks in each pile at the beginning, player 2 can always win. We'll prove that for P(k+1), when there are k+1 rocks in each pile at the start, player 2 can always win as well . 
+
+Since P(k) represents a pile with k rocks in each pile, P(k+1) means that one more rock has been added to each pile. Player 2 can always win in this game by removing the same number of rocks as Player 1, but from the opposite pile, for every turn. Take two possible cases using this strategy:
+
+Case 1: Player 1 removes all k+1 rocks from one pile. Player 2 can then remove all k+1 rocks from the other pile. Player 1 is then left with two empty piles, therefore Player 2 can always win. 
+
+Case 2: Player 1 removes some number of rocks between 1 and k from the pile. Player 2 removes the same number of rocks from the other pile. Both rock piles are now equal and there are between 1 and k rocks in each. 
+From our inductive hypothesis we can then conclude that player 2 can always win this game. 
+
+Since Player 2 can always win in both cases when there are k+1 rocks in each pile, P(k+1) is true, completing the induction. 
+\end{proof}
+
+\section*{Problem 7: Tournament Winners}
+\begin{thm}
+Every tournament with at least one player has a tournament winner. 
+\end{thm}
+\begin{proof}
+Let P(n) be the statement " every tournament with n players has a tournament winner." We will prove by induction that P(n) is true for all n $\in \mathbb{N}$  and $\geq$ 1, from which the theorem follows.
+
+As a base case, we prove P(1), that any tournament with one player has a tournament winner. In a tournament with just one player, this player does not play against anyone else, and therefore accumulates only wins, making it vacuously true that he will be the tournament winner. 
+
+For the inductive step, we assume there are k  $\in \mathbb{N}$ that P(1), P(2),..., P(k) are all true. In other words, we assume that any tournament with at most k players has a tournament winner. We'll prove P(k+1), that any tournament with k+1 players has a tournament winner. 
+
+Consider any tournament T with k+1 players. Choose any one player p and form two sub-tournaments, a sub tournament $T_0$ of all the players who beat p and a sub tournament $T_1$ of all the players p beat. Both of these sub-tournaments has from 0 to k players. Now we will split this problem into two possible cases. 
+
+Case 1: $T_0$ has 0 players. If this the case then player p has beaten every other player in the tournament($T_1$), and is therefore the tournament winner for tournament T, since there are no other players remaining in the tournament.  
+
+Case 2: $T_0$ has at least one player. If this is the case, then by our inductive hypothesis, $T_0$ has a tournament winner W. W, like all members of $T_0$, has beaten p. Since p has beaten all of T's remaining players in $T_1$, W is also the tournament winner for tournament T. 
+
+Therefore, since there is a tournament winner in both cases of this arbitrary tournament of k+1 players, P(K+1) is true, completing the induction. 
 
 \end{proof}
 
