@@ -190,11 +190,10 @@ In a triangle each node is connected to the other two nodes, meaning each node h
 \section*{Problem 8: Tournament Cycles}
 A tournament is a directed graph with $n$ nodes where there is exactly one edge between any pair of distinct nodes and there are no self-loops. Prove that if a tournament graph contains a cycle of any length, then it contains a cycle of length three.
 
-\begin{lem} Given a directed graph with $n$ nodes, if the directed graph contains a cycle of length $k \ge$ three, then connecting any unconnected nodes in the cycle will create a cycle of length $< k$.
+\begin{lem} \label{lem:q8_1} Given a directed graph with $n$ nodes, if the directed graph contains a cycle of length $k > 3$, then connecting any unconnected nodes in the cycle will create a cycle of length $< k$.
 \end{lem}
 
-\begin{proof} The definition of a cycle in a directed graph is a path from a node to itself. Pick an arbitrary cycle in a connected graph of length $k \ge$ three and pick any two arbtrary nodes in that cycle $m, n$ that are not already connected (i.e., not adjacent in the cycle). When we connect $m$ and $n$ we can either place the base of the arrow at $m$ and the head at $n$ or the base at $n$ and the head at $m$. 
-
+\begin{proof} The definition of a cycle in a directed graph is a path from a node to itself. Pick an arbitrary cycle in a connected graph of length $k$ and pick any two arbtrary nodes in that cycle $m, n$ that are not already connected (i.e., not adjacent in the cycle). To connect $m$ and $n$ we can either place the base of the arrow at $m$ and the head at $n$ or the base at $n$ and the head at $m$. Assume we place the base at $m$ and the head at $n$. We know there already exists a cycle that starts at $m$, passes through at least one node that is not $n$, passes through $n$, and then passes through at least one node that is not $n$ before returning to $m$. By connecting $m$ and $n$ we create a new path that skips all the nodes between $m$ and $n$. Because we know there is at least one node between them, we create a new cycle that cuts out at least one node in the cycle and thus must be $< k$. We know that this is true no matter how we place the base and head by symmetry.
 \end{proof}
 
 \begin{thm} If a tournament graph contains a cycle of any length, then it contains a cycle of length three.
@@ -204,9 +203,9 @@ A tournament is a directed graph with $n$ nodes where there is exactly one edge 
 
 For our base case, we show that $P(3)$ is true. $P(3)$ states that a tournament with a cycle of length 3 contains a cycle of length 3. This is a tautology. 
 
-For our inductive step, assume that for some $k \ge 3$ that $P(k)$ is true; that is, that a tournament containing a cycle of length $k$ also contains a cycle of length three. We will prove that $P(k+1)$ is true, that if a tournament contains a cycle of length $k+1$, then it also contains a cycle of length 3.
+For our inductive step, assume that for some $n \ge 3$, that for any $k \le n$, that $P(k)$ is true; that is, that a tournament containing a cycle of length $k$ also contains a cycle of length three. We will prove that $P(k+1)$ is true, that if a tournament contains a cycle of length $k+1$, then it also contains a cycle of length three.
 
-Consider any tournament with a cycle of length $k+1$. Remove all the edges from this graph except for this cycle. A representation of this graph is shown in Figure \ref{fig:q8_cyc1}. Because this is a tournament, we know that every node must be connected to every other node, and that every node in the cycle must be connected to every other node in the cycle. As soon as we draw an edge to connect two of the nodes we create a smaller cycle (see Figure \ref{fig:q8_cyc2}). 
+Consider any tournament with a cycle of length $k+1$. Remove all the edges from this graph except for this cycle. A representation of this graph is shown in Figure \ref{fig:q8_cyc1}. Because this is a tournament, we know that every node in the cycle must be connected to every other node in the cycle. As soon as we draw an edge to reconnect two of the nodes we know by Lemma \ref{lem:q8_1} that we create a cycle of length $< k+1$ (see Figure \ref{fig:q8_cyc2} for illustration). By our inductive hypothesis we know that any cycle of length $\le k$ contains a cycle of length three. 
 
 \begin{figure}[h]
 \centering
@@ -225,7 +224,6 @@ Consider any tournament with a cycle of length $k+1$. Remove all the edges from 
 \end{figure}
 
 \end{proof}
-
 
 % \section*{Appendix: Referencing Equations}
 % \begin{equation} \label{eq:divbyzero}
