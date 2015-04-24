@@ -108,10 +108,12 @@ $\forall Q Set(Q) .\ \exists P Set(P) .\ \forall S Set(S) .\ (S \in P \cap \fora
 \paragraph{v)}
 
 \section*{Problem 6: Raven Paradox}
-The Raven Paradox involves a scientific statement. As we know from Popper, it is only possible to falsify scientific statements. Induction is a myth.
+The Raven Paradox results from taking the seemingly uninteresting statement ``All ravens are black'' and finding its contrapositive ``Everything that is not black is not a raven.'' An important thing to note is that these statements are logically equivalent. Again, so far this is not especially interesting. The trouble arises when we start looking for phenomena that provide evidence for the statement. For instance, if you see a raven and that raven is black, this can be seen as providing evidence for the statement ``All ravens are black.'' However, because the contrapositive is logically equivalent to this statement, observing something that is not black and also not a raven must also be seen as consituting evidence. This is paradoxical because the two do not seem connected at all; looking at a red clown nose does not (intuitively) seem to give us any evidence about the blackness of ravens. 
+
+In our discussions, we noted that the statement ``All ravens are black'' has the form of a scientific hypothesis. Everyone in the group had taken a course where we studied Popper and remembered what he had to say about scientific hypotheses: they can only be falsified, never confirmed. We have seen something similar in our dealings with first-order logic in this course. The statement ``All ravens are black'' can be turned into a statment in first-order logic with the form $\forall x .\ Raven(x) -> Black(x)$. This statement is only true if it is true for each and every raven. But no matter how many ravens we see that are black, it only takes a single albino raven to falsify the entire statement. 
 
 \section*{Problem 7: Graph Coloring}
-Marty?
+
 
 \section*{Problem 8: Tournament Cycles}
 A tournament is a directed graph with $n$ nodes where there is exactly one edge between any pair of distinct nodes and there are no self-loops. Prove that if a tournament graph contains a cycle of any length, then it contains a cycle of length three.
