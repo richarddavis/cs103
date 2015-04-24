@@ -129,19 +129,19 @@ The negation is, ``There exists x, y, and z, where if R(x, y) and R(y, z) then R
 How to distribute negation over bidirectional arrow?
 \end{enumerate}
 
-\section*{Problem 4: 'Cause I'm Happy}
+\section*{Problem 4: `Cause I'm Happy}
 
-\paragraph{i)} Statment 2. The only way to make a conditional statement false is if the antecedent is true and the consequent is false. In this case, when the antecedent is true everyone who is a person is happy. If this is true, then it is impossible that there exists a person who is unhappy. 
+\paragraph{i)} Type 2: The statement is always true, regardless of which people in P are happy. The only way to make a conditional statement false is if the antecedent is true and the consequent is false. In this case, when the antecedent is true everyone who is a person is happy. If this is true, then it is impossible for there to exist a person who is unhappy. Thus, in all cases, the statement holds true.
 
-\paragraph{ii)} Statement 1. 
+\paragraph{ii)} Type 1: The statement is true only when either everyone in P is happy or no one in P is happy. In the case that everyone in P is happy, the antecedent is true (there exists a person in P who is happy) and the consequent is true (all people in P are happy). In the case that no one in P is happy, the antecedent is false (there does not exist a person in P who is happy), making the statement vacuously true. However, in the case where at least one person in P is unhappy, the antecedent can be true (there exists a person in P who is happy) while the consequent is false (not all people in P are happy). Thus, the statement is only true when everyone or no one in P is happy. 
 
-\paragraph{iii)} Statement 2. 
+\paragraph{iii)} Type 2: The statement is always true, regardless of which people in P are happy. In the case that everyone in P is happy, it's true that for all people in P, if the person is happy then there exists a person in P who is happy. In the case that no on in P is happy, for all people in P, the antecedent is always false, so the statement is vacuously true. In the case that at least one person in P is unhappy, for all people in P, if the person is happy then the statement holds, and if the person is unhappy, then the statement is vacuously true. Thus, in all cases, the statement holds true.
 
-\paragraph{iv)} Statement 2. 
+\paragraph{iv)} Type 2: The statement is always true, regardless of which people in P are happy. In the case that everyone in P is happy, it's true that there exists a person in P where if the person is happy, then everyone in P is happy. In the case that no one in P is happy, it's true that there exists a person in P where the statement is true (because the antecedent is false, so the statement is vacuously true). Likewise, in the case that at least one person is unhappy, it's true that there exists a person in P where the statement is true (because for the one unhappy person, the antecedent is false, so the statement is vacuously true). Thus, in all cases, the statement holds true.
 
-\paragraph{v)} Statement 2. 
+\paragraph{v)} Type 2: The statement is always true, regardless of which people in P are happy. In the case that everyone is happy, it's true that for all people in P there exists a person in P where the first person's happiness implies the second person's happiness. In the case that no one is happy, the statement is still true, because for all people in P, the falsification of the antecedent makes the statement vacuously true. In the case that at least one person is unhappy, it's true that for all people in P there exists a person in P where the first person's happiness implies the second person's happiness, or, for the one unhappy person, the antecedent is false so the statement is vacuously true). Thus, in all cases, the statement holds true.
 
-\paragraph{vi)} Statement 2.
+\paragraph{vi)} Type 2: The statement is always true, regardless of which people in P are happy. In the case that everyone is happy, it's true that there exists a person where for all people, everyone's happiness implies that person's happiness. In the case that no one is happy, it's true that there exists a person where for all people, the antecedent is false making the statement vacuously true. And finally, in the case that at least one person is unhappy, it's true that there exists a person where for all people, the antecedent is false making the statement vacuously true (namely the one unhappy person). Thus, in all cases, the statement holds true.
 
 \section*{Problem 5: Translating into Logic}
 
@@ -224,6 +224,70 @@ Consider any tournament with a cycle of length $k+1$. Remove all the edges from 
 \end{figure}
 
 \end{proof}
+
+\section*{Problem Nine: Bipartite Graphs}
+
+Suppose $G$ is an undirected graph $G = (V, E)$ where $V$ is the set of nodes and $E$ is the set of edges, where G has no cycles of odd length. Assume $G$ has just one connected component.
+
+Let $v$ be any node $v \in V$.\\
+Let $V_1$ be the set of all nodes that are connected to $v$ by a path of odd length.\\
+Let $V_2$ be the set of all nodes connected to $v$ by a path of even length.
+
+\begin{enumerate}
+\item[i.] \begin{thm} $V_1$ and $V_2$ have no nodes in common. \end{thm}
+\begin{proof} Assume for the sake of contradiction that there exists a node $n$ that is common between $V_1$ and $V_2$. By our definitions of sets $V_1$ and $V_2$, if $n$ is common between both sets, there must be at least one path from $v$ to $n$ that is of odd length, and at least one path from $v$ to $n$ that is of even length. Since a path cannot be both odd and even in length, we may conclude that there are at least two paths from $v$ to $n$.
+
+Since there are multiple paths from $v$ to $n$, we know by \textbf{Lemma 2} that the paths must traverse part of a cycle. If the path traverses part of a cycle, it must start on/enter the cycle at some node, and it must end on/exit the cycle at some other node. We know by \textbf{Lemma 3} that there are two paths from the start/entry node on the cycle to the end/exit node on the cycle. Furthermore, because we have stipulated that our graph G only has cycles of even path length, \textbf{Lemma 4} indicates that the two paths must both be of even length, or both of odd length. 
+
+To take \textbf{Lemma 4} even further, no matter how many cycles are traversed between $v$ and $n$, the path from $v$ to $n$ will either always be even in length, or always be odd in length. This is because each time you enter a cycle, the two possible paths to enter and exit the cycle are both even, or both odd. 
+
+This contradicts our earlier assumption that there is at least one path from $v$ to $n$ that is of odd length, and one path from $v$ to $n$ that is of even length. Thus, by contradiction, we have shown that it cannot be true that there exists a node that is common between $V_1$ and $V_2$.
+\end{proof}
+
+\begin{lem} If there are multiple paths from $v$ to $n$, the paths must traverse part of a cycle.\end{lem}
+\begin{proof}
+The only way for there to be multiple paths from $v$ to $n$ is if the path traverses part of a cycle. We know this to be true from the following line of reasoning: If we start at node $v$, and we know there are at least two paths from $v$ to $n$, then there must be a point at which the paths diverge. From node $v$, the paths either diverge immediately, or they diverge at a later node in the path. Since the path must end at node $n$, the paths must converge again, either at or before reaching node $n$. These diverging and converging paths form a cycle: if we take one path from the point of divergence to the point of convergence, and take a different path from that point back to the point of divergence, we have traversed a path from a node to itself, which is the definition of a cycle, as stated in Lecture 8. 
+\end{proof}
+
+\begin{lem} For any given cycle, there are two paths from any node on the cycle to another.\end{lem}
+\begin{proof}
+A cycle in a graph is a path from a node to itself. Choose an arbitrary node on the cycle $n$, and another arbitrary node on the cycle $m$. From $n$, we can traverse the cycle starting either to the left or to the right. If we move from $n$ to the left until we reach $m$, we have found one path. If we move from $n$ to the right until we reach $m$, we have found another path. Thus, for any given cycle, there are two paths from any node on the cycle to another.
+\end{proof}
+
+
+\begin{lem} On a cycle of even length, if the cycle is divided into two subpaths, the two paths will both be of even length, or both of odd length.
+\end{lem}
+\begin{proof} Take an arbitrary subpath of the cycle.
+
+\textbf{Case 1:} Assume this subpath has an odd path length. Let us denote the path length of this subpath as $2k+1$, where $k \in \mathbb{N}$. Since the cycle is of even length, denoted as $2j$ where $j \in \mathbb{N}$, we know the remainder of the cycle must be of length $2j-2k+1 = 2(j-k)+1$. Thus, by the definition of odd numbers in Lecture 1, both the arbitrary subpath and the remainder are of odd path length.
+
+\textbf{Case 2:} Assume this subpath has an even path length. Let us denote the path length of this subpath as $2k$, where $k \in \mathbb{N}$. Since the cycle is of even length, denoted as $2j$ where $j \in \mathbb{N}$, we know the remainder of the cycle must be of length $2j-2k = 2(j-k)$. Thus, by the definition of even numbers in Lecture 1, both the arbitrary subpath and the remainder are of even path length.
+
+Therefore, for a cycle of even length, if the cycle is divided into two subpaths, both subpaths will be of even length, or both will be of odd length.
+\end{proof}
+
+
+\item[ii.] 
+
+\begin{thm} If $G = (V, E)$ has no cycles of odd length, then G is bipartite \end{thm}
+
+\begin{proof} Take any two adjacent nodes, $n$ and $m$, where $n \in V$ and $m \in V$. Since $n$ and $m$ are adjacent, you traverse one edge to get from one to the other. We know from Lecture 8 that the length of a path is the number of edges it contains, so the path from $n$ to $m$, a path with one edge, has a length of one. Let us examine two cases:
+
+\textbf{Case 1:} The path from $v$ to $n$ is of even length
+
+From our proof in Part i. we know that in our graph G, every possible path from $v$ to $n$ must be even in length. We will denote this length as $2k$, where $k \in \mathbb{N}$. Since $n$ and $m$ are adjacent, we know that the path from $v$ to $m$ must be either $2k+1$ or $2k-1 = 2k-2+1 = 2(k-1)+1$. In either case, by the definition of odd numbers, we know that the path length from $v$ to $m$ is odd. Thus, the path from $v$ to $n$ is even, and the path from $v$ to $m$ is odd, which means $n$ and $m$ are in sets $V_2$ and $V_1$ respectively.
+
+\textbf{Case 2:} The path from $v$ to $n$ is of odd length
+
+From our proof in Part i. we know that in our graph G, every possible path from $v$ to $n$ must be odd in length. We will denote this length as $2k+1$, where $k \in \mathbb{N}$. Since $n$ and $m$ are adjacent, we know that the path from $v$ to $m$ must be either $2k+1-1 = 2k$ or $2k+1+1 = 2k+2 = 2(k+1)$. In either case, by the definition of even numbers, we know that the path length from $v$ to $m$ is even. Thus, the path from $v$ to $n$ is odd, and the path from $v$ to $m$ is even, which means $n$ and $m$ are in sets $V_1$ and $V_2$ respectively.
+
+In both cases, when $n$ and $m$ are adjacent nodes, that is, when there is an edge from one node to the other, $n$ is in one set, and $m$ must be in the other. 
+
+The definition of a bipartite graph states that an undirected graph $G = (V, E)$ is called bipartite if there is a way to partition the nodes $V$ into two sets $V_1$ and $V_2$ so that every edge in $E$ has one endpoint in $V_1$ and the other in $V_2$. So, in accordance with the definition of a bipartite graph, we have found two sets, $V_1$ and $V_2$, where for every pair of adjacent nodes $n$ and $m$, $n$ is in one set, and $m$ must be in the other. From this we may conclude that if $G = (V, E)$ has no cycles of odd length, then G is bipartite
+
+\end{proof}
+
+\end{enumerate}
 
 % \section*{Appendix: Referencing Equations}
 % \begin{equation} \label{eq:divbyzero}
