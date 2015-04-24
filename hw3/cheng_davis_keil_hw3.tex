@@ -85,23 +85,25 @@ How to distribute negation over bidirectional arrow?
 
 \paragraph{i)} Statment 2. The only way to make a conditional statement false is if the antecedent is true and the consequent is false. In this case, when the antecedent is true everyone who is a person is happy. If this is true, then it is impossible that there exists a person who is unhappy. 
 
-\paragraph{ii)} Statement 1. The only way to make a conditional statement false is if the antecedent is true and the consequent is false. In this case, when the antecedent is true there is at least one person in the world who is happy. To make the consequent false, we say that not everyone in the world is happy. 
+\paragraph{ii)} Statement 1. 
 
-\paragraph{iii)} Statement 2. If we negate this statement we get the formula...
+\paragraph{iii)} Statement 2. 
 
-\paragraph{iv)} Statement 2. Take the negation and show that it is always false.
+\paragraph{iv)} Statement 2. 
 
-\paragraph{v)} Statement 2. The only way to make an implication false is...
+\paragraph{v)} Statement 2. 
 
 \paragraph{vi)} Statement 2.
 
 \section*{Problem 5: Translating into Logic}
 
-\paragraph{i)}
+\paragraph{i)} $\forall n Natural(n) .\ \exists k Natural(k) .\ \exists j Natural(j) .\ (n = (k + k) \cap (n * n) = (j + j))$
 
-\paragraph{ii)}
+\paragraph{ii)} 
 
-\paragraph{iii)}
+\paragraph{iii)} $\forall n Integer(n) .\ \exists k Natural(k) .\ \exists j Natural(j) .\ (n = (k + k) \cap (n * n) = (j + j))$
+
+The key to this problem is that an irrational number can not be represented as p/q.
 
 \paragraph{iv)}
 $\forall Q Set(Q) .\ \exists P Set(P) .\ \forall S Set(S) .\ (S \in P \cap \forall x .\ \forall y .\ (x \in S \rightarrow x \in Q \cap y \not \in S \rightarrow y \not \in Q))$
@@ -119,11 +121,17 @@ This shows that one of the ways of resolving this paradox is to attack the idea 
 
 \section*{Problem 7: Graph Coloring}
 
-
 \pagebreak
 
 \section*{Problem 8: Tournament Cycles}
 A tournament is a directed graph with $n$ nodes where there is exactly one edge between any pair of distinct nodes and there are no self-loops. Prove that if a tournament graph contains a cycle of any length, then it contains a cycle of length three.
+
+\begin{lem} Given a directed graph with $n$ nodes, if the directed graph contains a cycle of length $k \ge$ three, then connecting any unconnected nodes in the cycle will create a cycle of length $< k$.
+\end{lem}
+
+\begin{proof} The definition of a cycle in a directed graph is a path from a node to itself. Pick an arbitrary cycle in a connected graph of length $k \ge$ three and pick any two arbtrary nodes in that cycle $m, n$ that are not already connected (i.e., not adjacent in the cycle). When we connect $m$ and $n$ we can either place the base of the arrow at $m$ and the head at $n$ or the base at $n$ and the head at $m$. 
+
+\end{proof}
 
 \begin{thm} If a tournament graph contains a cycle of any length, then it contains a cycle of length three.
 \end{thm}
