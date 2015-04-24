@@ -45,6 +45,42 @@
 	% tells latex to follow your header (e.g., title, author) commands.
 
 
+\section*{Problem Three: First-Order Negations (definitely needs to be checked/edited)}
+
+\begin{enumerate}
+\item[i.] Negating the statement, ``For all x in the set of real numbers, and for all y in the set of real numbers, if x is less than y then there exists q in the set of rational numbers such that x is less than q, and q is less than y."
+\begin{gather}
+\neg(\forall x \in \mathbb{R}.\ \forall y \in \mathbb{R}. (x < y \rightarrow \exists q \in \mathbb{Q}. (x < q \wedge q < y)))\\
+\exists x \in \mathbb{R}. \neg (\forall y \in \mathbb{R}. (x < y \rightarrow \exists q \in \mathbb{Q}. (x < q \wedge q < y)))\\
+\exists x \in \mathbb{R}.\ \exists y \in \mathbb{R}. \neg(x < y \rightarrow \exists q \in \mathbb{Q}. (x < q \wedge q < y))\\
+\exists x \in \mathbb{R}.\ \exists y \in \mathbb{R}. (x < y) \wedge \neg(\exists q \in \mathbb{Q}. (x < q \wedge q < y))\\
+\exists x \in \mathbb{R}.\ \exists y \in \mathbb{R}. (x < y) \wedge \neg(\exists q \in \mathbb{Q}. (x < q \wedge q < y))\\
+\exists x \in \mathbb{R}.\ \exists y \in \mathbb{R}. (x < y) \wedge \forall q \in \mathbb{Q}. \neg(x < q \wedge q < y))\\
+\exists x \in \mathbb{R}.\ \exists y \in \mathbb{R}. (x < y) \wedge \forall q \in \mathbb{Q}. \neg(x < q) \vee \neg(q < y)\\
+\exists x \in \mathbb{R}.\ \exists y \in \mathbb{R}. (x < y) \wedge \forall q \in \mathbb{Q}. (x \geq q) \vee (q \geq y)\\
+\end{gather}
+The negation is, ``There exists x in the set of real numbers, and there exists y in the set of real numbers, where x is less than y and for all q in the set of rational numbers x is greater than or equal to q, and q is greater than or equal to y."\\
+
+\item[ii.] Negating the statement, ``For all x, y, and z, if (R(x, y) and R(y, z) then R(x, z)) then if for all x, y, and z R(y, z) and R(z, y) then R(z, x)."
+\begin{gather}
+\neg(\forall x. \forall y. \forall z. (R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \rightarrow (\forall x. \forall y. \forall z. (R(y, x) \wedge R(z, y) \rightarrow R(z, x)))\\
+\exists x. \exists y. \exists z. \neg((R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \rightarrow (\forall x. \forall y. \forall z. (R(y, x) \wedge R(z, y) \rightarrow R(z, x)))\\
+\exists x. \exists y. \exists z. ((R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \wedge \neg(\forall x. \forall y. \forall z. (R(y, x) \wedge R(z, y) \rightarrow R(z, x)))\\
+\exists x. \exists y. \exists z. ((R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \wedge \exists x. \exists y. \exists z. \neg(R(y, x) \wedge R(z, y) \rightarrow R(z, x))\\
+\exists x. \exists y. \exists z. ((R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \wedge \exists x. \exists y. \exists z. \neg R(y, x) \vee \neg(R(z, y) \rightarrow R(z, x))\\
+\exists x. \exists y. \exists z. ((R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \wedge \exists x. \exists y. \exists z. \neg R(y, x) \vee R(z, y) \wedge \neg R(z, x))\\
+\end{gather}
+The negation is, ``There exists x, y, and z, where if R(x, y) and R(y, z) then R(x, z), and there exists x, y, and z such that not R(y, z) or R(z, y) and not R(z, x)."
+
+\item[iii.] Negating the statement, ``For all x, there exists S such that S is a set and for all z, if z is in set S then z=x, and if z=x then z is in set S." 
+\begin{gather}
+\neg(\forall x. \exists S. (Set(S) \wedge \forall z. (z \in S \leftrightarrow z = x)))\\
+\exists x. \neg(\exists S. (Set(S) \wedge \forall z. (z \in S \leftrightarrow z = x)))\\
+\exists x. \forall S. \neg(Set(S) \wedge \forall z. (z \in S \leftrightarrow z = x))\\\exists x. \forall S. \neg Set(S) \vee \neg(\forall z. (z \in S \leftrightarrow z = x))\\\exists x. \forall S. \neg Set(S) \vee \exists z. \neg(z \in S \leftrightarrow z = x)\\\exists x. \forall S. \neg Set(S) \vee \exists z. \neg(z \in S \leftrightarrow z = x)\\
+\end{gather}
+How to distribute negation over bidirectional arrow?
+\end{enumerate}
+
 \section*{Problem 4: 'Cause I'm Happy}
 
 \paragraph{i)} Statment 2. The only way to make a conditional statement false is if the antecedent is true and the consequent is false. In this case, when the antecedent is true everyone who is a person is happy. If this is true, then it is impossible that there exists a person who is unhappy. 
