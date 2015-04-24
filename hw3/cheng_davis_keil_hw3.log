@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  24 APR 2015 00:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  24 APR 2015 01:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -281,21 +281,35 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 44.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (104.30606pt too wide) in paragraph at lines 48--48
-[][][]\OT1/cmr/bx/n/14.4 Problem Three: First-Order Nega-tions (def-i-nitely ne
-eds to be checked/edited) 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--63
+Underfull \hbox (badness 10000) in paragraph at lines 56--70
 
  []
 
 [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 73--90
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--90
+
+ []
+
+
+Overfull \hbox (104.30606pt too wide) in paragraph at lines 96--96
+[][][]\OT1/cmr/bx/n/14.4 Problem Three: First-Order Nega-tions (def-i-nitely ne
+eds to be checked/edited) 
+ []
+
 [2]
-Overfull \hbox (29.95746pt too wide) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 109--111
+
+ []
+
+[3] [4]
+Overfull \hbox (29.95746pt too wide) in paragraph at lines 161--162
 [][] \OT1/cmr/bx/n/10 v)[] $[][]\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x: \OT1/cmr/
 m/n/10 (\OML/cmm/m/it/10 Lady\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10
  )  \OMS/cmsy/m/n/10 \  8\OML/cmm/m/it/10 y: \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
@@ -307,7 +321,28 @@ t/10 StairwayToHeaven\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 )  \OMS
 T1/cmr/m/n/10 )))$ 
  []
 
-[3] [4]
+<./images/hw3_slide1.jpg, id=23, 722.7pt x 542.025pt>
+File: ./images/hw3_slide1.jpg Graphic file (type jpg)
+
+<use ./images/hw3_slide1.jpg>
+Package pdftex.def Info: ./images/hw3_slide1.jpg used on input line 175.
+(pdftex.def)             Requested size: 300.6455pt x 225.48204pt.
+ [5]
+<./images/hw3_slide2.jpg, id=27, 722.7pt x 542.025pt>
+File: ./images/hw3_slide2.jpg Graphic file (type jpg)
+
+<use ./images/hw3_slide2.jpg>
+Package pdftex.def Info: ./images/hw3_slide2.jpg used on input line 181.
+(pdftex.def)             Requested size: 300.6455pt x 225.48204pt.
+
+<./images/hw3_slide3.jpg, id=28, 722.7pt x 542.025pt>
+File: ./images/hw3_slide3.jpg Graphic file (type jpg)
+
+<use ./images/hw3_slide3.jpg>
+Package pdftex.def Info: ./images/hw3_slide3.jpg used on input line 187.
+(pdftex.def)             Requested size: 300.6455pt x 225.48204pt.
+ [6 <./images/hw3_slide1.jpg> <./images/hw3_slide2.jpg>] [7 <./images/hw3_slide
+3.jpg>]
 Package epstopdf Info: Source file: <./images/hw3_8_1.eps>
 (epstopdf)                    date: 2015-04-23 18:55:30
 (epstopdf)                    size: 630526 bytes
@@ -316,15 +351,15 @@ Package epstopdf Info: Source file: <./images/hw3_8_1.eps>
 (epstopdf)                    size: 19364 bytes
 (epstopdf)             Command: <repstopdf --outfile=./images/hw3_8_1-eps-conve
 rted-to.pdf ./images/hw3_8_1.eps>
-(epstopdf)             \includegraphics on input line 151.
+(epstopdf)             \includegraphics on input line 217.
 Package epstopdf Info: Output file is already uptodate.
 
-<./images/hw3_8_1-eps-converted-to.pdf, id=23, 235.88126pt x 263.98625pt>
+<./images/hw3_8_1-eps-converted-to.pdf, id=36, 235.88126pt x 263.98625pt>
 File: ./images/hw3_8_1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./images/hw3_8_1-eps-converted-to.pdf>
 Package pdftex.def Info: ./images/hw3_8_1-eps-converted-to.pdf used on input li
-ne 151.
+ne 217.
 (pdftex.def)             Requested size: 187.90271pt x 210.29503pt.
 Package epstopdf Info: Source file: <./images/hw3_8_2.eps>
 (epstopdf)                    date: 2015-04-23 20:06:31
@@ -334,27 +369,27 @@ Package epstopdf Info: Source file: <./images/hw3_8_2.eps>
 (epstopdf)                    size: 20299 bytes
 (epstopdf)             Command: <repstopdf --outfile=./images/hw3_8_2-eps-conve
 rted-to.pdf ./images/hw3_8_2.eps>
-(epstopdf)             \includegraphics on input line 157.
+(epstopdf)             \includegraphics on input line 223.
 Package epstopdf Info: Output file is already uptodate.
 
-<./images/hw3_8_2-eps-converted-to.pdf, id=24, 235.88126pt x 263.98625pt>
+<./images/hw3_8_2-eps-converted-to.pdf, id=37, 235.88126pt x 263.98625pt>
 File: ./images/hw3_8_2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./images/hw3_8_2-eps-converted-to.pdf>
 Package pdftex.def Info: ./images/hw3_8_2-eps-converted-to.pdf used on input li
-ne 157.
+ne 223.
 (pdftex.def)             Requested size: 187.90271pt x 210.29503pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5] [6 <./images/hw3_8_1-eps-converted-to.pdf> <./images/hw3_8_2-eps-converted-
+[8] [9 <./images/hw3_8_1-eps-converted-to.pdf> <./images/hw3_8_2-eps-converted-
 to.pdf>] (./cheng_davis_keil_hw3.aux) ) 
 Here is how much of TeX's memory you used:
- 3693 strings out of 493117
- 54914 string characters out of 6135433
- 119409 words of memory out of 5000000
- 7096 multiletter control sequences out of 15000+600000
+ 3709 strings out of 493117
+ 55293 string characters out of 6135433
+ 121409 words of memory out of 5000000
+ 7108 multiletter control sequences out of 15000+600000
  11542 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,19n,40p,931b,483s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -368,10 +403,10 @@ e1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
 ublic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
 lic/amsfonts/symbols/msbm10.pfb>
-Output written on cheng_davis_keil_hw3.pdf (6 pages, 127264 bytes).
+Output written on cheng_davis_keil_hw3.pdf (9 pages, 213499 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
