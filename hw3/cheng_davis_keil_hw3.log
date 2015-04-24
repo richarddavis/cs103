@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  23 APR 2015 23:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  23 APR 2015 23:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -295,7 +295,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--63
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2]
-Overfull \hbox (29.95746pt too wide) in paragraph at lines 110--111
+Overfull \hbox (29.95746pt too wide) in paragraph at lines 111--112
 [][] \OT1/cmr/bx/n/10 v)[] $[][]\OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 x: \OT1/cmr/
 m/n/10 (\OML/cmm/m/it/10 Lady\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10
  )  \OMS/cmsy/m/n/10 \  8\OML/cmm/m/it/10 y: \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
@@ -307,7 +307,7 @@ t/10 StairwayToHeaven\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 )  \OMS
 T1/cmr/m/n/10 )))$ 
  []
 
-[3]
+[3] [4]
 Package epstopdf Info: Source file: <./images/hw3_8_1.eps>
 (epstopdf)                    date: 2015-04-23 18:55:30
 (epstopdf)                    size: 630526 bytes
@@ -316,14 +316,15 @@ Package epstopdf Info: Source file: <./images/hw3_8_1.eps>
 (epstopdf)                    size: 19364 bytes
 (epstopdf)             Command: <repstopdf --outfile=./images/hw3_8_1-eps-conve
 rted-to.pdf ./images/hw3_8_1.eps>
-(epstopdf)             \includegraphics on input line 140.
+(epstopdf)             \includegraphics on input line 143.
 Package epstopdf Info: Output file is already uptodate.
- <./images/hw3_8_1-eps-converted-to.pdf, id=20, 235.88126pt x 263.98625pt>
+
+<./images/hw3_8_1-eps-converted-to.pdf, id=23, 235.88126pt x 263.98625pt>
 File: ./images/hw3_8_1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./images/hw3_8_1-eps-converted-to.pdf>
 Package pdftex.def Info: ./images/hw3_8_1-eps-converted-to.pdf used on input li
-ne 140.
+ne 143.
 (pdftex.def)             Requested size: 187.90271pt x 210.29503pt.
 Package epstopdf Info: Source file: <./images/hw3_8_2.eps>
 (epstopdf)                    date: 2015-04-23 20:06:31
@@ -333,38 +334,37 @@ Package epstopdf Info: Source file: <./images/hw3_8_2.eps>
 (epstopdf)                    size: 20299 bytes
 (epstopdf)             Command: <repstopdf --outfile=./images/hw3_8_2-eps-conve
 rted-to.pdf ./images/hw3_8_2.eps>
-(epstopdf)             \includegraphics on input line 146.
+(epstopdf)             \includegraphics on input line 149.
 Package epstopdf Info: Output file is already uptodate.
 
-<./images/hw3_8_2-eps-converted-to.pdf, id=21, 235.88126pt x 263.98625pt>
+<./images/hw3_8_2-eps-converted-to.pdf, id=24, 235.88126pt x 263.98625pt>
 File: ./images/hw3_8_2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./images/hw3_8_2-eps-converted-to.pdf>
 Package pdftex.def Info: ./images/hw3_8_2-eps-converted-to.pdf used on input li
-ne 146.
+ne 149.
 (pdftex.def)             Requested size: 187.90271pt x 210.29503pt.
- [4] [5 <./images/hw3_8_1-eps-converted-to.pdf> <./images/hw3_8_2-eps-converted
--to.pdf>]
-(./cheng_davis_keil_hw3.aux) ) 
+ [5 <./images/hw3_8_1-eps-converted-to.pdf> <./images/hw3_8_2-eps-converted-to.
+pdf>] (./cheng_davis_keil_hw3.aux) ) 
 Here is how much of TeX's memory you used:
  3693 strings out of 493117
- 54915 string characters out of 6135433
+ 54914 string characters out of 6135433
  119409 words of memory out of 5000000
  7096 multiletter control sequences out of 15000+600000
  11542 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,40p,931b,485s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr17.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfo
-nts/symbols/msbm10.pfb>
-Output written on cheng_davis_keil_hw3.pdf (5 pages, 123443 bytes).
+ 42i,19n,40p,931b,483s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr17.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
+/amsfonts/symbols/msbm10.pfb>
+Output written on cheng_davis_keil_hw3.pdf (5 pages, 123755 bytes).
 PDF statistics:
  70 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream

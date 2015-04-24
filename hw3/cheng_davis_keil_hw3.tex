@@ -105,6 +105,7 @@ How to distribute negation over bidirectional arrow?
 
 \paragraph{iv)}
 $\forall Q Set(Q) .\ \exists P Set(P) .\ \forall S Set(S) .\ (S \in P \cap \forall x .\ \forall y .\ (x \in S \rightarrow x \in Q \cap y \not \in S \rightarrow y \not \in Q))$
+
 This statement translated into English says ``Any set Q has a powerset P that contains every subset S of Q.''
 \paragraph{v)}
 $\exists x .\ (Lady(x)\ \cap\ \forall y .\ (Glitters(y) \rightarrow IsSureIsGold(x, y))\ \cap\ \exists z .\ (StairwayToHeaven(z)\ \cap\ Buying(x, z)))$
@@ -119,6 +120,8 @@ This shows that one of the ways of resolving this paradox is to attack the idea 
 \section*{Problem 7: Graph Coloring}
 
 
+\pagebreak
+
 \section*{Problem 8: Tournament Cycles}
 A tournament is a directed graph with $n$ nodes where there is exactly one edge between any pair of distinct nodes and there are no self-loops. Prove that if a tournament graph contains a cycle of any length, then it contains a cycle of length three.
 
@@ -127,25 +130,25 @@ A tournament is a directed graph with $n$ nodes where there is exactly one edge 
 
 \begin{proof} By strong induction. Let $P(n)$ be the statement ``if a tournament contains a cycle of length $n$, then it contains a cycle of length three.'' We will prove that $P(n)$ holds for $n \ge 3$. 
 
-For our base case, we show that $P(3)$ is true. $P(3)$ states that a tournament with a cycle of length 3 contains a cycle of length 3. This is a tautology.
+For our base case, we show that $P(3)$ is true. $P(3)$ states that a tournament with a cycle of length 3 contains a cycle of length 3. This is a tautology. 
 
 For our inductive step, assume that for some $k \ge 3$ that $P(k)$ is true; that is, that a tournament containing a cycle of length $k$ also contains a cycle of length three. We will prove that $P(k+1)$ is true, that if a tournament contains a cycle of length $k+1$, then it also contains a cycle of length 3.
 
-Consider any tournament with a cycle of length $k+1$. Remove all the edges from this graph except for this cycle. A representation of this graph is shown in Figure \ref{fig:q8_cyc1}. Because this is a tournament, we know that every node must be connected to every other node. 
+Consider any tournament with a cycle of length $k+1$. Remove all the edges from this graph except for this cycle. A representation of this graph is shown in Figure \ref{fig:q8_cyc1}. Because this is a tournament, we know that every node must be connected to every other node, and that every node in the cycle must be connected to every other node in the cycle. As soon as we draw an edge to connect two of the nodes we create a smaller cycle (see Figure \ref{fig:q8_cyc2}). 
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{minipage}{.5\textwidth}
   \centering
   \includegraphics[width=.8\linewidth]{hw3_8_1.eps}
-  \captionof{figure}{A figure}
+  \captionof{figure}{A cycle of length $k+1$}
   \label{fig:q8_cyc1}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
   \includegraphics[width=.8\linewidth]{hw3_8_2.eps}
-  \captionof{figure}{Another figure}
-  \label{fig:q8_test2}
+  \captionof{figure}{Connecting two nodes in the cycle}
+  \label{fig:q8_cyc2}
 \end{minipage}
 \end{figure}
 
