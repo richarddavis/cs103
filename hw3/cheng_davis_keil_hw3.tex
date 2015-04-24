@@ -32,7 +32,7 @@
 \newtheorem{lem}{Lemma}
 
 \begin{document}
-	% line of code telling latex that your document is beginning
+	% line of code telling latex that your document is beginning	
 
 \title{Problem Set 3}
 
@@ -44,6 +44,54 @@
 \maketitle 
 	% tells latex to follow your header (e.g., title, author) commands.
 
+\section*{Problem 1: Simplifying Propositional Formulas}
+\paragraph{i)} $\neg p$. In this formula whenever p is false the entire statement is true. This is because p implies q in both sub-formulas, and anytime an antecedent is false, the entire statement is true. Conversely, whenever p is true, the entire statement is false. For instance, when p is true and q is true, the negation of q creates a false second statement. However, when p is true and q is false, the first statement is now false. Either way one is left with one false statement and since the "and" conjuction requires that both statements be true, the entire statement is always false in this scenario.
+
+\paragraph{ii)} $\top$. In any case the result is true. For p not to imply q, p must true and q must be false. If we assume this then q must imply p because anytime q is false, the implication statement is true. Therefore the overall statement is true since it uses an "or" conjunction, which requires one true statement. 
+
+\paragraph{iii)}  p $\leftrightarrow$ q.  Whenever p and q match the overall statement is true, otherwise the statement is false. When one variable is true, but the other is false, the first statement is true due to an "or" conjunction. Under these same conditions the second statement is false due to an "and" conjunction. With a true antecedent and false consequent, the entire formula is always false. However, when one considers identical truth values for p and q, the "or" and "and" conjunctions are no longer different, and the statement will always be true in this case. The bi-conditional conjunction satisfies this same restriction, requiring matching statement outcomes for a true result.  
+
+\section*{Problem 2: Ternary Conditionals}
+\paragraph{i)}
+Truth Table \\
+\newline
+\begin{tabular}{ c | c | c | c }
+  p & q & r &  {p ? q : r}\\
+  \hline
+  F & F & F & F \\
+  F & T & F & F \\
+  T & F & F & F \\
+  T & F & T & F \\
+  F & T & T & T \\
+  F & F & T & T \\
+  T & T & F & T \\
+  T & T & T & T
+\end{tabular}
+
+
+\paragraph{ii)}
+$ (p \wedge q) \vee (\neg p \wedge r)$ \\
+  \newline
+  Truth Table \\
+  \newline
+\begin{tabular}{ c | c | c | c }
+  p & q & r &  {$ (p \wedge q) \vee (\neg p \wedge r)$}\\
+  \hline
+  F & F & F & F \\
+  F & T & F & F \\
+  T & F & F & F \\
+  T & F & T & F \\
+  F & T & T & T \\
+  F & F & T & T \\
+  T & T & F & T \\
+  T & T & T & T
+  
+\end{tabular}
+\paragraph{iii)}
+ p ? $\bot : \top $
+
+\paragraph{iv)}
+ p ? q : $\top  $
 
 \section*{Problem Three: First-Order Negations (definitely needs to be checked/edited)}
 
@@ -111,7 +159,24 @@ $\forall Q Set(Q) .\ \exists P Set(P) .\ \forall S Set(S) .\ (S \in P \cap \fora
 The Raven Paradox involves a scientific statement. As we know from Popper, it is only possible to falsify scientific statements. Induction is a myth.
 
 \section*{Problem 7: Graph Coloring}
-Marty?
+
+\paragraph{i)}
+In this graph the inner-node is connected to all other nodes, giving it a degree of seven. All other nodes are only connected to the inner node, which allow these nodes to all be of the same color and the inner node to be of a different color. This creates a two-colorable graph since no two nodes of the same color are joined by an edge. \\
+\begin{minipage}{.8\textwidth}
+\includegraphics[width=.8\linewidth]{hw3_slide1.jpg}
+\end{minipage}
+
+\paragraph{ii)}
+This graph represents a cube, in which each corner shares an edge with three other corners. This means there is a degree of three for every node. It is possible for each corner of the cube to be connected to a corner with only one different color, createing a two-colorable graph. \\
+\begin{minipage}{.8\textwidth}
+\includegraphics[width=.8\linewidth]{hw3_slide2.jpg}
+\end{minipage}
+
+\paragraph{iii)}
+In a triangle each node is connected to the other two nodes, meaning each node has a degree of 2. This graph is only 3-colorable because each node shares an edge with one another. If one tried to just use two colors, it is guaranteed that these two nodes would share an edge, violating the rule of a 2-colorable graph.  
+\begin{minipage}{.8\textwidth}
+\includegraphics[width=.8\linewidth]{hw3_slide3.jpg}
+\end{minipage}
 
 \section*{Problem 8: Tournament Cycles}
 A tournament is a directed graph with $n$ nodes where there is exactly one edge between any pair of distinct nodes and there are no self-loops. Prove that if a tournament graph contains a cycle of any length, then it contains a cycle of length three.
