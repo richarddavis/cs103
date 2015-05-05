@@ -1,0 +1,100 @@
+%Modified from a template provided by Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+\usepackage{pdfsync}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+	% packages that allow mathematical formatting
+
+\usepackage{graphicx}
+	% package that allows you to include graphics
+\graphicspath{ {./images/} }
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+% package that specifies normal margins
+
+\usepackage[parfill]{parskip}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem{nthm}{Theorem}
+\newtheorem{lem}{Lemma}
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+\title{Problem Set 4: Checkpoint}
+
+\author{Richard Davis}
+
+% \date{Friday April 10, 2015}
+	% Note: when you omit this command, the current date is automatically included
+ 
+\maketitle 
+	% tells latex to follow your header (e.g., title, author) commands.
+
+
+\section*{Checkpoint Question: Paradoxical Sets}
+What happens if we take absolutely everything and throw it into a set? If we do, we would get a set called the universal set:
+
+\begin{equation}
+U = \{ x | x \ \text{exists} \}
+\end{equation}
+
+The universal set does not actually exist, as its existence would break mathematics. 
+
+\paragraph{i)} Prove that if $A$ and $B$ are sets where $A \subseteq B$, then $|A| \leq |B|$. To formally prove this result, find an injection $f:A \rightarrow B$ and prove that your function is injective.\\
+
+\begin{thm} If $A$ and $B$ are sets where $A \subseteq B$, then $|A| \leq |B|$.
+\end{thm}
+
+\begin{proof} We will prove that the identity function is an injection $f : A \rightarrow B$, from which it follows that $|A| \leq |B|$. 
+
+If $A \subseteq B$, then by definition every element of $A$ is also contained in $B$. In other words, $A \subseteq B$ precisely if every time $x \in A$, then $x \in B$ is true. Also, we know from the definition that every element in a set is unique. 
+
+First we will show that it is possible to map every element in $A$ to an element in $B$ using the identity function. Choose an arbitrary element of $A$ called $x$. From the definition of a subset we know that $x$ must also be contained in the set $B$. Applying the identity function to $x$ gives $x$, showing that the identity function maps every element in $A$ to $B$.
+
+Next we prove that the identity function is injective. Recall that $f : A \rightarrow B$ is an injection if $\forall a_1 \in A .\ \forall a_2 \in A .\ (f(a_1) = f(a_2) \rightarrow a_1 = a_2)$. To begin, set $f(x)$ to be the identity function and pick any elements $a$ and $b$ where $f(a) = f(b)$. Because the identity function maps every element to itself, we can reduce this equation to $a = b$. This proves that the identity function is injective. 
+
+Because we have found an injective function $f : A \rightarrow B$, it follows from the definition that $|A| \leq |B|$. 
+
+\end{proof}
+
+\paragraph{ii)} Prove that if $U$ exists at all, then $|P(U)| \leq |U|$.\\
+
+\begin{thm} If $U$ exists, then $|P(U)| \leq |U|$.
+\end{thm}
+
+\begin{proof} The universal set $U$ is defined to be the set that contains everything. Because it contains everything, this means that it contains every element of its own powerset. From this it follows that $P(U) \subseteq U$. From the previous proof we know that if $P(U) \subseteq U$, then $|P(U)| \leq |U|$. 
+\end{proof}
+
+\paragraph{iii)} Prove that $U$ does not exist.\\
+
+\begin{thm} The universal set $U$ does not exist.
+\end{thm}
+
+\begin{proof} By contradiction. Assume for the sake of contradiction that the universal set $U$ exists. From part ii) we know that if the universal set exists, then $|P(U)| \leq |U|$. However Cantor's Theorem states that every set is strictly smaller than its power set. This is a contradiction; therefore our assumption that the universal set exists must be false.
+\end{proof}
+
+% \section*{Appendix: Referencing Equations}
+% \begin{equation} \label{eq:divbyzero}
+%   \frac {1} {0}
+% \end{equation}
+
+% This references \ref{eq:divbyzero}.
+
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
