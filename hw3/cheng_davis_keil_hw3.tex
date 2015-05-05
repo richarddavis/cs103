@@ -93,11 +93,11 @@ $ (p \wedge q) \vee (\neg p \wedge r)$ \\
 \paragraph{iv)}
  p ? q : $\top  $
 
-\section*{Problem Three: First-Order Negations (definitely needs to be checked/edited)}
+\section*{Problem Three: First-Order Negations}
 
 \begin{enumerate}
 \item[i.] Negating the statement, ``For all x in the set of real numbers, and for all y in the set of real numbers, if x is less than y then there exists q in the set of rational numbers such that x is less than q, and q is less than y."
-\begin{gather}
+\begin{gather*}
 \neg(\forall x \in \mathbb{R}.\ \forall y \in \mathbb{R}. (x < y \rightarrow \exists q \in \mathbb{Q}. (x < q \wedge q < y)))\\
 \exists x \in \mathbb{R}. \neg (\forall y \in \mathbb{R}. (x < y \rightarrow \exists q \in \mathbb{Q}. (x < q \wedge q < y)))\\
 \exists x \in \mathbb{R}.\ \exists y \in \mathbb{R}. \neg(x < y \rightarrow \exists q \in \mathbb{Q}. (x < q \wedge q < y))\\
@@ -106,27 +106,32 @@ $ (p \wedge q) \vee (\neg p \wedge r)$ \\
 \exists x \in \mathbb{R}.\ \exists y \in \mathbb{R}. (x < y) \wedge \forall q \in \mathbb{Q}. \neg(x < q \wedge q < y))\\
 \exists x \in \mathbb{R}.\ \exists y \in \mathbb{R}. (x < y) \wedge \forall q \in \mathbb{Q}. \neg(x < q) \vee \neg(q < y)\\
 \exists x \in \mathbb{R}.\ \exists y \in \mathbb{R}. (x < y) \wedge \forall q \in \mathbb{Q}. (x \geq q) \vee (q \geq y)\\
-\end{gather}
+\end{gather*}
 The negation is, ``There exists x in the set of real numbers, and there exists y in the set of real numbers, where x is less than y and for all q in the set of rational numbers x is greater than or equal to q, and q is greater than or equal to y."\\
 
 \item[ii.] Negating the statement, ``For all x, y, and z, if (R(x, y) and R(y, z) then R(x, z)) then if for all x, y, and z R(y, z) and R(z, y) then R(z, x)."
-\begin{gather}
+\begin{gather*}
 \neg(\forall x. \forall y. \forall z. (R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \rightarrow (\forall x. \forall y. \forall z. (R(y, x) \wedge R(z, y) \rightarrow R(z, x)))\\
 \exists x. \exists y. \exists z. \neg((R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \rightarrow (\forall x. \forall y. \forall z. (R(y, x) \wedge R(z, y) \rightarrow R(z, x)))\\
 \exists x. \exists y. \exists z. ((R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \wedge \neg(\forall x. \forall y. \forall z. (R(y, x) \wedge R(z, y) \rightarrow R(z, x)))\\
 \exists x. \exists y. \exists z. ((R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \wedge \exists x. \exists y. \exists z. \neg(R(y, x) \wedge R(z, y) \rightarrow R(z, x))\\
 \exists x. \exists y. \exists z. ((R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \wedge \exists x. \exists y. \exists z. \neg R(y, x) \vee \neg(R(z, y) \rightarrow R(z, x))\\
 \exists x. \exists y. \exists z. ((R(x, y) \wedge R(y, z) \rightarrow R(x, z))) \wedge \exists x. \exists y. \exists z. \neg R(y, x) \vee R(z, y) \wedge \neg R(z, x))\\
-\end{gather}
+\end{gather*}
 The negation is, ``There exists x, y, and z, where if R(x, y) and R(y, z) then R(x, z), and there exists x, y, and z such that not R(y, z) or R(z, y) and not R(z, x)."
 
 \item[iii.] Negating the statement, ``For all x, there exists S such that S is a set and for all z, if z is in set S then z=x, and if z=x then z is in set S." 
-\begin{gather}
+
+\begin{gather*}
 \neg(\forall x. \exists S. (Set(S) \wedge \forall z. (z \in S \leftrightarrow z = x)))\\
 \exists x. \neg(\exists S. (Set(S) \wedge \forall z. (z \in S \leftrightarrow z = x)))\\
 \exists x. \forall S. \neg(Set(S) \wedge \forall z. (z \in S \leftrightarrow z = x))\\\exists x. \forall S. \neg Set(S) \vee \neg(\forall z. (z \in S \leftrightarrow z = x))\\\exists x. \forall S. \neg Set(S) \vee \exists z. \neg(z \in S \leftrightarrow z = x)\\\exists x. \forall S. \neg Set(S) \vee \exists z. \neg(z \in S \leftrightarrow z = x)\\
-\end{gather}
-How to distribute negation over bidirectional arrow?
+\exists x. \forall S. \neg Set(S) \vee \exists z. \neg((z \in S \rightarrow z = x) \wedge (z = x \rightarrow z \in S))\\
+\exists x. \forall S. \neg Set(S) \vee \exists z. \neg ((z \in S \rightarrow z = x) \vee \neg (z = x \rightarrow z \in S))\\
+\exists x. \forall S. \neg Set(S) \vee \exists z. ((z \in S \wedge z \not = x) \vee (z = x \wedge z \not \in S))\\
+\end{gather*}
+
+
 \end{enumerate}
 
 \section*{Problem 4: `Cause I'm Happy}
@@ -145,18 +150,20 @@ How to distribute negation over bidirectional arrow?
 
 \section*{Problem 5: Translating into Logic}
 
-\paragraph{i)} $\forall n Natural(n) .\ \exists k Natural(k) .\ \exists j Natural(j) .\ (n = (k + k) \cap (n * n) = (j + j))$
+\paragraph{i)} $\forall n .\ (Natural(n) \rightarrow \exists k .\ \exists j .\ (Natural(k) \wedge Natural(j) \wedge ((n = (k + k)) \wedge ((n * n) = (j + j)))$
 
-\paragraph{ii)} $ \exists$p. $\exists$k.  $\exists$j.(Person(p) $\wedge$ HasPet(p, kitten(k)) $\wedge$ HasPet(p,  kitten(j)) $\wedge$ $\forall$b.((b $\neq$ k  $\wedge$ b $\neq$   j) $\rightarrow$ ($\neg$ HasPet(p, B))))
+\paragraph{ii)} $ \exists$p. $\exists$k.  $\exists$j.(Person(p) $\wedge$ k \not = j \ $\wedge$ Kitten(k) $\wedge$ Kitten(j) $\wedge$ HasPet(p, k) $\wedge$ HasPet(p, j) $\wedge$ $\forall$b.((b $\neq$ k  $\wedge$ b $\neq$   j) $\rightarrow$ ($\neg$ HasPet(p, b))))
 
-\paragraph{iii)} The key to this problem is that an irrational number can not be represented as p/q, or $\sqrt{2} \not = p/q$. We can simplify this to $2 * q^2 \not = p^2$, then use the same method as in i).
+\paragraph{iii)} The key to this problem is that an irrational number can not be represented as p/q, or $\sqrt{2} \not = p/q$. We can simplify this to $2 * q^2 \not = p^2$, then use the same method as in i). This results in the following formula
+
+$\forall p .\ \forall q .\ ((Integer(p) \wedge Integer(q)) \rightarrow (((q \cdot q) + (q \cdot q) \not = (p \cdot p)) \wedge (p + q \not = p))$
 
 \paragraph{iv)}
-$\forall Q Set(Q) .\ \exists P Set(P) .\ \forall S Set(S) .\ (S \in P \cap \forall x .\ \forall y .\ (x \in S \rightarrow x \in Q \cap y \not \in S \rightarrow y \not \in Q))$
+$\forall Q .\ (Set(Q) \rightarrow \exists P .\ (Set(P) \wedge \forall S .\ (Set(S) \rightarrow (S \in P \wedge \forall x .\ \forall y .\ (x \in S \rightarrow x \in Q \wedge y \not \in Q \rightarrow y \not \in S)))))$
 
 This statement translated into English says ``Any set Q has a powerset P that contains every subset S of Q.''
 \paragraph{v)}
-$\exists x .\ (Lady(x)\ \cap\ \forall y .\ (Glitters(y) \rightarrow IsSureIsGold(x, y))\ \cap\ \exists z .\ (StairwayToHeaven(z)\ \cap\ Buying(x, z)))$
+$\exists x .\ (Lady(x)\ \wedge\ \forall y .\ (Glitters(y) \rightarrow IsSureIsGold(x, y))\ \wedge\ \exists z .\ (StairwayToHeaven(z)\ \wedge\ Buying(x, z)))$
 
 \section*{Problem 6: Raven Paradox}
 The Raven Paradox results from taking the seemingly uninteresting statement ``All ravens are black'' and finding its contrapositive ``Everything that is not black is not a raven.'' An important thing to note is that these statements are logically equivalent. Again, so far this is not especially interesting. The trouble arises when we start looking for phenomena that provide evidence for the statement. For instance, if you see a raven and that raven is black, this can be seen as providing evidence for the statement ``All ravens are black.'' However, because the contrapositive is logically equivalent to this statement, observing something that is not black and also not a raven must also be seen as consituting evidence. This is paradoxical because the two do not seem connected at all; looking at a red clown nose does not (intuitively) seem to give us any evidence about the blackness of ravens. 

@@ -1,0 +1,198 @@
+%Modified from a template provided by Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+\usepackage{pdfsync}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+	% packages that allow mathematical formatting
+
+\usepackage{graphicx}
+	% package that allows you to include graphics
+\graphicspath{ {./images/} }
+
+
+\usepackage{subcaption}
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+% package that specifies normal margins
+
+\usepackage[parfill]{parskip}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem{nthm}{Theorem}
+\newtheorem{lem}{Lemma}
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+\title{Problem Set 4}
+
+\author{Katherine Cheng, Richard Davis, Marty Keil}
+
+% \date{Friday April 10, 2015}
+	% Note: when you omit this command, the current date is automatically included
+ 
+\maketitle 
+	% tells latex to follow your header (e.g., title, author) commands.
+
+\section*{Problem One: Properties of Functions}
+
+\paragraph{1.} Injection
+\paragraph{2.} Function
+\paragraph{3.} Injection
+\paragraph{4.} Function
+\paragraph{5.} Non-function
+\paragraph{6.} Injection
+\paragraph{7.} Non-function
+\paragraph{8.} Non-function
+\paragraph{9.} Non-function
+\paragraph{10.} Bijection
+\paragraph{11.} Injection
+\paragraph{12.} Surjection
+\paragraph{13.} Bijection
+
+\section*{Problem Two: Cartesian Products and Cardinalities}
+
+\paragraph{i.} Using the function $f: A \times B \rightarrow C \times D$ defined as $f(a, b) = (g(a), h(b))$, prove that if $A$, $B$, $C$, and $D$ are sets where $|A| = |C|$ and $|B| = |D|$, then we have $|A \times C| = |C \times D|$. Specifically, prove that $f$ is a bjiection between $A \times B$ and $C \times D$. 
+
+\begin{thm} If $A$, $B$, $C$, and $D$ are sets where $|A| = |C|$ and $|B| = |D|$, then we have $|A \times B| = |C \times D|$. 
+\end{thm}
+
+\begin{proof} Because $|A| = |C|$, we know from the definition of equal cardinalities that there is a bijection $g: A \rightarrow C$. Likewise, because $|B| = |D|$ we know there is a bijection $h: B \rightarrow D$. In the definition of the function $f(a, b)$, the ordered-pair output is determined by $(g(a), h(b))$. Let $g(a)$ and $h(b)$ both be the bijections that map every member of $A$ to $C$ and every member of $B$ to $D$. 
+
+If $f(a, b)$ is an injection, this means that $\forall (a_1, b_1) \in A \times B .\ \forall (a_2, b_2) \in A \times B .\ f(a_1, b_1) = f(a_2, b_2) \rightarrow (a_1, b_1) = (a_2, b_2)$. Because $f(a_1, b_1) = (g(a_1), h(b_1))$ and $f(a_2, b_2) = (g(a_2), h(b_2))$, this means that $(g(a_1), h(b_1)) = (g(a_2), h(b_2))$ and furthermore that $g(a_1) = g(a_2)$ and $h(b_1) = h(b_2)$. Because $g(x)$ and $h(x)$ are bijections, we know that $a_1 = a_2$ and $b_1 = b_2$. This proves that $f(a, b)$ is an injection.
+
+If $f(a, b)$ is a surjection, this means that $\forall (c, d) \in C \times D .\ \exists (a, b) \in A \times B .\ f(a, b) = (c, d)$. Because $f(a, b) = (g(a), h(b))$, and because $g(a)$ and $h(b)$ are bijections, we know that for any choice of $c$ we can find some $a$ such that $g(a) = c$ and for any choice of $d$ we can find some $b$ such that $h(b) = d$. This means that for any ordered pair $(c, d)$ we can find some $a$ and some $b$ such that $(c, d) = (g(a), h(b))$. This proves that $f(a, b)$ is a surjection. 
+
+Because $f(a, b)$ is both an injection and a surjection, this proves that $f(a, b)$ is a bijection.
+
+\end{proof}
+
+\paragraph{ii.} Prove that $|\mathbb{N}^k| = |\mathbb{N}|$ for all nonzero $k \in \mathbb{N}$. This result means that for any nonzero finite $k$, there are the same number of $k$-tuples of natural numbers as natural numbers.
+
+\begin{thm} For all nonzero $k \in \mathbb{N}$, $|\mathbb{N}^k| = |\mathbb{N}|$. 
+\end{thm}
+
+\begin{proof} By induction. We can define the Cartesian power of a set as follows. For any set $A$ and any natural number $n$, we define $A^n$ inductively:
+\begin{align*}
+A^1 &= A \\
+A^{n+1} &= A \times A^n (\text{for } n \ge 1)\\
+\end{align*}
+Let $P(n)$ be the statement that ``for all nonzero $n \in \mathbb{N}$, $|\mathbb{N}^n| = |\mathbb{N}|$.'' For our base case we have $P(1)$, that $|\mathbb{N}| = |\mathbb{N}|$. This is a tautology and true.
+
+For our inductive hypothesis, assume that $P(k)$ holds for some nonzero $k$. We will show that $P(k+1)$ is also true. $P(k+1)$ means that $|\mathbb{N}^{k+1}| = |\mathbb{N} \times \mathbb{N}^k|$. From our inductive hypothesis we know that $|\mathbb{N}^k| = |\mathbb{N}|$. From our previous result we know that this allows us to rewrite $|\mathbb{N} \times \mathbb{N}^k|$ as $|\mathbb{N} \times \mathbb{N}|$. This can also be written as $|\mathbb{N}^2|$. From lecture we know that $|\mathbb{N}| = |\mathbb{N}^2|$. Putting this all together we prove that $P(k+1)$ is true.
+\end{proof}
+
+\section*{Problem Three: Understanding Diagonalization}
+I think in both cases the diagonal set is \{\mathbb{N}\}.
+
+\paragraph{i.} 
+\paragraph{ii.}
+
+\section*{Problem Four: Simplifying Cantor's Theorem?}
+We proved that this function is not a bijection. This is not the same as proving that there is no function that is a bijection. 
+
+\section*{Problem Five: Coloring a Grid}
+Pigeonhole principle.
+
+\section*{Problem Six: Properties of Relations}
+
+\paragraph{i.} Less than.
+\paragraph{ii.} All nodes have self-edges. No other edges.
+\paragraph{iii.} It is an equivalence relation.
+\paragraph{iv.} Not a partial order because of the weirdness of the antisymmetric relation.
+
+\section*{Problem Seven: Meet Semilattices}
+
+\paragraph{i.} 
+\paragraph{ii.}
+\paragraph{iii.} 
+\begin{thm} The relation $\le_S$ is reflexive. \end{thm}
+\begin{proof} 
+\end{proof}
+
+\begin{thm} The relation $\le_S$ is transitive. \end{thm}
+\begin{proof} A relation is transitive when the following holds: $\forall a \in A .\ \forall b \in A .\ \forall c \in A .\ (aRb \wedge bRc \rightarrow aRc)$. In this case, we want to show that $\forall x \in D .\ \forall y \in D .\ \forall z \in D .\ (x \le_S y \wedge y \le_S z \rightarrow x \le_S z)$. To prove this, we assume that the antecedent is true and show that the consequent must be true as well. We have that both $x \le_S y$ and $y \le_S z$. From the definition of $\le_S$ we know that $x \wedge y = x$ and $y \wedge z = y$. Combining these gives us $x \wedge y \wedge z = x$. 
+\begin{align*}
+x \wedge y \wedge z &= x
+x \wedge z &= z
+\end{align*}
+We have shown that when we assume the antecendent, the consequent is true. This proves that $\le_S$ is transitive.
+\end{proof}
+
+\begin{thm} The relation $\le_S$ is antisymmetric. \end{thm}
+\begin{proof} A relation is antisymmetric when the following holds: $\forall a \in A .\ \forall b \in A .\ (aRb \wedge bRa \rightarrow a = b)$. In this case, we want to show that $\forall x \in D .\ \forall y \in D .\ (x \le_S y \wedge y \le_S x \rightarrow x = y)$. To prove this, we assume that the antecedent is true and show that the consequent must be true as well. We have that both $x \le_S y$ and $y \le_S x$. From the definition of $\le_S$ we know that $x \wedge y = x$ and $y \wedge x = y$. From the commutative property of the meet semilattice we know that $y \wedge x = x \wedge y = y$. Because $x \wedge y = x$ and $x \wedge y = y$, we know that $x = y$. We have shown that when we assume the antecedent, the consequent must be true. This proves that $\le_S$ is antisymmetric.
+\end{proof}
+
+\paragraph{iv.}
+\paragraph{v.}
+
+\section*{Problem Eight: Chains and Antichains}
+
+\paragraph{i.}
+\paragraph{ii.}
+\paragraph{iii.}
+\paragraph{iv.}
+
+% \section*{Appendix: Referencing Equations}
+% \begin{equation} \label{eq:divbyzero}
+%   \frac {1} {0}
+% \end{equation}
+
+% This references \ref{eq:divbyzero}.
+
+% \section*{Appendix: Figures in Text}
+% Below are two different ways of placing figures side by side in text. The first method creates two sub-figures within a single figure. The second method creates two separate figures.
+
+% \begin{figure}
+% \centering
+% \begin{minipage}{.5\textwidth}
+%   \centering
+%   \includegraphics[width=.8\linewidth]{hw3_8_1.eps}
+%   \captionof{figure}{A figure}
+%   \label{fig:q8_test1}
+% \end{minipage}%
+% \begin{minipage}{.5\textwidth}
+%   \centering
+%   \includegraphics[width=.8\linewidth]{hw3_8_1.eps}
+%   \captionof{figure}{Another figure}
+%   \label{fig:q8_test2}
+% \end{minipage}
+% \end{figure}
+
+
+% \begin{figure}[h]
+%   \centering
+
+%   \begin{subfigure}[b]{0.3\textwidth}
+%     \includegraphics[width=\textwidth]{hw3_8_1.eps}
+%     \caption{A cycle with length $k+1$}
+%     \label{fig:q8_cycle:a}
+%   \end{subfigure}% 
+%   \qquad
+%   \begin{subfigure}[b]{0.3\textwidth}
+%     \includegraphics[width=\textwidth]{hw3_8_1.eps}
+%     \caption{A cycle with length $k+1$}
+%     \label{fig:q8_cycle:b}
+%   \end{subfigure}%  
+
+%   \caption{Placeholder}
+%   \label{fig:q8}
+% \end{figure}
+
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
