@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage[makeroom]{cancel}
 	% packages that allow mathematical formatting
 
 \usepackage{graphicx}
@@ -183,11 +184,31 @@ We have shown that when we assume the antecendent, the consequent is true. This 
 \paragraph{i.} The longest chain in the partial order of the $\subseteq$ relation over the set $\wp(\{a, b, c\})$ has a length of 4. An example of such a chain:
 $$\emptyset \subseteq \{a\} \subseteq \{a, b\} \subseteq \{a, b, c\}$$
 
-\paragraph{ii.} The largest antichain in the partial order of the $\subseteq$ relation over the set $\wp(\{a, b, c\})$ has a cardinality of 3. An example of such an antichain:
+\paragraph{ii.} The largest antichain in the partial order of the $\subseteq$ relation over the set $\wp(\{a, b, c\})$ is a set with a cardinality of 3. An example of such an antichain:
 $$\{\{a\}, \{b\}, \{c\}\}$$
 
-\paragraph{iii.}
-\paragraph{iv.}
+\paragraph{iii.} 
+\begin{thm} If an arbitrary set A does not contain a chain of length r+1 or greater, then there must be at least s+1 elements of A at the same height, where the height of a is the length of the longest chain whose final element is a. \end{thm}
+\begin{proof} Assume A does not contain a chain of length $r+1$ or greater. If this is the case, then the longest possible chain in A is of length $r$. We know that the cardinality of A is $|A| = rs+1$. This means that there are rs+1 elements, which each have heights of at most $r$. 
+
+By the generalized pigeonhole principle, we know that if there are rs+1 elements to put into r possible heights, then there must be some height at which there are at least $\lceil (rs+1)/r \rceil$ elements. We simplify this as follows:
+$$\lceil \dfrac{rs+1}{r} \rceil = \lceil \dfrac{r(s+\tfrac{1}{r})}{r} \rceil = \lceil \dfrac{\bcancel{r}(s+\tfrac{1}{r})}{\bcancel{r}} \rceil  = \lceil s+\tfrac{1}{r} \rceil = s+1$$
+
+Thus, we have shown that there must be some height at which there are at least $s+1$ elements of A at that height.
+\end{proof}
+
+\paragraph{iv.} 
+\begin{thm}X, where X is a set of $s+1$ elements of an arbitrary set A at the same height as one another, must be an antichain.\end{thm}
+\begin{proof} First, we begin by stating a new lemma.
+\begin{lem} For any arbitrary element $a$ in the longest possible chain ending at $b$, the length of the chain up to $a$ is equal to the height of $a$.
+\end{lem}
+\begin{proof} By contradiction. Assume that $a$ is an element in the longest possible chain ending at $b$, but the length of the chain up to $a$ is not equal to the height of $a$. Then, by the definition of height, we know that the length of the chain up to $a$ must be less than the height of $a$. If this is the case, then there is another chain ending at $b$ that is even longer, namely the chain where the length of the chain up to $a$ equal to the height of $a$. However, this cannot be true, since we are already working with the longest possible chain ending at $b$. We've reached a contradiction, so our assumption must be false. Thus, if $a$ is an element in the longest possible chain ending at $b$, then the length of the chain up to $a$ must be equal to the height of $a$.
+\end{proof}
+
+Now, assume X is a set of $s+1$ elements of A at the same height as one another. Take two arbitrary elements of X, $a$ and $b$. We know that $a$ and $b$ have the same height, $h$. We also know, by \textbf{Lemma 1}, that $a$ cannot be an element of a chain ending at $b$, because this would mean that for the longest possible chain ending at $b$, the chain up to $a$ would have height $h$ (the length of the longest possible chain ending at $a$), which would make the length of the longest possible chain ending at $b$ at least $h+1$. Since we know there are no chains of length greater than $h$ ending at $b$, $a$ could not be an element of a chain ending at $b$. By the definition of a chain, this means that $a$ and $b$ cannot be compared by the partial order relation $\leq_A$.
+
+Thus, we know that for any arbitrary elements $a$ and $b$ in X, $a$ and $b$ cannot be compared by the $\leq_A$ relation. This is the definition of an antichain. Thus, if X is a set of $s+1$ elements of  A at the same height as one another, then X must be an antichain.
+\end{proof}
 
 % \section*{Appendix: Referencing Equations}
 % \begin{equation} \label{eq:divbyzero}
