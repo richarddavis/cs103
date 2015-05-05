@@ -104,7 +104,22 @@ I think in both cases the diagonal set is $\{\mathbb{N}\}.$
 We proved that this function is not a bijection. This is not the same as proving that there is no function that is a bijection. 
 
 \section*{Problem Five: Coloring a Grid}
-Pigeonhole principle.
+\begin{thm} Given a 3 x 9 grid with each point colored either red or blue, no matter how the these points are colored, the grid will always contain four points of the same color that form the corners of a rectangle. 
+\end{thm}
+\begin{proof}
+A rectangle is formed in the grid whenever a column is repeated with two colored points in the same locations. For example: \\
+\begin{minipage}{.8\textwidth}
+\includegraphics[width=.8\linewidth]{Slide1.jpg}
+\end{minipage}
+
+In a 3 x 9 grid there are three dots in each column. Since there are only two colors, red and blue, at least two of the three dots must be the same color (Pigeonhole Principle). Given this restriction there are eight different possible column setups, which can be seen below:
+
+\begin{minipage}{.8\textwidth}
+\includegraphics[width=.8\linewidth]{Slide2.jpg}
+\end{minipage}
+
+Since there are 9 columns, and 8 possible column formations, one formation must be repeated due to the pigeonhole principle. As shown earlier, this repeated column will form a rectangle with it's duplicate because both columns will have at least two colored points in the same location. Therefore, a 3 x 9 grid must contain a rectangle with four points of the same color. 
+\end{proof}
 
 \pagebreak
 \section*{Problem Six: Properties of Relations}
