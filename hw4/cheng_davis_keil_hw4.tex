@@ -94,16 +94,18 @@ Let $P(n)$ be the statement that ``for all nonzero $n \in \mathbb{N}$, $|\mathbb
 For our inductive hypothesis, assume that $P(k)$ holds for some nonzero $k$. We will show that $P(k+1)$ is also true. $P(k+1)$ means that $|\mathbb{N}^{k+1}| = |\mathbb{N} \times \mathbb{N}^k|$. From our inductive hypothesis we know that $|\mathbb{N}^k| = |\mathbb{N}|$. From our previous result we know that this allows us to rewrite $|\mathbb{N} \times \mathbb{N}^k|$ as $|\mathbb{N} \times \mathbb{N}|$. This can also be written as $|\mathbb{N}^2|$. From lecture we know that $|\mathbb{N}| = |\mathbb{N}^2|$. Putting this all together we prove that $P(k+1)$ is true.
 \end{proof}
 
-\section*{Problem Three: Understanding Diagonalization}
-I think in both cases the diagonal set is $\{\mathbb{N}\}.$
+
+\section*{Problem Three: Understanding Diagonalization: Richard}
+I think in both cases the diagonal set is \{\mathbb{N}\}.
 
 \paragraph{i.} 
 \paragraph{ii.}
 
-\section*{Problem Four: Simplifying Cantor's Theorem?}
+\section*{Problem Four: Simplifying Cantor's Theorem?: Richard}
 We proved that this function is not a bijection. This is not the same as proving that there is no function that is a bijection. 
 
-\section*{Problem Five: Coloring a Grid}
+
+\section*{Problem Five: Coloring a Grid: Marty}
 \begin{thm} Given a 3 x 9 grid with each point colored either red or blue, no matter how the these points are colored, the grid will always contain four points of the same color that form the corners of a rectangle. 
 \end{thm}
 \begin{proof}
@@ -121,14 +123,37 @@ In a 3 x 9 grid there are three dots in each column. Since there are only two co
 Since there are 9 columns, and 8 possible column formations, one formation must be repeated due to the pigeonhole principle. As shown earlier, this repeated column will form a rectangle with it's duplicate because both columns will have at least two colored points in the same location. Therefore, a 3 x 9 grid must contain a rectangle with four points of the same color. 
 \end{proof}
 
-\section*{Problem Six: Properties of Relations}
+\pagebreak
+\section*{Problem Six: Properties of Relations: Katie}
 
-\paragraph{i.} Less than.
-\paragraph{ii.} All nodes have self-edges. No other edges.
-\paragraph{iii.} It is an equivalence relation.
-\paragraph{iv.} Not a partial order because of the weirdness of the antisymmetric relation.
+\paragraph{i.} The relation $<$ over the set of real numbers is neither an equivalence relation nor a partial order. A common property of equivalence relations and partial orders is that both must be reflexive. This means that every element is related to itself, or formally, that $\forall a \in A.\ aRa$. However, the relation $<$ over the set of real numbers is not reflexive; by the definition of what it means for one quantity to be ``less than" another, it is not the case that $\forall a \in A.\ a<a$. Thus, the relation $<$ is neither an equivalence relation nor a partial order. 
 
-\section*{Problem Seven: Meet Semilattices}
+\paragraph{ii.} A relation that is represented by a graph where all nodes have self-edges and there are no edges between distinct nodes is an example of a relation that is both a partial order and an equivalence relation:
+
+\begin{figure}[h]
+\centering
+  \includegraphics[width=0.45\linewidth]{hw4_6ii.png}
+  \caption{A graph where all nodes have self-edges and there are no edges between distinct nodes}
+  \label{fig:q6ii}
+\end{figure}
+
+In this graph, each node is an element, and an edge from a to b indicates that a is related to b. 
+
+To show that this is a partial order, we show that the relation is reflexive, transitive, and antisymmetric. The relation is reflexive; that is, we drew the graph such that every element is related to itself, or formally, $\forall a \in A.\ aRa$. The relation is transitive; whenever $a$ is related to $b$ and $b$ is related to $c$, we know $a$ is related to $c$, or formally, $\forall a \in A.\ \forall b \in A.\ \forall c \in A.\ (aRb \wedge bRc \rightarrow aRc)$. This is vacuously true, because in the relation we have defined, the antecedent is always false (it is never the case that any element is related to a distinct other object). Finally, the relation is antisymmetric; if $a$ is related to $b$ and $a \neq b$, then $b$ is not related back to $a$, or formally, $\forall a \in A.\ \forall b \in A.\ (a \neq b \wedge aRb \rightarrow \neg(bRa))$. Again, this is vacuously true, because in the relation we have defined, the antecedent is always false (it is never the case that any element is related to a distinct other object).
+
+To show that this is an equivalence relation, we show that the relation is reflexive and transitive (which we have already shown), as well as symmetric. The relation is symmetric; if $a$ is related to $b$, then $b$ is related to $a$, or formally, $\forall a \in A. \forall b \in A.\ (aRb \rightarrow bRa)$. As before, this is vacuously true, because in the relation we have defined, the antecedent is always false (it is never the case that any element is related to a distinct other object).  
+
+The relation we have defined is reflexive, transitive, antisymmetric, and symmetric. Thus, this relation is an example of a relation that is both a partial order and an equivalence relation.
+
+\paragraph{iii.} The relation $=_H$ over P, the set of all people, is an equivalence relation. To show that this is an equivalence relation, we show that $=_H$ is reflexive, transitive, and symmetric. $=_H$ is reflexive; every person is equal in height to themselves, or formally, $\forall p \in P.\ p =_H p$. Next, we show that $=_H$ is transitive; whenever person $p$ is equal in height to person $q$, and person $q$ is equal in height to person $r$, then person $p$ is equal in height to person $r$, or formally, $\forall p \in P.\ \forall q \in P.\ \forall r \in P.\ (p =_H q \wedge q =_H r \rightarrow p =_H r)$. Finally, $=_H$ is symmetric; if person $p$ is equal in height to person $q$, then person $q$ is equal in height to person $p$, or formally, $\forall p \in P. \forall q \in P.\ (p =_H q \rightarrow q =_H p)$. Thus, we have shown that $=_H$ is an equivalence relation.
+
+\paragraph{iv.} The relation $\leq_H$ over P, the set of all people, is not a partial order. To show that this is the case, we show that one of the defining properties of partial orders, antisymmetry, does not hold for the relation $\leq_H$. For a relation to be antisymmetric, it must be the case that:
+$$\forall a \in A.\ \forall b \in A.\ (aRb \wedge bRa \rightarrow a=b).$$
+Stated in plain English, this says, ``If $a$ is related to $b$ and $b$ is related back to $a$, then $a = b."$ However, we know that this is not the case. There could exist two distinct people, person $p$ and person $q$, where person $p$ is the same height as person $q$. In other words:
+$$\exists p \in P.\ \exists q \in P.\ (p \leq_H q \wedge q \leq_H p \wedge p \neq q)$$
+This contradicts the property of antisymmetry; we have shown $P \wedge \neg Q$, negating the implication. Because the relation $\leq_H$ is not antisymmetric, we know that it is not a partial order.
+
+\section*{Problem Seven: Meet Semilattices: Marty}
 
 \paragraph{i.} 
 \paragraph{ii.}
@@ -153,9 +178,11 @@ We have shown that when we assume the antecendent, the consequent is true. This 
 \paragraph{iv.}
 \paragraph{v.}
 
-\section*{Problem Eight: Chains and Antichains}
+\section*{Problem Eight: Chains and Antichains: Katie}
 
-\paragraph{i.}
+\paragraph{i.} The longest chain in the partial order of the $\subeq$ relation over the set $\wq(\{a, b, c\})$ has a length of 4. An example of such a chain:
+$$\emptyset \subeq \{a\} \subeq \{a, b\} \subeq \{a, b, c\}$$
+
 \paragraph{ii.}
 \paragraph{iii.}
 \paragraph{iv.}
