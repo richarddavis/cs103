@@ -96,7 +96,11 @@ For our inductive hypothesis, assume that $P(k)$ holds for some nonzero $k$. We 
 
 
 \section*{Problem Three: Understanding Diagonalization: Richard}
+<<<<<<< HEAD
 I think in both cases the diagonal set is .
+=======
+I think in both cases the diagonal set is $\{\mathbb{N}\}$.
+>>>>>>> 44cb39ec80de054f818cd37e7e90470e0a97f083
 
 \paragraph{i.} 
 \paragraph{ii.}
@@ -120,7 +124,7 @@ In a 3 x 9 grid there are three dots in each column. Since there are only two co
 \includegraphics[width=.8\linewidth]{Slide2.jpg}
 \end{minipage}
 
-Since there are 9 columns, and 8 possible column formations, one formation must be repeated due to the pigeonhole principle. As shown earlier, this repeated column will form a rectangle with it's duplicate because both columns will have at least two colored points in the same location. Therefore, a 3 x 9 grid must contain a rectangle with four points of the same color. 
+Since there are 9 columns, and 8 possible column formations, one formation must be repeated due to the pigeonhole principle. As shown earlier, this repeated column will form a rectangle with it's duplicate because both columns will have at least two colored points in the same location(either top-bottom, top-middle, or middle-bottom). Therefore, a 3 x 9 grid must contain a rectangle with four points of the same color. 
 \end{proof}
 
 \pagebreak
@@ -155,18 +159,21 @@ This contradicts the property of antisymmetry; we have shown $P \wedge \neg Q$, 
 
 \section*{Problem Seven: Meet Semilattices: Marty}
 
-\paragraph{i.} 
-\paragraph{ii.}
+\paragraph{i.} The relation is $<$. If the minimum of (x,y) is always x, then x must be less than y in all cases. 
+\paragraph{ii.} The relation is $\subseteq$. For the intersection of x and y to equal x, x must be a subset of y. In a subset relation all elements in x are also present in y, therefore any intersection will equal the entirety of x. 
 \paragraph{iii.} 
+To prove that relation $\le_S$ is a partial order over D, we must show that it is reflexive, transitive, and antisymmetric.\\
+ 
 \begin{thm} The relation $\le_S$ is reflexive. \end{thm}
 \begin{proof} 
+A relation is reflexive if  $\forall a \in A. \> aRa.$  In this case we must show that for $\forall x \in D. \ (x \wedge x$ is true). To prove this we know $x \wedge x = x$. $x \wedge x$ can be replaced with x according to the idempotent property. We are then left with $x = x$, therefore $x \wedge x$ is true and the relation $\le_S$ is reflexive.
 \end{proof}
 
 \begin{thm} The relation $\le_S$ is transitive. \end{thm}
 \begin{proof} A relation is transitive when the following holds: $\forall a \in A .\ \forall b \in A .\ \forall c \in A .\ (aRb \wedge bRc \rightarrow aRc)$. In this case, we want to show that $\forall x \in D .\ \forall y \in D .\ \forall z \in D .\ (x \le_S y \wedge y \le_S z \rightarrow x \le_S z)$. To prove this, we assume that the antecedent is true and show that the consequent must be true as well. We have that both $x \le_S y$ and $y \le_S z$. From the definition of $\le_S$ we know that $x \wedge y = x$ and $y \wedge z = y$. Combining these gives us $x \wedge y \wedge z = x$. 
 \begin{align*}
-x \wedge y \wedge z &= x
-x \wedge z &= z
+x \wedge y \wedge z &= x \\
+x \wedge z &= x
 \end{align*}
 We have shown that when we assume the antecendent, the consequent is true. This proves that $\le_S$ is transitive.
 \end{proof}
@@ -176,14 +183,62 @@ We have shown that when we assume the antecendent, the consequent is true. This 
 \end{proof}
 
 \paragraph{iv.}
+\begin{thm} 
+For all x,y $\in$D: $x \wedge y \le_S x$
+\end{thm} 
+\begin{proof}
+$x \wedge y \le_S x$ can also be written as $(x \wedge y) \wedge x = x \wedge y$. This equation can then be rearranged using the following properties of $\wedge$:
+\begin{align*}
+x \wedge (y \wedge x) = x \wedge y \quad Associative\\	
+x \wedge (x \wedge y) = x \wedge y \quad Communative\\
+(x \wedge x) \wedge y = x \wedge y \quad Associative\\
+ x \wedge y = x \wedge y	\quad Idempotent		
+\end{align*}
+By definition of equality this statement is true, completing the theorem. 
+\end{proof} 
+\begin{thm} 
+For all x,y $\in$D:  $x \wedge y \le_S y$
+\end{thm} 
+\begin{proof}
+$x \wedge y \le_S y$ can also be written as $(x \wedge y) \wedge y = x \wedge y$. This equation can then be rearranged using the following properties of $\wedge$:
+\begin{align*}
+x \wedge (y \wedge y) = x \wedge y \quad Associative\\	
+x \wedge y = x \wedge y \quad Idempotent	
+\end{align*}
+By definition of equality this statement is true, completing the theorem. 
+\end{proof}
+
 \paragraph{v.}
+\begin{thm} 
+For all x,y,z $\in$D. If $z \le_S x$ and  $z \le_S y$ then $z \le_S x \wedge y$.
+\end{thm}
+\begin{proof}
+If $z \le_S x$ , then:
+
+\begin{align*}
+z \wedge x = z.	\quad Equation \>1
+\end{align*}
+
+Also if $z \le_S y$, then:
+\begin{align*}
+z \wedge y = z \quad Equation \> 2
+\end{align*}
+We will then plug the value for z in equation 2 into equation 1. Which results in $(z \wedge y) \wedge x = z$ This equation can be rearranged using the following properties of $\wedge$:
+\begin{align*}
+z \wedge (y \wedge x) = z \quad Associative\\ 
+z \wedge (x \wedge y) = z \quad Communative
+\end{align*}
+This final equation can be written as $z \le_S x \wedge y$ using the definition of $\le_S$ . We have reached are desired result, completing the theorem. 
+\end{proof}
 
 \section*{Problem Eight: Chains and Antichains: Katie}
 
-\paragraph{i.} The longest chain in the partial order of the $\subeq$ relation over the set $\wq(\{a, b, c\})$ has a length of 4. An example of such a chain:
-$$\emptyset \subeq \{a\} \subeq \{a, b\} \subeq \{a, b, c\}$$
+\paragraph{i.} The longest chain in the partial order of the $\subseteq$ relation over the set $\wp(\{a, b, c\})$ has a length of 4. An example of such a chain:
+$$\emptyset \subseteq \{a\} \subseteq \{a, b\} \subseteq \{a, b, c\}$$
 
-\paragraph{ii.}
+\paragraph{ii.} The largest antichain in the partial order of the $\subseteq$ relation over the set $\wp(\{a, b, c\})$ has a cardinality of 3. An example of such an antichain:
+$$\{\{a\}, \{b\}, \{c\}\}$$
+
 \paragraph{iii.}
 \paragraph{iv.}
 
