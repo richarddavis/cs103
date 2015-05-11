@@ -1,0 +1,137 @@
+%Modified from a template provided by Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+\usepackage{pdfsync}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[makeroom]{cancel}
+	% packages that allow mathematical formatting
+
+\usepackage{graphicx}
+	% package that allows you to include graphics
+\graphicspath{ {./images/} }
+
+
+\usepackage{subcaption}
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+% package that specifies normal margins
+
+\usepackage[parfill]{parskip}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem{nthm}{Theorem}
+\newtheorem{lem}{Lemma}
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+\title{Problem Set 5}
+
+\author{Katherine Cheng, Richard Davis, Marty Keil}
+
+% \date{Friday April 10, 2015}
+	% Note: when you omit this command, the current date is automatically included
+ 
+\maketitle 
+	% tells latex to follow your header (e.g., title, author) commands.
+
+\section*{Problem One}
+
+\section*{Problem Two}
+
+\section*{Problem Three}
+
+\section*{Problem Four: Powerset of $\Sigma^*$}
+If $\Sigma$ is an alphabet, then $\Sigma^*$ is the set of all strings composed from letters in $\Sigma$. The powerset of $\Sigma^*$ is the set of all $\Sigma^*$'s subsets. In other words, the powerset is the set of all possible languages in the alphabet $\Sigma$. 
+
+\section*{Problem Five: Cardinalities and Concatenations}
+Prove or disprove: if $L$ is a language and $k \ge 1$, then $|L^k| = |L|^k$. (As a special case, the language $L^0$ is defined to be $\{\varepsilon\}$.) 
+
+See slide 5 of Small15.pdf.
+
+A language is defined to be a set of strings over $\Epsilon$. 
+
+I think this can very quickly be shown to be false. Let $L = \{\varepsilon, a, b, c\}$. $|L^2| = |{ab, bc, ac}| = 3$. $|L|^2 = 4^2 = 16$.
+
+\section*{Problem Six: Finite and Cofinite Languages}
+
+\paragraph{i)} I think this can be solved using induction. Take any finite language. Treat it like two concatenated languages. Break these apart and prove (using complete induction) that they are both regular. Their concatenation is also regular. See slide 6 of Small15.pdf.
+
+\paragraph{ii)} Remember that to complement a regular language we represent it as a DFA and flip all the states. This means we can start with a cofinite language, represent it as a DFA, then flip the states and still have a regular language. Then we use the proof from part i) to finish the proof.
+
+\section*{Problem Seven: State Elimination}
+After everything I got $(aa)^*(bb)^*(ba|ab)(aa)^*(bb)^*(ab|ba)(aa)^*(bb)^*$.
+
+\section*{Problem Eight: Derivatives of Regular Languages}
+
+\paragraph{i)} Create a new state with a transition from the start state to that state on a. If there were any states that transitioned on a from the start state copy their entire sub-DFA after the new state. Finally delete all the other states.
+
+\paragraph{ii)} Not sure how to prove this but I am sure it's in the slides somewhere.
+
+\section*{Problem Nine: Why the Extra State?} 
+
+
+
+% \section*{Appendix: Referencing Equations}
+% \begin{equation} \label{eq:divbyzero}
+%   \frac {1} {0}
+% \end{equation}
+
+% This references \ref{eq:divbyzero}.
+
+% \section*{Appendix: Figures in Text}
+% Below are two different ways of placing figures side by side in text. The first method creates two sub-figures within a single figure. The second method creates two separate figures.
+
+% \begin{figure}
+% \centering
+% \begin{minipage}{.5\textwidth}
+%   \centering
+%   \includegraphics[width=.8\linewidth]{hw3_8_1.eps}
+%   \captionof{figure}{A figure}
+%   \label{fig:q8_test1}
+% \end{minipage}%
+% \begin{minipage}{.5\textwidth}
+%   \centering
+%   \includegraphics[width=.8\linewidth]{hw3_8_1.eps}
+%   \captionof{figure}{Another figure}
+%   \label{fig:q8_test2}
+% \end{minipage}
+% \end{figure}
+
+
+% \begin{figure}[h]
+%   \centering
+
+%   \begin{subfigure}[b]{0.3\textwidth}
+%     \includegraphics[width=\textwidth]{hw3_8_1.eps}
+%     \caption{A cycle with length $k+1$}
+%     \label{fig:q8_cycle:a}
+%   \end{subfigure}% 
+%   \qquad
+%   \begin{subfigure}[b]{0.3\textwidth}
+%     \includegraphics[width=\textwidth]{hw3_8_1.eps}
+%     \caption{A cycle with length $k+1$}
+%     \label{fig:q8_cycle:b}
+%   \end{subfigure}%  
+
+%   \caption{Placeholder}
+%   \label{fig:q8}
+% \end{figure}
+
+\end{document}
+	% line of code telling latex that your document is ending. If you leave this out, you'll get an error
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
