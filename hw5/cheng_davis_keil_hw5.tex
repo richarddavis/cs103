@@ -59,6 +59,8 @@ Prove or disprove: if $L$ is a language and $k \ge 1$, then $|L^k| = |L|^k$. (As
 
 See slide 5 of Small15.pdf. A language is defined to be a set of strings over $\Epsilon$. 
 
+This can be proved with a combinatorics argument. There are $|L|$ choices for the first string, $|L|$ choices for the second string, and so on. This means there are $|L|^k$ ways to make a concatenated string. 
+
 \section*{Problem Six: Finite and Cofinite Languages}
 
 \paragraph{i)} I think this can be solved using induction. Take any finite language. Treat it like two concatenated languages. Break these apart and prove (using complete induction) that they are both regular. Their concatenation is also regular. See slide 6 of Small15.pdf.
