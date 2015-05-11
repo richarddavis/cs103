@@ -45,9 +45,9 @@
 \maketitle 
 	% tells latex to follow your header (e.g., title, author) commands.
 
-\section*{Problem One} See DFAs online.
+\section*{Problem One} Richard Davis submitted these.
 
-\section*{Problem Two} See NFAs online.
+\section*{Problem Two} Marty Keil submitted these.
 
 \section*{Problem Three} 
 
@@ -79,18 +79,34 @@ This can be proved with a combinatorics argument. There are $|L|$ choices for th
   \label{fig:7i}
 \end{figure}
 
-\paragraph{ii.} After everything I got $(aa)^*(bb)^*(ba|ab)(aa)^*(bb)^*(ab|ba)(aa)^*(bb)^*$.
+\paragraph{ii.} After everything I got $( (aa|bb) | (ab|ba) (aa|bb)^* (ab|ba))^*$.
 
 \section*{Problem Eight: Derivatives of Regular Languages}
 
-\paragraph{i)} Pick some arbitrary character $k$ that we are taking the derivative of. Take the first transition from the start state using character $k$. Make this the new start state. The end.
+\paragraph{i)} Pick some arbitrary character $k$ that we are taking the derivative of. Take the first transition from the start state using character $k$. Make this the new start state. If there is no transition out of the start state on character $k$, delete the entire DFA.
 
 \Paragraph{ii)} 
 
 \section*{Problem Nine: Why the Extra State?} 
-One of the languages that this does not work for is defined by the regular expression \texttt{a+b}. This can be represented by the NFA that looks like this:
+One of the languages that this does not work for is defined by the regular expression \texttt{a*b}. This can be represented by the NFA that looks like this:
 
+\begin{figure}[h]
+\centering
+  \includegraphics[width=0.45\linewidth]{9i.eps}
+  \caption{NFA for \texttt{a*b}}
+  \label{fig:9i}
+\end{figure}
 
+If we try to make an epsilon transition back to the start state and make that an accepting state, we end up with the following NFA.
+
+\begin{figure}[h]
+\centering
+  \includegraphics[width=0.45\linewidth]{9ii.eps}
+  \caption{Wrong NFA for \texttt{a*b}}
+  \label{fig:9ii}
+\end{figure}
+
+This ends up accepting, for example, the string ``a,'' which is not a part of the language.
 
 % \Section*{Appendix: Referencing Equations}
 % \begin{equation} \label{eq:divbyzero}
