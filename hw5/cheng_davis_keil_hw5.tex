@@ -45,16 +45,16 @@
 \maketitle 
 	% tells latex to follow your header (e.g., title, author) commands.
 
-\section*{Problem One} Richard Davis submitted these.
+\section*{Problem One} Richard Davis submitted these (suid: rldavis).
 
-\section*{Problem Two} Richard Davis submitted these.
+\section*{Problem Two} Richard Davis submitted these (suid: rldavis).
 
 \section*{Problem Three} 
 
-\paragraph{i.}
-\paragraph{ii.}
-\paragraph{iii.}
-\paragraph{iv.} epsilon | a | ( b | aa | ab(a|b) ) (a|b)*
+\paragraph{i.} \texttt{a*b*}
+\paragraph{ii.} \texttt{b?(ab?)*}
+\paragraph{iii.} \texttt{((yd)*|(dy)*|(yyd(yd)*d)*|(ddy(dy)*y)*)*}
+\paragraph{iv.} \texttt{epsilon | a | ( b | aa | ab(a|b) ) (a|b)*}
 
 \section*{Problem Four: Powerset of $\Sigma^*$}
 If $\Sigma$ is an alphabet, then $\Sigma^*$ is the set of all strings composed from letters in $\Sigma$. The powerset of $\Sigma^*$ is the set of all $\Sigma^*$'s subsets. In other words, the powerset is the set of all possible languages in the alphabet $\Sigma$. 
@@ -64,9 +64,11 @@ Prove or disprove: if $L$ is a language and $k \ge 1$, then $|L^k| = |L|^k$. (As
 
 This can be proved with a combinatorics argument. There are $|L|$ choices for the first string, $|L|$ choices for the second string, and so on. This means there are $|L|^k$ ways to make a concatenated string. 
 
+
+
 \section*{Problem Six: Finite and Cofinite Languages}
 
-\paragraph{i)} I think this can be solved using induction. Take any finite language. Treat it like two concatenated languages. Break these apart and prove (using complete induction) that they are both regular. Their concatenation is also regular. See slide 6 of Small15.pdf.
+\paragraph{i)} 
 
 \paragraph{ii)} Remember that to complement a regular language we represent it as a DFA and flip all the states. This means we can start with a cofinite language, represent it as a DFA, then flip the states and still have a regular language. Then we use the proof from part i) to finish the proof.
 
@@ -81,7 +83,7 @@ This can be proved with a combinatorics argument. There are $|L|$ choices for th
   \label{fig:7i}
 \end{figure}
 
-\paragraph{ii.} After everything I got $( (aa|bb) | (ab|ba) (aa|bb)^* (ab|ba))^*$.
+\paragraph{ii.} We got $( (aa|bb) | (ab|ba) (aa|bb)^{*} (ab|ba))^{*}$.
 
 \section*{Problem Eight: Derivatives of Regular Languages}
 
