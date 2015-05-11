@@ -68,6 +68,15 @@ This can be proved with a combinatorics argument. There are $|L|$ choices for th
 
 \paragraph{i)} I think this can be solved using induction. Take any finite language. Treat it like two concatenated languages. Break these apart and prove (using complete induction) that they are both regular. Their concatenation is also regular. See slide 6 of Small15.pdf.
 
+Assume $L$ is finite. $L$ is a language over $\Sigma$, which means that $L$ is a set of strings over $\Sigma$. Since $L$ is finite, we know that $L$ is a finite set of strings. Let $k$ be $|L|$, the number of strings in $L$.
+
+We can create an NFA $N$ comprised of a start state, and $k$ $\epsilon$ transitions from the start state to $k$ distinct states. Each of these $k$ states could then point to a set of states and transitions corresponding to one string in $L$, where the final state is an accepting state. Thus, each string in $L$ would be in the set of strings that N accepts. This means that each string in $L$ is represented in the language of $N$, $L(N)$.
+
+We know from lecture that a language $L$ is regular iff there is some NFA $N$ such that $L(N) = L$.
+
+We have shown that there exists an NFA $N$ such that $L(N) = L$. Therefore, $L$ is a regular language.\\
+
+
 \paragraph{ii)} Remember that to complement a regular language we represent it as a DFA and flip all the states. This means we can start with a cofinite language, represent it as a DFA, then flip the states and still have a regular language. Then we use the proof from part i) to finish the proof.
 
 \section*{Problem Seven: State Elimination}
