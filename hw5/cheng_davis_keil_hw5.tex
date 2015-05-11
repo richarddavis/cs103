@@ -60,11 +60,15 @@
 If $\Sigma$ is an alphabet, then $\Sigma^*$ is the set of all strings composed from letters in $\Sigma$. The powerset of $\Sigma^*$ is the set of all $\Sigma^*$'s subsets. In other words, the powerset is the set of all possible languages in the alphabet $\Sigma$. 
 
 \section*{Problem Five: Cardinalities and Concatenations}
-Prove or disprove: if $L$ is a language and $k \ge 1$, then $|L^k| = |L|^k$. (As a special case, the language $L^0$ is defined to be $\{\varepsilon\}$.) 
+Prove or disprove: if $L$ is a language and $k \ge 1$, then $|L^k| = |L|^k$. (As a special case, the language $L^0$ is defined to be $\{\varepsilon\}$.)
+
+\begin{thm}
+If $L$ is a language and $k \ge 1$, then $|L^k| = |L|^k$.
+\end{thm}
+
+The definition of language concatenation is: If $L_1$ and $L_2$ are languages over $\Sigma$, the concatention of $L_1$ and $L_2$ is the language $L_1L_2$ defined as $L_1L_2 = \{ wx \ | \ w \in L_1 \text{ and } x \in L_2 \}$. In the k-fold concatenation of a language, this means that 
 
 This can be proved with a combinatorics argument. There are $|L|$ choices for the first string, $|L|$ choices for the second string, and so on. This means there are $|L|^k$ ways to make a concatenated string. 
-
-
 
 \section*{Problem Six: Finite and Cofinite Languages}
 
@@ -76,8 +80,7 @@ We can create an NFA $N$ comprised of a start state, and $k$ $\epsilon$ transiti
 
 We know from lecture that a language $L$ is regular iff there is some NFA $N$ such that $L(N) = L$.
 
-We have shown that there exists an NFA $N$ such that $L(N) = L$. Therefore, $L$ is a regular language.\\
-
+We have shown that there exists an NFA $N$ such that $L(N) = L$. Therefore, $L$ is a regular language.
 
 \paragraph{ii)} Remember that to complement a regular language we represent it as a DFA and flip all the states. This means we can start with a cofinite language, represent it as a DFA, then flip the states and still have a regular language. Then we use the proof from part i) to finish the proof.
 
@@ -96,9 +99,9 @@ We have shown that there exists an NFA $N$ such that $L(N) = L$. Therefore, $L$ 
 
 \section*{Problem Eight: Derivatives of Regular Languages}
 
-\paragraph{i)} Pick some arbitrary character $k$ that we are taking the derivative of. Take the first transition from the start state using character $k$. Make this the new start state. If there is no transition out of the start state on character $k$, delete the entire DFA.
+\paragraph{i)} Pick some arbitrary character $k$ that we are taking the derivative of. Take the first transition from the start state $q_s$ using character $k$ to state $q_0$. If the state arrived at $q_0$ is not the DFA's start state, make $q_0$ the new start state. Otherwise keep the start state the same. 
 
-\Paragraph{ii)} 
+\paragraph{ii)} 
 
 \section*{Problem Nine: Why the Extra State?} 
 One of the languages that this does not work for is defined by the regular expression \texttt{a*b}. This can be represented by the NFA that looks like this:
