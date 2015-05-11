@@ -57,11 +57,7 @@ If $\Sigma$ is an alphabet, then $\Sigma^*$ is the set of all strings composed f
 \section*{Problem Five: Cardinalities and Concatenations}
 Prove or disprove: if $L$ is a language and $k \ge 1$, then $|L^k| = |L|^k$. (As a special case, the language $L^0$ is defined to be $\{\varepsilon\}$.) 
 
-See slide 5 of Small15.pdf.
-
-A language is defined to be a set of strings over $\Epsilon$. 
-
-I think this can very quickly be shown to be false. Let $L = \{\varepsilon, a, b, c\}$. $|L^2| = |{ab, bc, ac}| = 3$. $|L|^2 = 4^2 = 16$.
+See slide 5 of Small15.pdf. A language is defined to be a set of strings over $\Epsilon$. 
 
 \section*{Problem Six: Finite and Cofinite Languages}
 
@@ -79,6 +75,8 @@ After everything I got $(aa)^*(bb)^*(ba|ab)(aa)^*(bb)^*(ab|ba)(aa)^*(bb)^*$.
 \paragraph{ii)} Not sure how to prove this but I am sure it's in the slides somewhere.
 
 \section*{Problem Nine: Why the Extra State?} 
+One of the languages that this does not work for is defined by the regular expression \texttt{a+b}. This can be represented by the NFA that looks like this:
+
 
 
 
