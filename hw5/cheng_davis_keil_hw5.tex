@@ -45,9 +45,9 @@
 \maketitle 
 	% tells latex to follow your header (e.g., title, author) commands.
 
-\section*{Problem One}
+\section*{Problem One} See DFAs online.
 
-\section*{Problem Two}
+\section*{Problem Two} See NFAs online.
 
 \section*{Problem Three}
 
@@ -56,8 +56,6 @@ If $\Sigma$ is an alphabet, then $\Sigma^*$ is the set of all strings composed f
 
 \section*{Problem Five: Cardinalities and Concatenations}
 Prove or disprove: if $L$ is a language and $k \ge 1$, then $|L^k| = |L|^k$. (As a special case, the language $L^0$ is defined to be $\{\varepsilon\}$.) 
-
-See slide 5 of Small15.pdf. A language is defined to be a set of strings over $\Epsilon$. 
 
 This can be proved with a combinatorics argument. There are $|L|$ choices for the first string, $|L|$ choices for the second string, and so on. This means there are $|L|^k$ ways to make a concatenated string. 
 
@@ -68,19 +66,19 @@ This can be proved with a combinatorics argument. There are $|L|$ choices for th
 \paragraph{ii)} Remember that to complement a regular language we represent it as a DFA and flip all the states. This means we can start with a cofinite language, represent it as a DFA, then flip the states and still have a regular language. Then we use the proof from part i) to finish the proof.
 
 \section*{Problem Seven: State Elimination}
-After everything I got $(aa)^*(bb)^*(ba|ab)(aa)^*(bb)^*(ab|ba)(aa)^*(bb)^*$.
+
+\paragraph{i.} 
+
+\paragraph{ii.} After everything I got $(aa)^*(bb)^*(ba|ab)(aa)^*(bb)^*(ab|ba)(aa)^*(bb)^*$.
 
 \section*{Problem Eight: Derivatives of Regular Languages}
 
-\paragraph{i)} Create a new state with a transition from the start state to that state on a. If there were any states that transitioned on a from the start state copy their entire sub-DFA after the new state. Finally delete all the other states.
+\paragraph{i)} Pick some arbitrary character $k$ that we are taking the derivative of. Take the first transition from the start state using character $k$. Make this the new start state. The end.
 
-\paragraph{ii)} Not sure how to prove this but I am sure it's in the slides somewhere.
+\Paragraph{ii)} 
 
 \section*{Problem Nine: Why the Extra State?} 
 One of the languages that this does not work for is defined by the regular expression \texttt{a+b}. This can be represented by the NFA that looks like this:
-
-
-
 
 % \section*{Appendix: Referencing Equations}
 % \begin{equation} \label{eq:divbyzero}
