@@ -1,0 +1,131 @@
+%Modified from a template provided by Jennifer Pan, August 2011
+
+\documentclass[10pt,letter]{article}
+	% basic article document class
+	% use percent signs to make comments to yourself -- they will not show up.
+\usepackage{pdfsync}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ mathrsfs }
+	% packages that allow mathematical formatting
+
+\usepackage{graphicx}
+	% package that allows you to include graphics
+
+\usepackage{setspace}
+	% package that allows you to change spacing
+
+\onehalfspacing
+	% text become 1.5 spaced
+
+\usepackage{fullpage}
+% package that specifies normal margins
+
+\usepackage[parfill]{parskip}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem{nthm}{Theorem}
+
+\begin{document}
+	% line of code telling latex that your document is beginning
+
+\title{Problem Set 6: CS103}
+
+\author{Marty Keil}
+
+% \date{Friday April 10, 2015}
+	% Note: when you omit this command, the current date is automatically included
+ 
+\maketitle
+	% tells latex to follow your header (e.g., title, author) commands.
+
+\section*{Problem 1: The Myhill-Nerode Theorem}
+\paragraph{i}
+Proof: One can create a DFA for this example. Show DFA. If this is the DFA, then must be a regular language. 
+
+\paragraph{ii}
+Every odd number distinct string is distinct from any even length string over the language. Since there are infinite number of odd length strings and even number strings, and therefore even/odd pairs, then there must be infinite distinct pairs over the set. 
+
+\paragraph{iii}
+If it is an infinite set then you are going to have any even element strings not be distinct, or any odd element pairs not be distinct. 
+
+\section*{Problem 2: Balanced Parentheses}
+\paragraph{i}
+\thm The Language L = ( $w \in ?*$ | w is a string of balanced parentheses ) is not regular. 
+
+\proof Let $S = (,)*.$ This set is infinite because it contains one parentheses for each natural number. There is some infinite subset S which is the $(^n$. One can add w (a closed parentheses equal to the number of either string x open parentheses or string y open parentheses) and one is in the language and another is not in the language.  Consequently X is distinguishable from y. Therefore, by the Myhill-Nerode theorem, L is not regular. 
+
+\paragraph{ii}
+Online
+
+\paragraph{iii}
+S ? (A | ?
+A ? )S | (B
+B ? )A | (C
+C ? )B | (D
+D ? )C
+
+\section*{Problem 3: Subsets of Regular Languages}
+Let $\Sigma = \{a, b\}$ and let $L = \{ w \in \Sigma^* \ | \ w \text{ has the same number of a's and b's} \}$. 
+\Paragraph{i} 
+
+\proof Sigma star is all possible combination you can make. $a^n$ is the subset of these strings, which is infinite. For any pair you wind a w, in which  X and y are distinguishable. Therefore, by the Myhill-Nerode theorem, L is not regular. 
+
+\paragraph{ii}
+(ab)*. You can write a DFA for it and it is infinite. 
+
+\paragraph{iii}
+$A^nB^n$ is irregular which means that every pair is pairwise distinguishable. So any subset of it must also be pairwise distinguishable. So since this subset is infinite and pairwise distinguishable, it is a irregular language. However, since this contradicts the the assumption that both are regular. 
+
+\section*{Problem 4: State Lower Bounds}
+\paragraph{i}
+let k be the number of strings in Set S. Since every string is distinguishable from one another, then each must have a different state. Therefore, since you must have the same number of states as strings, and the number of strings are the number of elements in L, then the number states is equal to the cardinality of L. 
+
+\paragraph{ii}
+Only 4 distinguishable states in the DFA. Take the set {a,aa,aaa,aaaa} these are all distinguishable in the set. For one of the strings you can add the w that adds up to 6, then other element will not be in the language. For example take a and aa. If w = aaaaa, then a will be accepted by the language but aa will not. No elements in the set have a cardinality differences of 4, so they are all distinguishable. 
+
+\section*{Problem 5: Closure Properties Revisited}
+\paragraph{i}
+Proof. if and only if statement. Therefore if its irregular and regular this cannot be the case. Any tie the complement or the language itself is regular, the other must be regular. So anytime the language is irregular, then the complement must also be regular. 
+
+\paragraph{ii}
+Disproof, can have single accepts state f l2 is the complement of L1. Now the union is accepts any string, so is just one accepting state. 
+
+\paragraph{iii}
+Disproof by existence. For ab, aabb, all are individual strings, when infinite, becomes an irregular language. 
+
+\section*{Problem 6: Designing CFGs}
+\paragraph{i}
+S ? ? | XaSaX
+X ? ? | bX | cX | aX
+
+\paragraph{ii}
+I spent way too long on this. But it is wrong...
+S ? ? | XaSbY | bSa
+X ? ? | aXb | Xa
+Y ? ? | aYb | Yb
+
+S ? baX | ZabY | ?
+X ? Xa | XbaY | bbX | abW | ?
+Z ? Zab | Za | ?
+Y ? bY | ?
+W ? ab
+
+\paragraph{iii}
+
+
+\paragraph{vi}
+Start symbol: S
+S ? aSXXX | bXXX | SXXXX
+X ? a | b
+
+\paragraph{v}
+S ? ydS | Sdy | dSy | ySd | ZySyZ | XdSdX | ?
+Z ? d
+X ? y
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

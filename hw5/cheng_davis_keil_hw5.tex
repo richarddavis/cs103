@@ -9,6 +9,7 @@
 \usepackage{amsthm}
 \usepackage[makeroom]{cancel}
 	% packages that allow mathematical formatting
+\usepackage{mathrsfs}
 
 \usepackage{graphicx}
 	% package that allows you to include graphics
@@ -66,13 +67,13 @@ Prove or disprove: if $L$ is a language and $k \ge 1$, then $|L^k| = |L|^k$. (As
 If $L$ is a language and $k \ge 1$, then $|L^k| = |L|^k$.
 \end{thm}
 
-The definition of language concatenation is: If $L_1$ and $L_2$ are languages over $\Sigma$, the concatention of $L_1$ and $L_2$ is the language $L_1L_2$ defined as $L_1L_2 = \{ wx \ | \ w \in L_1 \text{ and } x \in L_2 \}$. In the k-fold concatenation of a language, this means that 
+The definition of language concatenation is: If $L_1$ and $L_2$ are languages over $\Sigma$, the concatention of $L_1$ and $L_2$ is the language $L_1L_2$ defined as $L_1L_2 = \{ wx \ | \ w \in L_1 \text{ and } x \in L_2 \}$. From this it follows that the k-fold concatenation of $L$ can be represented by every possible k-tuple of the strings in the language L concatenated together.
 
-This can be proved with a combinatorics argument. There are $|L|$ choices for the first string, $|L|$ choices for the second string, and so on. This means there are $|L|^k$ ways to make a concatenated string. 
+We can construct the k-fold concatenation of some language $L$ by finding every possible k-combination of strings in $L$. This is an ordered samples with replacement problem. There are $|L|$ possible choices for the first string, $|L|$ possible choices for the second string, and so on until the kth string. In other words, there are $|L|^k$ possible k-combinations of the strings in $L$. 
 
 \section*{Problem Six: Finite and Cofinite Languages}
 
-\paragraph{i)} 
+\paragraph{i.} 
 
 Assume $L$ is finite. $L$ is a language over $\Sigma$, which means that $L$ is a set of strings over $\Sigma$. Since $L$ is finite, we know that $L$ is a finite set of strings. Let $k$ be $|L|$, the number of strings in $L$.
 
@@ -82,7 +83,7 @@ We know from lecture that a language $L$ is regular iff there is some NFA $N$ su
 
 We have shown that there exists an NFA $N$ such that $L(N) = L$. Therefore, $L$ is a regular language.
 
-\paragraph{ii)} Remember that to complement a regular language we represent it as a DFA and flip all the states. This means we can start with a cofinite language, represent it as a DFA, then flip the states and still have a regular language. Then we use the proof from part i) to finish the proof.
+\paragraph{ii.} Any cofinite language has a complement that is finite. If the complement is finite it is a regular language and has a DFA , as shown in part i. This DFA has a finite number states, some of which are accepting states. If the cofinite language is a complement of this DFA then a new DFA representing the cofiinite language can always be formed as shown in lecture.  In this new DFA all accepting states are reversed for the finite DFA complement. Therefore the co-finite is a regular language, since there exists a DFA D such that $\mathscr{L}$ (D) = L . 
 
 \section*{Problem Seven: State Elimination}
 
@@ -99,9 +100,19 @@ We have shown that there exists an NFA $N$ such that $L(N) = L$. Therefore, $L$ 
 
 \section*{Problem Eight: Derivatives of Regular Languages}
 
-\paragraph{i)} Pick some arbitrary character $k$ that we are taking the derivative of. Take the first transition from the start state $q_s$ using character $k$ to state $q_0$. If the state arrived at $q_0$ is not the DFA's start state, make $q_0$ the new start state. Otherwise keep the start state the same. 
+\paragraph{i.} We are taking the derivative of $a$ over the language $L$. To construct a DFA for the derivative, first create a new state $q_{ns}$ and make this the new start state for the DFA. Second, take the first transition from the old start state $q_s$ using character $a$ to some state we will call $q_0$. If there is no transition on a, delete the entire DFA. Otherwise, follow the transition to the next state that we will call $q_0$. This state $q_0$ may or may not be $q_s$. This is no matter. If $q_0$ exists, create a transition from the new start state $q_{ns}$ to the state $q_0$. This creates a new DFA, DFA$_{new}$, that only accepts strings in the language that start with a. To finish DFA$_{new}$, make $q_0$ the new start state. 
 
-\paragraph{ii)} 
+\paragraph{ii.} 
+\begin{thm} DFA$_{new}$ accepts a string $w \in \Sigma^* \text{ if and only if } w \in \partial_a L$. 
+\end{thm}
+
+\begin{proof} To prove this, we must first prove that if DFA$_{new}$ accepts a string $w \in \Sigma^*$ then $w \in \partial_a L$. Second, we must prove that if $w \in \partial_a L$ then DFA$_{new}$ accepts it.
+
+We prove the first statement by contradiction. Assume for the sake of contradiction that DFA$_{new}$ accepts some string $w \in \Sigma^*$ and $w \not \in \partial_a L$. If $w \not \in \partial_a L$ then by definition the original string $w$ did not start with the letter a. However, DFA$_{new}$ was constructed in a way so that only strings that originally had at least one letter a at the front could be accepted. This is a contradiction so our assumption must be false.
+
+We prove the second statement by contradiction as well. Assume for the sake of contradiction that $w \in \partial_a L$ and DFA$_{new}$ does not accept it. By definition, if $w \in partial_a L$ this means that the original string must have started with at least one $a$. However, DFA$_{new}$ was constructed so that it can only accept strings that originally started with at least one $a$. This is a contradiction so our assumption must be false.
+
+Thus we prove that DFA$_{new}$ accepts a string $w \in \Sigma^* \text{ if and only if } w \in \partial_a L$. 
 
 \section*{Problem Nine: Why the Extra State?} 
 One of the languages that this does not work for is defined by the regular expression \texttt{a*b}. This can be represented by the NFA that looks like this:
