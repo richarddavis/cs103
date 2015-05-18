@@ -12,6 +12,7 @@
 
 \usepackage{graphicx}
 	% package that allows you to include graphics
+\graphicspath{ {./images/} }
 
 \usepackage{setspace}
 	% package that allows you to change spacing
@@ -23,6 +24,8 @@
 % package that specifies normal margins
 
 \usepackage[parfill]{parskip}
+
+\usepackage{cancel}
 
 \newtheorem*{thm}{Theorem}
 \newtheorem{nthm}{Theorem}
@@ -42,13 +45,34 @@
 
 \section*{Problem 1: The Myhill-Nerode Theorem}
 \paragraph{i}
-Proof: One can create a DFA for this example. Show DFA. If this is the DFA, then must be a regular language. 
+\begin{thm} L is a regular language, where $\Sigma = \{a,b\}$ and $L=\{w \in \Sigma^* |\ |w| \text{ is even}\}$\end{thm}
+\begin{proof}
+
+Let $\Sigma = \{a,b\}$ and let $L=\{w \in \Sigma^* |\ |w| \text{ is even}\}$. We can design DFA for this language:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{hw6_1i.png}
+    \caption{DFA for the language $L=\{w \in \Sigma^* |\ |w| \text{ is even}\}$ where $\Sigma = \{a,b\}$}
+    \label{fig:q1i}
+\end{figure}
+
+As defined in lecture, we know that a language $L$ is a regular language if there exists a DFA $D$ such that $\mathscr{L}(D) =L$. Thus, L must be a regular language.
+\end{proof}
 
 \paragraph{ii}
-Every odd number distinct string is distinct from any even length string over the language. Since there are infinite number of odd length strings and even number strings, and therefore even/odd pairs, then there must be infinite distinct pairs over the set. 
+\begin{thm} There is an infinite set $S \subseteq \Sigma^*$ where there are infinitely many pairs of distinct strings $x, y \in S$ such that $x\ \cancel{\equiv}_L\ y$ \end{thm}
+
+\begin{proof}
+Let $S= \{a^n\ |\ n \in \mathbb{N}\}$. This set is infinite because it contains one string for each natural number. Since $a^n$ is the string $a$ concatenated to itself $n$ times, we know the length of $a^n$ is $n$. Now, consider any pair of strings $a^n, a^{n+1} \in S$. The lengths of these strings are $n$ and $n+1$ respectively. By the definition of even and odd numbers, if $n$ is even, $n+1$ must be odd. If $n$ is odd, $n+1$ must be even. In either case, one string in the pair must be even-length and in the language $L$, and the other odd-length and not in the language $L$, meaning that $a^n\ \cancel{\equiv}_L\ a^{n+1}$. There are infinite such pairs, thus, S has infinitely many pairs of distinct strings.
+\end{proof}
 
 \paragraph{iii}
-If it is an infinite set then you are going to have any even element strings not be distinct, or any odd element pairs not be distinct. 
+\begin{thm} There is no infinite set $S \subseteq \Sigma^*$ where all pairs of distinct strings $x,y\in S$ satisfy $x\ \cancel{\equiv}_L\ y$ \end{thm}
+
+\begin{proof}
+By contradiction. Suppose there is an infinite set $S \subseteq \Sigma^*$ where all pairs of distinct strings $x,y \in S$ satisfy $x\ \cancel{\equiv}_L\ y$. We know that every string must be of even or odd length. If we take any three distinct strings from the infinite set S, by the pigeonhole principle, we know that two of these strings are of odd length, or two of these strings are of even length. Thus, we have found a pair of distinct strings where $x \equiv_L y$. We have reached a contradiction, so our original assumption must be false. Thus, there is no infinite set $S \subseteq \Sigma^*$ where all pairs of distinct strings $x,y\in S$ satisfy $x\ \cancel{\equiv}_L\ y$
+\end{proof}
 
 \section*{Problem 2: Balanced Parentheses}
 \paragraph{i}
@@ -80,10 +104,27 @@ $A^nB^n$ is irregular which means that every pair is pairwise distinguishable. S
 
 \section*{Problem 4: State Lower Bounds}
 \paragraph{i}
-let k be the number of strings in Set S. Since every string is distinguishable from one another, then each must have a different state. Therefore, since you must have the same number of states as strings, and the number of strings are the number of elements in L, then the number states is equal to the cardinality of L. 
+\begin{thm}Any DFA for L, where L is a language over $\Sigma$ and there's a finite set S such that any two distinct strings $x,y\in S$ are distinguishable relative to L, must have at least $|S|$ states. \end{thm}
+
+\begin{proof} Let the number of strings in set S, $|S| = k$. Since all pairs of distinct strings x and y are pairwise distinguishable relative to L, by the definition of distinguishability discussed in lecture, any DFA for L must end in different states when run on inputs x and y. If every input string leads the DFA for L to end in a different state from every other string, each input string must lead the DFA to a unique state. Thus, if there are k strings in set S, there are at least k states in the DFA for L. Substituting $|S|$ back in for k, this means that any DFA for L must have at least $|S|$ states.
+\end{proof}
 
 \paragraph{ii}
-Only 4 distinguishable states in the DFA. Take the set {a,aa,aaa,aaaa} these are all distinguishable in the set. For one of the strings you can add the w that adds up to 6, then other element will not be in the language. For example take a and aa. If w = aaaaa, then a will be accepted by the language but aa will not. No elements in the set have a cardinality differences of 4, so they are all distinguishable. 
+\begin{thm} The following DFA is the smallest possible DFA for L, where L is a language over $\Sigma = \{a,b\}$ and $L=\{w \in \Sigma^*\ |\ |w| \equiv_4 2\}$.\end{thm}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{hw6_4ii.png}
+    \caption{DFA for the language $L=\{w \in \Sigma^*\ |\ |w| \equiv_4 2\}$ where $\Sigma = \{a,b\}$}
+    \label{fig:q4ii}
+\end{figure}
+
+\begin{proof} Assume L is a language over $\Sigma = \{a,b\}$ and $L=\{w \in \Sigma^*\ |\ |w| \equiv_4 2\}$. We will show that the DFA modeled here is the smallest possible DFA for L, the measure of ``smallest" being the number of states in the DFA (which, in this DFA, is 4 states). 
+
+Take the finite set, $S = \{a^1, a^2, a^3, a^4\}$. We can take any pair of strings $a^n, a^m \in S$ and add a string w to each, where $w = a^{6-n}$. Adding w to these strings will lead exactly one string, $a^n + w = a^n+a^{6-n} = a^6$, to be in L ($a^6 \equiv_4 2$), and the other not to be in L. Thus, as defined in lecture, the strings $a^n, a^m \in S$ are distinguishable relative to L. Since this is true of any pair of strings in S, the strings in this finite set are all pairwise distinguishable relative to L.
+
+By our proof in Part i of this problem, since we have shown there is a finite set S such that all strings in the set are pairwise distinguishable relative to L, there must be at least $|S|$ states in the DFA for L. The cardinality of our set S is 4, so there must be at least 4 states in the DFA for L. Therefore, our DFA depicted above must be the smallest possible DFA for L. 
+\end{proof}
 
 \section*{Problem 5: Closure Properties Revisited}
 \paragraph{i}
