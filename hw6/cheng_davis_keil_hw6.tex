@@ -10,6 +10,7 @@
 \usepackage{ mathrsfs }
 	% packages that allow mathematical formatting
 
+
 \usepackage{graphicx}
 	% package that allows you to include graphics
 
@@ -68,15 +69,23 @@ D ? )C
 
 \section*{Problem 3: Subsets of Regular Languages}
 Let $\Sigma = \{a, b\}$ and let $L = \{ w \in \Sigma^* \ | \ w \text{ has the same number of a's and b's} \}$. 
-\Paragraph{i} 
+\paragraph{i.} 
+\begin{thm} $L$ is not a regular language. \end{thm}
 
-\proof Sigma star is all possible combination you can make. $a^n$ is the subset of these strings, which is infinite. For any pair you wind a w, in which  X and y are distinguishable. Therefore, by the Myhill-Nerode theorem, L is not regular. 
+\begin{proof}
+Let $S \subseteq \Sigma^*$ and define $S = \{a^n \ | \ n \in \mathbb{N} \}$. This set is infinite because it contains one string for every natural number. Now, consider any strings $a^m, a^n \in S$ where $a^m \not = a^n$. Then $a^n b^n \in L$ and $a^m b^n \not \in L$. Consequently, $a^n \not \equiv_L a^m$. Therefore, by the Myhill-Nerode theorem, $L$ is not regular.
 
-\paragraph{ii}
-(ab)*. You can write a DFA for it and it is infinite. 
+Note that the structure of this proof was taken from slide 41 of Small16.pdf.
+\end{proof}
 
-\paragraph{iii}
-$A^nB^n$ is irregular which means that every pair is pairwise distinguishable. So any subset of it must also be pairwise distinguishable. So since this subset is infinite and pairwise distinguishable, it is a irregular language. However, since this contradicts the the assumption that both are regular. 
+\paragraph{ii.}
+The language $L' = \{ (ab)^n \ | \ n \in \mathbb{N} \}$ is a subset of $L$. This language is infinite because it contains one string for every natural number. However, this language is regular because it can be defined using the regular expression \texttt{(ab)*}. 
+
+\paragraph{iii.}
+\begin{thm} There is no language $L' \subseteq  \{a^nb^n \ | \ n \in \mathbb{N} \}$ that contains infinitely many strings and is a regular language. \end{thm}
+\begin{proof}
+In the class slides we proved that the language $L = \{a^nb^n \ | \ n \in \mathbb{N} \}$ is irregular by showing that the language is infinite and that all of the strings in the language are pairwise distinguishable. Because all of the strings in this language are pairwise distinguishable, we can choose any subset of $L$ and we know that all of the strings in that subset will be pairwise distinguishable. We choose an arbitrary infinite subset of $L$ called $S'$. Since $S'$ is both infinite and all the strings in it are pairwise distinguishable, by the Myhill-Nerode theorem we know it is an irregular language. If any arbitrary infinite subset of $L$ is irregular, then we know that there is no language $L' \subseteq  = \{a^nb^n \ | \ n \in \mathbb{N} \}$ that contains infinitely many strings and is a regular language.
+\end{proof}
 
 \section*{Problem 4: State Lower Bounds}
 \paragraph{i}
@@ -86,14 +95,22 @@ let k be the number of strings in Set S. Since every string is distinguishable f
 Only 4 distinguishable states in the DFA. Take the set {a,aa,aaa,aaaa} these are all distinguishable in the set. For one of the strings you can add the w that adds up to 6, then other element will not be in the language. For example take a and aa. If w = aaaaa, then a will be accepted by the language but aa will not. No elements in the set have a cardinality differences of 4, so they are all distinguishable. 
 
 \section*{Problem 5: Closure Properties Revisited}
-\paragraph{i}
-Proof. if and only if statement. Therefore if its irregular and regular this cannot be the case. Any tie the complement or the language itself is regular, the other must be regular. So anytime the language is irregular, then the complement must also be regular. 
+\paragraph{i.}
+\begin{thm} The nonregular languages are closed under complementation. \end{thm}
+\begin{proof}
+By contradiction. Assume for the sake of contradiction that there exists some nonregular language $L$ whose complement is a regular language $L'$. From the class slides, we know that the complement of any regular language is a regular language. So, because $L'$ is a regular language, its complement $L$ must also be a regular language. However we defined $L$ as nonregular. This is a contradiction, which means our assumption that there exists some nonregular language $L$ whose complement is a regular language must be false. So the nonregular languages are closed under complementation.
+\end{proof}
 
-\paragraph{ii}
-Disproof, can have single accepts state f l2 is the complement of L1. Now the union is accepts any string, so is just one accepting state. 
+\paragraph{ii.}
+\begin{thm} The nonregular languages are not closed under union. \end{thm}
+\begin{proof} We will show that there are two nonregular languages whose union is regular. Let $\Sigma = \{a, b\}$ and $L = \{a^nb^n \ | \ n \in \mathbb{N} \}$. We know that $L$ is nonregular. Let $L'$ be the complement of $L$. From the previous proof we know that $L'$ must be nonregular as well. The union of these two languages is the language that accepts any string in $\Sigma^*$: if the string is not accepted by $L$, then by definition of complementation it must be accepted by $L'$. This language can be represented by a DFA with a single accepting state that is also the start state with self-transitions on both $a$ and $b$. Because this language can be represented by a DFA, this means it is regular. Thus, the nonregular languages are not closed under union.
+\end{proof}
 
-\paragraph{iii}
-Disproof by existence. For ab, aabb, all are individual strings, when infinite, becomes an irregular language. 
+\paragraph{iii.}
+\begin{thm} The regular languages are not closed under infinite union. \end{thm}
+\begin{proof}
+We will prove that it is possible to construct a nonregular language from an infinite union of regular languages, proving that the regular languages are not closed under infinite union. We can define an infinite set of regular languages $L^n = \{a^n b^n\}$ for every natural number. Because each of these languages only accepts a single string, we know that each can be defined by a regular expression, making each a regular language. However, the union of these languages is $L = \{ a^n b^n \ | \ n \in \mathbb{N} \}$. We know from an earlier proof that this language is nonregular. This proves that the regular languages are not closed under infinite union.
+\end{proof}
 
 \section*{Problem 6: Designing CFGs}
 \paragraph{i}
