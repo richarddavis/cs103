@@ -77,19 +77,28 @@ By contradiction. Suppose there is an infinite set $S \subseteq \Sigma^*$ where 
 
 \section*{Problem 2: Balanced Parentheses}
 \paragraph{i}
-\thm The Language L = ( $w \in ?*$ | w is a string of balanced parentheses ) is not regular. 
+\thm The Language L = ( $w \in \Sigma*$ $\mid$ w is a string of balanced parentheses ) is not regular. 
 
-\proof Let $S = (,)*.$ This set is infinite because it contains one parentheses for each natural number. There is some infinite subset S which is the $(^n$. One can add w (a closed parentheses equal to the number of either string x open parentheses or string y open parentheses) and one is in the language and another is not in the language.  Consequently X is distinguishable from y. Therefore, by the Myhill-Nerode theorem, L is not regular. 
+\begin{proof}
+Let $S = \{ (^n\ |\ n \in N$\}. This set is infinite because it contains one string of parentheses with length for each natural number. Now consider any strings $(^x$, $(^y$ $\in$ S where $(^x$ $\neq$ $(^y.$  One can add w, a  string with closing parentheses, ),  equal to the number of string x open parentheses. This can also be written as $)^x$. If this is the case, then  $(^xw \in L$ and $(^yw \notin L.$  $(^yw$ is not closed because there are an unequal number of open and closed parentheses. Consequently, X is distinguishable from y. Therefore, by the Myhill-Nerode theorem, L is not regular. \\ \\
+\end{proof}
 
-\paragraph{ii}
-Online
+\paragraph{ii} DFA 
 
-\paragraph{iii}
-S ? (A | ?
-A ? )S | (B
-B ? )A | (C
-C ? )B | (D
-D ? )C
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{p2ii}
+    \caption{DFA for the language L = ( w $\in$ $\Sigma*$ $\mid$ w is a string of balanced parentheses and nesting length of at most 4)}
+    \label{fig:q1i}
+\end{figure}
+
+\paragraph{iii} Context Free Grammar \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.15\linewidth]{p2iii}
+    \caption{Context Free Grammar for L2}
+    \label{fig:q1i}
+\end{figure}
 
 \section*{Problem 3: Subsets of Regular Languages}
 Let $\Sigma = \{a, b\}$ and let $L = \{ w \in \Sigma^* \ | \ w \text{ has the same number of a's and b's} \}$. 
@@ -155,34 +164,146 @@ We will prove that it is possible to construct a nonregular language from an inf
 \end{proof}
 
 \section*{Problem 6: Designing CFGs}
-\paragraph{i}
-S ? ? | XaSaX
-X ? ? | bX | cX | aX
+\paragraph{i} CFG: \\
+Start Symbol: S \\
+S $\rightarrow$ $\mathcal{E}$ $\mid$ XaaX \\
+X $\rightarrow$ $\mathcal{E}$ $\mid$ bX $\mid$ cX $\mid$ aX \\
 
-\paragraph{ii}
-I spent way too long on this. But it is wrong...
-S ? ? | XaSbY | bSa
-X ? ? | aXb | Xa
-Y ? ? | aYb | Yb
+Derivations: \\
+\textbf{\underline{aa}} \\
+S\\
+$\rightarrow$ XaaX \\
+$\rightarrow$ aaX \\
+$\rightarrow$ aa
 
-S ? baX | ZabY | ?
-X ? Xa | XbaY | bbX | abW | ?
-Z ? Zab | Za | ?
-Y ? bY | ?
-W ? ab
+\textbf{\underline{baac}} \\
+S\\
+$\rightarrow$ XaaX \\
+$\rightarrow$ bXaaX \\
+$\rightarrow$ baaX \\
+$\rightarrow$ baacX \\
+$\rightarrow$ baac 
 
-\paragraph{iii}
+\textbf{\underline{ccaabb}} \\ 
+S\\
+$\rightarrow$ XaaX \\
+$\rightarrow$ cXaaX \\
+$\rightarrow$ ccXaaX \\
+$\rightarrow$ ccXaaX \\
+$\rightarrow$ ccaaX \\
+$\rightarrow$ ccaabX \\
+$\rightarrow$ ccaabbX \\
+$\rightarrow$ ccaabb 
 
 
-\paragraph{vi}
-Start symbol: S
-S ? aSXXX | bXXX | SXXXX
-X ? a | b
+\paragraph{ii} CFG: \\
+Start Symbol: S\\
+S $\rightarrow$ aSa $\mid$ bSb $\mid$ aSb $\mid$ bSa $\mid$ T \\
+T $\rightarrow$ aUb $\mid$ bUa \\
+U $\rightarrow$ aUa $\mid$ bUb $\mid$ aUb $\mid$ bUa $\mid$ a $\mid$ b $\mid$ $\mathcal{E}$ \\
 
-\paragraph{v}
-S ? ydS | Sdy | dSy | ySd | ZySyZ | XdSdX | ?
-Z ? d
-X ? y
+Derivations: \\
+\textbf{\underline{aab}} \\
+S\\
+$\rightarrow$ T \\
+$\rightarrow$ aUb \\
+$\rightarrow$ aab 
+
+\textbf{\underline{abbaba}} \\
+S\\
+$\rightarrow$ aSa \\
+$\rightarrow$ abSba \\
+$\rightarrow$ abTba \\
+$\rightarrow$ abbUaba \\
+$\rightarrow$ abbaba \\
+
+
+\paragraph{iii} CFG: \\
+Start Symbol: S\\
+S $\rightarrow$ 1S1 $\mid$ T \\
+T $\rightarrow$ +U \\
+U $\rightarrow$ 1U1 $\mid$ $\stackrel{?}{=}$
+
+Derivations:\\
+\textbf{\underline{111+1 $\stackrel{?}{=}$1111}} \\
+S\\
+$\rightarrow$1S1 \\
+$\rightarrow$11S11 \\
+$\rightarrow$111T111 \\
+$\rightarrow$111+U111 \\
+$\rightarrow$111+1U1111 \\
+$\rightarrow$111+1 $\stackrel{?}{=}$1111
+
+
+
+\textbf{\underline{+1$\stackrel{?}{=}$1}} \\
+S\\
+$\rightarrow$ T\\
+$\rightarrow$ +U\\
+$\rightarrow$ +1U1\\
+$\rightarrow$ +1$\stackrel{?}{=}$1
+
+\paragraph{iv} CFG: \\
+Start symbol: S \\
+S $\rightarrow$ aSXXX $\mid$ bXXX $\mid$ SXXXX \\
+X $\rightarrow$ a $\mid$ b
+
+Derivations: \\
+\textbf{\underline{baaa}} \\
+S\\
+$\rightarrow$ bXXX \\
+$\rightarrow$ baXX \\
+$\rightarrow$ baaX \\
+$\rightarrow$ baaa
+
+\textbf{\underline{abaaaaaa}} \\
+S\\
+$\rightarrow$ aSXXX \\
+$\rightarrow$ abXXXXXX \\
+$\rightarrow$ abaXXXXX \\
+$\rightarrow$ abaaXXXX \\
+$\rightarrow$ abaaaXXX \\
+$\rightarrow$ abaaaaXX \\
+$\rightarrow$ abaaaaaX \\
+$\rightarrow$ abaaaaaa 
+
+\textbf{\underline{baaaaaaa}} \\
+S \\
+$\rightarrow$ SXXXX \\
+$\rightarrow$ bXXXXXXX \\
+$\rightarrow$ baXXXXXX \\
+$\rightarrow$ baaXXXXX \\
+$\rightarrow$ baaaXXXX \\
+$\rightarrow$ baaaaXXX \\
+$\rightarrow$ baaaaaXX \\
+$\rightarrow$ baaaaaaX \\
+$\rightarrow$ baaaaaaa 
+
+\paragraph{v} CFG: \\
+Start Symbol: S \\
+S $\rightarrow$ ySd $\mid$ dSyySd $\mid$ ySddSy $\mid$ dSy $\mid$ $\mathcal{E}$
+
+Derivations: \\
+\textbf{\underline{yyyddd}} \\
+S \\
+$\rightarrow$ ySd \\
+$\rightarrow$ yySdd \\
+$\rightarrow$ yyySddd \\
+$\rightarrow$ yyyddd
+
+\textbf{\underline{ydyd}} \\
+S \\
+$\rightarrow$ ySd \\
+$\rightarrow$ ydSyd \\
+$\rightarrow$ ydyd
+
+\textbf{\underline{yyddddyy}} \\
+S \\
+$\rightarrow$ ySddSy \\
+$\rightarrow$ yySdddSy \\
+$\rightarrow$ yydddSy \\
+$\rightarrow$ yyddddSyy \\
+$\rightarrow$ yyddddyy
 \end{document}
 %%% Local Variables:
 %%% mode: latex
