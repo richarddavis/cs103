@@ -143,7 +143,7 @@ $\qquad$$\qquad$$\qquad$$\qquad$$\qquad$\} \\
 $\qquad$$\qquad$$\qquad$$\qquad$\} \\ 
 $\qquad$$\qquad$$\qquad$\} \\
 $\qquad$$\qquad$\} return false; \\
-$\qquad$\} \\
+$\qquad$\} \\}
 This method represents a concatenation of inL1inL2. The method returns true whenever the string w can be split and the first part is accepted by {\fontfamily{qcr}\selectfont inL1()} and the other is accepted by {\fontfamily{qcr}\selectfont inL2()}. Otherwise it will return false. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
 
 \paragraph{iii}
@@ -158,6 +158,7 @@ $\qquad$$\qquad$ $\qquad$ $\qquad$\} \\
 $\qquad$$\qquad$	$\qquad$	\}  \\
 $\qquad$$\qquad$ \} return false;\\
 $\qquad$\}
+}
 
 This method returns true whenever {\fontfamily{qcr}\selectfont inL1(w)} or {\fontfamily{qcr}\selectfont inL2(w)} accepts, but not when {\fontfamily{qcr}\selectfont inL1(w)} and {\fontfamily{qcr}\selectfont inL2(w)} both accept. In this case and also when both reject, the method rejects. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
 			
