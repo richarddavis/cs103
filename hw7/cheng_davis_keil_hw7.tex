@@ -71,9 +71,9 @@ Because we defined $\mathscr{L}(M) = \mathscr{L}(N) = \{$w$\}$, we know that $\m
 
 \item[ii. ] 
 \begin{thm} For every string $w$, there's an \textbf{R} and an \textbf{RE} language containing $w$.\end{thm}
-\begin{proof} Take the second TM, $N$, described in part i of this problem. For any arbitrary string $w$, $N$ accepts $w$ and rejects all other inputs. $N$ halts on all inputs, so $N$ is a decider. This means that $\mathscr{L}(N) \in \textbf{R}$. 
+\begin{proof} Take the second TM, $N$, described in part i of this problem. For any arbitrary string $w$, $N$ accepts $w$ and rejects all other inputs. $N$ halts on all inputs, so $N$ is a decider. Let L = $\mathscr{L}(N)$. Since $N$ is a decider, L is decidable, which means that $L \in \textbf{R}$. 
 
-We also know that $\textbf{R} \subseteq \textbf{RE}$, and by definition of a subset, all elements of $\textbf{R}$ are also elements of $\textbf{RE}$. As such, we know that $\mathscr{L}(N) \in \textbf{RE}$. Thus, we have shown that for every string $w$, there exists an \textbf{R} and an \textbf{RE} language containing $w$.
+We also know that $\textbf{R} \subseteq \textbf{RE}$, and by definition of a subset, all elements of $\textbf{R}$ are also elements of $\textbf{RE}$. As such, we know that $L \in \textbf{RE}$. Thus, we have shown that for every string $w$, there exists an \textbf{R} language containing $w$ and an \textbf{RE} language containing $w$, namely L.
 \end{proof}
 \end{enumerate}
 \section*{Problem 5}
@@ -97,11 +97,11 @@ Consider the program:
 \begin{proof}
 By contradiction. Assume for the sake of contradiction that there exists some string $w$ that causes the program to terminate. If the program terminates, it must accept or reject $w$. 
 
-In the case that the program accepts the input $w$, it satisfies the conditional {\fontfamily{qcr}\selectfont if (willAccept (me, input))} and will thus {\fontfamily{qcr}\selectfont reject()}. This is a contradiction, because the method {\fontfamily{qcr}\selectfont willAccept()} returns true when the program in fact rejects the input.
+In the case that the program accepts the input $w$, it satisfies the conditional {\fontfamily{qcr}\selectfont if (willAccept (me, input))}, which causes the program to {\fontfamily{qcr}\selectfont reject()}. This is a contradiction, because the method {\fontfamily{qcr}\selectfont willAccept()} returns true when the program in fact rejects the input.
 
 Alternatively, in the case that the program rejects the input $w$, it does not satisfy the conditional and is punted to the {\fontfamily{qcr}\selectfont else} case, and the program will {\fontfamily{qcr}\selectfont accept()}. This is a contradiction, because the method {\fontfamily{qcr}\selectfont willAccept()} returns false, whereas the program accepts the input.
 
-Both cases lead to a contradiction, so our assumption must be false. There must not exist a string $w$ that causes the program to terminate, which means that the program loops infinitely on all inputs. 
+Both cases lead to a contradiction, so our assumption must be false. There must not exist a string $w$ that causes the program to terminate. Thus, this means that the program loops infinitely on all inputs. 
 \end{proof}
 \section*{Problem 8}
 \paragraph{i}
