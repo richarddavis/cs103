@@ -47,7 +47,37 @@
 \section*{Problem 1}
 \section*{Problem 2}
 \section*{Problem 3}
+\paragraph{i}
+\begin{proof}
+Let the turing machine M reject any input. It is then a decider, because M halts on all inputs by rejecting. Also for any string w, the statement if M accepts w, then x $\in$ $\Sigma$* is always a true statement because M never accepts w. A truth table is always true when the antecedent of an implication is false. 
+\end{proof}
+\paragraph{ii}
+\begin{proof}
+Let the turing machine M accept any input. It is then a decider, because M halts on all inputs by accepting. Also for any string w, the statement if M rejects w, then x $\notin$ $\Sigma$* is always a true statement because M accepts all w. A truth table is always true when the consequent of an implication is true. 
+\end{proof}
+\paragraph{iii}
+\begin{proof}
+Let the turing machine M infinitely loop on any input. Both Statements 2 and 3 are always true in this case because both antecedents in the implications are always false. M never accepts any string w and M never rejects any string w. As before, the truth table is always true when the antecedent of an implication is false. 
+\end{proof}
+\paragraph{iv}
+If L satisfies all 3 statements then we know the language is decidable. We then also know that L $\in$ R. And since R is a subset of RE, we can also state that L is recognizable. 
+
 \section*{Problem 4}
+\begin{enumerate}
+\item[i. ] We can create a TM $M$ that accepts an arbitrary string $w$ and loops infinitely on all other inputs. $M$ is constructed such that $\mathscr{L}(M)$ = \{$w$\}. Because $M$ does not halt on all inputs, $M$ is not a decider. 
+
+We can create a second TM $N$ that accepts the string $w$ and rejects all other inputs. The language of $N$ is $\mathscr{L}(N)$ = \{$w$\}. Since $N$ halts on all inputs, $N$ is a decider. By definition, a language L is called decidable if there is a decider N such that $\mathscr{L}(N)$ = L, so $\mathscr{L}(N)$ is decidable. 
+
+Because we defined $\mathscr{L}(M) = \mathscr{L}(N) = \{$w$\}$, we know that $\mathscr{L}(M)$ is must be decidable. Thus, we have described a TM $M$ where $\mathscr{L}(M) \in \textbf{R}$, but $M$ is not a decider.
+
+\item[ii. ] 
+\begin{thm} For every string $w$, there's an \textbf{R} and an \textbf{RE} language containing $w$.\end{thm}
+\begin{proof} Take the second TM, $N$, described in part i of this problem. For any arbitrary string $w$, $N$ accepts $w$ and rejects all other inputs. $N$ halts on all inputs, so $N$ is a decider. Let L = $\mathscr{L}(N)$. Since $N$ is a decider, L is decidable, which means that $L \in \textbf{R}$. 
+
+We also know that $\textbf{R} \subseteq \textbf{RE}$, and by definition of a subset, all elements of $\textbf{R}$ are also elements of $\textbf{RE}$. As such, we know that $L \in \textbf{RE}$. Thus, we have shown that for every string $w$, there exists an \textbf{R} language containing $w$ and an \textbf{RE} language containing $w$, namely L.
+\end{proof}
+\end{enumerate}
+
 \section*{Problem 5 (Richard)}
 If we wanted to build a TM password checker, “entering your password” would correspond to starting up the TM on some string, and “gaining access” would mean that the TM accepts your string. Let $p \in \Sigma^*$ be your password. A TM that would work as a valid password checker would be a TM $M$ where $L(M) = {p}$; the TM accepts your string, and it doesn't accept anything else.
 
@@ -62,7 +92,66 @@ Given a TM, is there some way you could tell whether the TM was a valid password
 \section*{Problem 6 (Richard)}
 
 \section*{Problem 7}
+
+Consider the program:
+{\fontfamily{qcr}\selectfont
+
+$\qquad$int main() \{\\
+$\qquad$$\qquad$string me = mySource();\\
+$\qquad$$\qquad$string input = getInput();\\
+$\qquad$$\qquad$if (willAccept(me, input)) \{\\
+$\qquad$$\qquad$$\qquad$reject();\\
+$\qquad$$\qquad$\} else \{\\
+$\qquad$$\qquad$$\qquad$accept();\\
+$\qquad$$\qquad$\}\\
+$\qquad$\}
+}
+\begin{thm}This program must loop infinitely on all inputs.\end{thm}
+\begin{proof}
+By contradiction. Assume for the sake of contradiction that there exists some string $w$ that causes the program to terminate. If the program terminates, it must accept or reject $w$. 
+
+In the case that the program accepts the input $w$, it satisfies the conditional {\fontfamily{qcr}\selectfont if (willAccept (me, input))}, which causes the program to {\fontfamily{qcr}\selectfont reject()}. This is a contradiction, because the method {\fontfamily{qcr}\selectfont willAccept()} returns true when the program in fact rejects the input.
+
+Alternatively, in the case that the program rejects the input $w$, it does not satisfy the conditional and is punted to the {\fontfamily{qcr}\selectfont else} case, and the program will {\fontfamily{qcr}\selectfont accept()}. This is a contradiction, because the method {\fontfamily{qcr}\selectfont willAccept()} returns false, whereas the program accepts the input.
+
+Both cases lead to a contradiction, so our assumption must be false. There must not exist a string $w$ that causes the program to terminate. Thus, this means that the program loops infinitely on all inputs. 
+\end{proof}
 \section*{Problem 8}
+\paragraph{i}
+\ \\
+{\fontfamily{qcr}\selectfont
+$\qquad$function bool inL1uL2(string w) \{ \\
+$\qquad$$\qquad$  inL1(w) OR inL2(w); \\
+$\qquad$\} \\}
+From this new method we can see that L1 $\cup$ L2 is also decidable. When either L1(w) or L2(w) is accepted, inL1uL2 returns true. If both L1(w) and L2(w) are rejected then inL1uL2 returns false. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
+
+\paragraph{ii}
+\ \\
+{\fontfamily{qcr}\selectfont
+$\qquad$function bool Concat (w)  \{  \\
+$\qquad$$\qquad$	for all L1 \{ \\
+$\qquad$$\qquad$ $\qquad$ for all L2 \{ \\
+$\qquad$$\qquad$$\qquad$ $\qquad$ for ( i = 0; i++; i $<$ w.length) \{ \\	
+$\qquad$$\qquad$$\qquad$ $\qquad$ $\qquad$if (L1(w.split AHHH!! ) \{ \\
+$\qquad$$\qquad$$\qquad$ $\qquad$ $\qquad$ $\qquad$ return true;
+$\qquad$\}}
+
+\paragraph{iii}
+\ \\
+{\fontfamily{qcr}\selectfont
+$\qquad$function bool SymDiff (w) \{  \\
+$\qquad$$\qquad$for all L1, L2 \{\\
+$\qquad$$\qquad$ $\qquad$ if (inL1(w) OR inL2(w)) \{ \\
+$\qquad$$\qquad$ $\qquad$ $\qquad$ if( !( inL1(w) AND inL2(w))  \{ \\
+$\qquad$$\qquad$ $\qquad$ $\qquad$ $\qquad$ return true; \\
+$\qquad$$\qquad$ $\qquad$ $\qquad$			\} \\
+$\qquad$$\qquad$ $\qquad$ 		else return false; \\
+$\qquad$$\qquad$	$\qquad$	\} \\
+$\qquad$$\qquad$	else	return false; \\
+$\qquad$$\qquad$ \} \\}
+
+This method returns true whenever inL1 or inL2 is accepts, but not when inL1 and inL2 both accept. In this case and also when both reject, the method rejects. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
+			
 
 \end{document}
 %%% Local Variables:
