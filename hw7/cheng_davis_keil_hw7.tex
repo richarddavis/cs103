@@ -83,15 +83,15 @@ We also know that $\textbf{R} \subseteq \textbf{RE}$, and by definition of a sub
 Consider the program:
 {\fontfamily{qcr}\selectfont
 
-\hspace*{10 mm} int main() \{\\
-\hspace*{20 mm} string me = mySource();\\
-\hspace*{20 mm} string input = getInput();\\
-\hspace*{20 mm} if (willAccept(me, input)) \{\\
-\hspace*{30 mm} reject();\\
-\hspace*{20 mm} \} else \{\\
-\hspace*{30 mm} accept();\\
-\hspace*{20 mm} \}\\
-\hspace*{10 mm} \}
+$\qquad$int main() \{\\
+$\qquad$$\qquad$string me = mySource();\\
+$\qquad$$\qquad$string input = getInput();\\
+$\qquad$$\qquad$if (willAccept(me, input)) \{\\
+$\qquad$$\qquad$$\qquad$reject();\\
+$\qquad$$\qquad$\} else \{\\
+$\qquad$$\qquad$$\qquad$accept();\\
+$\qquad$$\qquad$\}\\
+$\qquad$\}
 }
 \begin{thm}This program must loop infinitely on all inputs.\end{thm}
 \begin{proof}
@@ -105,32 +105,38 @@ Both cases lead to a contradiction, so our assumption must be false. There must 
 \end{proof}
 \section*{Problem 8}
 \paragraph{i}
- function bool inL1uL2(string w) \{ \\
-$\qquad$  inL1(w) OR inL2(w); \\
-\} \\
+\ \\
+{\fontfamily{qcr}\selectfont
+$\qquad$function bool inL1uL2(string w) \{ \\
+$\qquad$$\qquad$  inL1(w) OR inL2(w); \\
+$\qquad$\} \\}
 From this new method we can see that L1 $\cup$ L2 is also decidable. When either L1(w) or L2(w) is accepted, inL1uL2 returns true. If both L1(w) and L2(w) are rejected then inL1uL2 returns false. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
 
 \paragraph{ii}
-function bool Concat (w)  \{  \\
-$\qquad$	for all L1 \{ \\
-$\qquad$ $\qquad$ for all L2 \{ \\
-$\qquad$$\qquad$ $\qquad$ for ( i = 0; i++; i $<$ w.length) \{ \\	
-$\qquad$$\qquad$ $\qquad$ $\qquad$`if (L1(w.split AHHH!! ) \{ \\
-$\qquad$$\qquad$ $\qquad$ $\qquad$ $\qquad$ return true;
-
-\}
+\ \\
+{\fontfamily{qcr}\selectfont
+$\qquad$function bool Concat (w)  \{  \\
+$\qquad$$\qquad$	for all L1 \{ \\
+$\qquad$$\qquad$ $\qquad$ for all L2 \{ \\
+$\qquad$$\qquad$$\qquad$ $\qquad$ for ( i = 0; i++; i $<$ w.length) \{ \\	
+$\qquad$$\qquad$$\qquad$ $\qquad$ $\qquad$if (L1(w.split AHHH!! ) \{ \\
+$\qquad$$\qquad$$\qquad$ $\qquad$ $\qquad$ $\qquad$ return true;
+$\qquad$\}}
 
 \paragraph{iii}
-function bool SymDiff (w) \{  \\
-$\qquad$ 	For All L1, L2 \\
-$\qquad$ $\qquad$ If (inL1(w) OR inL2(w)) \{ \\
-$\qquad$ $\qquad$ $\qquad$ If( !( inL1(w) AND inL2(w))  \{ \\
-$\qquad$ $\qquad$ $\qquad$ $\qquad$ return true; \\
-$\qquad$ $\qquad$ $\qquad$			\} \\
-$\qquad$ $\qquad$ 		else return false; \\
-$\qquad$	$\qquad$	\} \\
-$\qquad$	else	return false; \\
-$\qquad$ \} \\
+\ \\
+{\fontfamily{qcr}\selectfont
+$\qquad$function bool SymDiff (w) \{  \\
+$\qquad$$\qquad$for all L1, L2 \{\\
+$\qquad$$\qquad$ $\qquad$ if (inL1(w) OR inL2(w)) \{ \\
+$\qquad$$\qquad$ $\qquad$ $\qquad$ if( !( inL1(w) AND inL2(w))  \{ \\
+$\qquad$$\qquad$ $\qquad$ $\qquad$ $\qquad$ return true; \\
+$\qquad$$\qquad$ $\qquad$ $\qquad$			\} \\
+$\qquad$$\qquad$ $\qquad$ 		else return false; \\
+$\qquad$$\qquad$	$\qquad$	\} \\
+$\qquad$$\qquad$	else	return false; \\
+$\qquad$$\qquad$ \} \\}
+
 This method returns true whenever inL1 or inL2 is accepts, but not when inL1 and inL2 both accept. In this case and also when both reject, the method rejects. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
 			
 
