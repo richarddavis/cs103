@@ -26,6 +26,8 @@
 
 \usepackage[parfill]{parskip}
 
+\usepackage{listings}
+
 \usepackage{cancel}
 
 \newtheorem*{thm}{Theorem}
@@ -81,15 +83,43 @@ We also know that $\textbf{R} \subseteq \textbf{RE}$, and by definition of a sub
 \end{enumerate}
 
 \section*{Problem 5}
-If we wanted to build a TM password checker, “entering your password” would correspond to starting up the TM on some string, and “gaining access” would mean that the TM accepts your string. Let $p \in \Sigma^*$ be your password. A TM that would work as a valid password checker would be a TM $M$ where $L(M) = {p}$; the TM accepts your string, and it doesn't accept anything else.
-
-Given a TM, is there some way you could tell whether the TM was a valid password checker? Let $p \in \Sigma^*$ be your password and consider the following language: $$ L = \{ \langle M \rangle \ | \ M \text{ is a TM and } L(M) = \{p\}\}.$$ Prove that $L$ is undecidable. This means there is no algorithm that can mechanically check whether TM is suitable as a password checker.
 
 \paragraph{i.} Suppose there is a function \texttt{bool isPasswordChecker(string program)} that accepts as input a program and returns whether or not that program only accepts the string $p$. Using the programs from lecture as a template, write the pseudocode for a self-referential program that uses the \texttt{isPasswordChecker} method to obtain a contradiction. 
 
-\texttt{isPasswordChecker(isPasswordChecker)}
+\begin{lstlisting}
+bool isPasswordChecker(string program) {
+  // If the program only accepts the string p, return true.
+  // Otherwise return false
+}
+
+int main() {
+
+  string me = mySource();
+  string input = getInput();
+
+  bool actualAnswer = (input == p);
+
+  if (isPasswordChecker(me)) {
+    return !actualAnswer;
+  } else {
+    return actualAnswer;
+  }
+
+}
+\end{lstlisting}
 
 \paragraph{ii.} 
+\begin{thm} The language $L$ is not decidable. \end{thm}
+\begin{proof} By contradiction, assume $L$ is decidable. Then there is some decider $D$ for $L$. If this decider is passed any TM, it will determine if the TM is a valid password checker and report back the answer. Given this, we could construct the following TM:
+\begin{align*}
+\text{M = }&\text{``On input w,}\\
+&\text{Have M obtain its own description, }\langle M \rangle\\
+&\text{Run D on }\langle M \rangle \text{ and see what it says}\\
+&\text{If D says M is a valid password checker, make M return false when passed the password } p\\
+&\text{If D says M is not a valid password checker, make M only return true when passed the password } p"
+\end{align*}
+
+Choose any string $w$ and trace through the execution of the machine, focusing on the answer given back by the machine $D$. If $D$ says that $M$ is a valid password checker, notice that $M$ returns false when passed the password $p$, contradicting with $D$ says. Otherwise, if $D$ says that $M$ is not a valid password checker, notice that $M$ only returns true when passed the password $p$, contradicting what $D$ says. In both cases we reach a contradiction, so our assumption must have been wrong. Therefore, the language $L$ is not decidable.
 
 \section*{Problem 6}
 In class we learned about the halting problem, which tells us that it is not possible to write a decider that will determine if a program halts or loops forever. This means it is not possible for the operating system to detect when a program has gone into an infinite loop, because that would require it to have access to this impossible decider. So, the best the operating system can do is to pop up a dialog asking if it should terminate a program. 
