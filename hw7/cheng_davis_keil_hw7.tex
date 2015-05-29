@@ -156,38 +156,41 @@ Both cases lead to a contradiction, so our assumption must be false. There must 
 $\qquad$function bool inL1uL2(string w) \{ \\
 $\qquad$$\qquad$  inL1(w) OR inL2(w); \\
 $\qquad$\} \\}
-From this new method we can see that L1 $\cup$ L2 is also decidable. When either L1(w) or L2(w) is accepted, inL1uL2 returns true. If both L1(w) and L2(w) are rejected then inL1uL2 returns false. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
+From this new method we can see that if L1 and L2 are decidable languages, then L1 $\cup$ L2 is also decidable. When either {\fontfamily{qcr}\selectfont inL1(w)} or {\fontfamily{qcr}\selectfont inL2(w)} is accepted, {\fontfamily{qcr}\selectfont inL1uL2(w)} returns true. If both {\fontfamily{qcr}\selectfont inL1(w)} and {\fontfamily{qcr}\selectfont inL2(w)} are rejected then {\fontfamily{qcr}\selectfont inL1uL2()} returns false. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
 
 \paragraph{ii}
 \ \\
 {\fontfamily{qcr}\selectfont
-$\qquad$function bool Concat (w)  \{  \\
-$\qquad$$\qquad$	for all L1 \{ \\
-$\qquad$$\qquad$ $\qquad$ for all L2 \{ \\
-$\qquad$$\qquad$$\qquad$ $\qquad$ for ( i = 0; i++; i $<$ w.length) \{ \\	
-$\qquad$$\qquad$$\qquad$ $\qquad$ $\qquad$if (inL1(w.split at i and take first part) AND inL2(w.split at i and take second part)\{ \\
-$\qquad$$\qquad$$\qquad$ $\qquad$ $\qquad$ $\qquad$ return true;
-$\qquad$\} \\
-$\qquad$\} \\ 
-$\qquad$\} return false; \\
-\} \\
-This method represents a concatenation of inL1inL2. The method returns true whenever the string w can be split and one part is accepted by inL1 and the other is accepted by in L2. Otherwise it will return false.
+$\qquad$function bool Concat (string w)  \{  \\
+$\qquad$$\qquad$for all L1 \{ \\
+$\qquad$$\qquad$ $\qquad$for all L2 \{ \\
+$\qquad$$\qquad$$\qquad$$\qquad$for ( i = 0; i++; i $<$ w.length) \{ \\	
+$\qquad$$\qquad$$\qquad$$\qquad$$\qquad$string firstpart = w.split at i and take first part\\
+$\qquad$$\qquad$$\qquad$$\qquad$$\qquad$string secondpart = w.split at i and take second part\\
+$\qquad$$\qquad$$\qquad$$\qquad$$\qquad$if (inL1(firstpart) AND inL2(secondpart)\{ \\
+$\qquad$$\qquad$$\qquad$$\qquad$$\qquad$$\qquad$return true;\\
+$\qquad$$\qquad$$\qquad$$\qquad$$\qquad$\} \\
+$\qquad$$\qquad$$\qquad$$\qquad$\} \\ 
+$\qquad$$\qquad$$\qquad$\} \\
+$\qquad$$\qquad$\} return false; \\
+$\qquad$\} \\}
+This method represents a concatenation of L1 and L2. The method returns true whenever the string w can be split and the first part is accepted by {\fontfamily{qcr}\selectfont inL1()} and the other is accepted by {\fontfamily{qcr}\selectfont inL2()}. Otherwise it will return false. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
 
 \paragraph{iii}
 \ \\
 {\fontfamily{qcr}\selectfont
-$\qquad$function bool SymDiff (w) \{  \\
+$\qquad$function bool SymDiff (string w) \{  \\
 $\qquad$$\qquad$for all L1, L2 \{\\
 $\qquad$$\qquad$ $\qquad$ if (inL1(w) OR inL2(w)) \{ \\
 $\qquad$$\qquad$ $\qquad$ $\qquad$ if( !( inL1(w) AND inL2(w))  \{ \\
 $\qquad$$\qquad$ $\qquad$ $\qquad$ $\qquad$ return true; \\
-$\qquad$$\qquad$ $\qquad$ $\qquad$			\} \\
-$\qquad$$\qquad$ $\qquad$ 		else return false; \\
-$\qquad$$\qquad$	$\qquad$	\} \\
-$\qquad$$\qquad$	else	return false; \\
-$\qquad$$\qquad$ \} \\}
+$\qquad$$\qquad$ $\qquad$ $\qquad$\} \\
+$\qquad$$\qquad$	$\qquad$	\}  \\
+$\qquad$$\qquad$ \} return false;\\
+$\qquad$\}
+}
 
-This method returns true whenever inL1 or inL2 is accepts, but not when inL1 and inL2 both accept. In this case and also when both reject, the method rejects. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
+This method returns true whenever {\fontfamily{qcr}\selectfont inL1(w)} or {\fontfamily{qcr}\selectfont inL2(w)} accepts, but not when {\fontfamily{qcr}\selectfont inL1(w)} and {\fontfamily{qcr}\selectfont inL2(w)} both accept. In this case and also when both reject, the method rejects. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
 			
 
 \end{document}
