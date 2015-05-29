@@ -131,7 +131,7 @@ From this new method we can see that L1 $\cup$ L2 is also decidable. When either
 \paragraph{ii}
 \ \\
 {\fontfamily{qcr}\selectfont
-$\qquad$function bool Concat (strgin w)  \{  \\
+$\qquad$function bool Concat (string w)  \{  \\
 $\qquad$$\qquad$for all L1 \{ \\
 $\qquad$$\qquad$ $\qquad$for all L2 \{ \\
 $\qquad$$\qquad$$\qquad$$\qquad$for ( i = 0; i++; i $<$ w.length) \{ \\	
@@ -144,7 +144,7 @@ $\qquad$$\qquad$$\qquad$$\qquad$\} \\
 $\qquad$$\qquad$$\qquad$\} \\
 $\qquad$$\qquad$\} return false; \\
 $\qquad$\} \\
-This method represents a concatenation of inL1inL2. The method returns true whenever the string w can be split and one part is accepted by inL1 and the other is accepted by in L2. Otherwise it will return false.
+This method represents a concatenation of inL1inL2. The method returns true whenever the string w can be split and one part is accepted by inL1 and the other is accepted by in L2. Otherwise it will return false. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
 
 \paragraph{iii}
 \ \\
@@ -159,7 +159,7 @@ $\qquad$$\qquad$	$\qquad$	\}  \\
 $\qquad$$\qquad$ \} return false;\\
 $\qquad$\}
 
-This method returns true whenever inL1 or inL2 is accepts, but not when inL1 and inL2 both accept. In this case and also when both reject, the method rejects. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
+This method returns true whenever inL1 or inL2 accepts, but not when inL1 and inL2 both accept. In this case and also when both reject, the method rejects. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
 			
 
 \end{document}
