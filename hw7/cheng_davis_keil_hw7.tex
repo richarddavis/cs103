@@ -47,6 +47,20 @@
 \section*{Problem 1}
 \section*{Problem 2}
 \section*{Problem 3}
+\paragraph{i}
+\begin{proof}
+Let the turing machine M reject any input. It is then a decider, because M halts on all inputs by rejecting. Also for any string w, the statement if M accepts w, then x $\in$ $\Sigma$* is always a true statement because M never accepts w. A truth table is always true when the antecedent of an implication is false. 
+\end{proof}
+\paragraph{ii}
+\begin{proof}
+Let the turing machine M accept any input. It is then a decider, because M halts on all inputs by accepting. Also for any string w, the statement if M rejects w, then x $\notin$ $\Sigma$* is always a true statement because M accepts all w. A truth table is always true when the consequent of an implication is true. 
+\end{proof}
+\paragraph{iii}
+\begin{proof}
+Let the turing machine M infinitely loop on any input. Both Statements 2 and 3 are always true in this case because both antecedents in the implications are always false. M never accepts any string w and M never rejects any string w. As before, the truth table is always true when the antecedent of an implication is false. 
+\end{proof}
+\paragraph{iv}
+If L satisfies all 3 statements then we know the language is decidable. We then also know that L $\in$ R. And since R is a subset of RE, we can also state that L is recognizable. 
 \section*{Problem 4}
 \begin{enumerate}
 \item[i. ] We can create a TM $M$ that accepts an arbitrary string $w$ and loops infinitely on all other inputs. $M$ is constructed such that $\mathscr{L}(M)$ = \{$w$\}. Because $M$ does not halt on all inputs, $M$ is not a decider. 
@@ -90,6 +104,35 @@ Alternatively, in the case that the program rejects the input $w$, it does not s
 Both cases lead to a contradiction, so our assumption must be false. There must not exist a string $w$ that causes the program to terminate, which means that the program loops infinitely on all inputs. 
 \end{proof}
 \section*{Problem 8}
+\paragraph{i}
+ function bool inL1uL2(string w) \{ \\
+$\qquad$  inL1(w) OR inL2(w); \\
+\} \\
+From this new method we can see that L1 $\cup$ L2 is also decidable. When either L1(w) or L2(w) is accepted, inL1uL2 returns true. If both L1(w) and L2(w) are rejected then inL1uL2 returns false. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
+
+\paragraph{ii}
+function bool Concat (w)  \{  \\
+$\qquad$	for all L1 \{ \\
+$\qquad$ $\qquad$ for all L2 \{ \\
+$\qquad$$\qquad$ $\qquad$ for ( i = 0; i++; i $<$ w.length) \{ \\	
+$\qquad$$\qquad$ $\qquad$ $\qquad$`if (L1(w.split AHHH!! ) \{ \\
+$\qquad$$\qquad$ $\qquad$ $\qquad$ $\qquad$ return true;
+
+\}
+
+\paragraph{iii}
+function bool SymDiff (w) \{  \\
+$\qquad$ 	For All L1, L2 \\
+$\qquad$ $\qquad$ If (inL1(w) OR inL2(w)) \{ \\
+$\qquad$ $\qquad$ $\qquad$ If( !( inL1(w) AND inL2(w))  \{ \\
+$\qquad$ $\qquad$ $\qquad$ $\qquad$ return true; \\
+$\qquad$ $\qquad$ $\qquad$			\} \\
+$\qquad$ $\qquad$ 		else return false; \\
+$\qquad$	$\qquad$	\} \\
+$\qquad$	else	return false; \\
+$\qquad$ \} \\
+This method returns true whenever inL1 or inL2 is accepts, but not when inL1 and inL2 both accept. In this case and also when both reject, the method rejects. This covers all possibilities and always returns either an accepting or rejecting state, so the method is therefore decidable. 
+			
 
 \end{document}
 %%% Local Variables:

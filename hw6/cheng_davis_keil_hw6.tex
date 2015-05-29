@@ -80,7 +80,7 @@ By contradiction. Suppose there is an infinite set $S \subseteq \Sigma^*$ where 
 \thm The Language L = ( $w \in \Sigma*$ $\mid$ w is a string of balanced parentheses ) is not regular. 
 
 \begin{proof}
-Let $S = \{ (^n\ |\ n \in N$\}. This set is infinite because it contains one string of parentheses with length for each natural number. Now consider any strings $(^x$, $(^y$ $\in$ S where $(^x$ $\neq$ $(^y.$  One can add w, a  string with closing parentheses, ),  equal to the number of string x open parentheses. This can also be written as $)^x$. If this is the case, then  $(^xw \in L$ and $(^yw \notin L.$  $(^yw$ is not closed because there are an unequal number of open and closed parentheses. Consequently, X is distinguishable from y. Therefore, by the Myhill-Nerode theorem, L is not regular. \\ \\
+Let $S = \{ (^n\ |\ n \in N$\}. This set is infinite because it contains one string of parentheses with length for each natural number. Now consider any strings $(^x$, $(^y$ $\in$ S where $(^x$ $\neq$ $(^y.$  One can add w, a  string with closing parentheses, ),  equal to the number of string x open parentheses. This can also be written as $)^x$. If this is the case, then  $(^xw \in L$ and $(^yw \notin L.$  $(^yw$ is not closed because there are an unequal number of open and closed parentheses. Consequently, x is distinguishable from y. Therefore, by the Myhill-Nerode theorem, L is not regular. \\ \\
 \end{proof}
 
 \paragraph{ii} DFA 
@@ -172,28 +172,28 @@ X $\rightarrow$ $\mathcal{E}$ $\mid$ bX $\mid$ cX $\mid$ aX \\
 Derivations: \\
 \textbf{\underline{aa}} \\
 S\\
-$\rightarrow$ XaaX \\
-$\rightarrow$ aaX \\
-$\rightarrow$ aa
+$\Rightarrow$ XaaX \\
+$\Rightarrow$ aaX \\
+$\Rightarrow$ aa
 
 \textbf{\underline{baac}} \\
 S\\
-$\rightarrow$ XaaX \\
-$\rightarrow$ bXaaX \\
-$\rightarrow$ baaX \\
-$\rightarrow$ baacX \\
-$\rightarrow$ baac 
+$\Rightarrow$ XaaX \\
+$\Rightarrow$ bXaaX \\
+$\Rightarrow$ baaX \\
+$\Rightarrow$ baacX \\
+$\Rightarrow$ baac 
 
 \textbf{\underline{ccaabb}} \\ 
 S\\
-$\rightarrow$ XaaX \\
-$\rightarrow$ cXaaX \\
-$\rightarrow$ ccXaaX \\
-$\rightarrow$ ccXaaX \\
-$\rightarrow$ ccaaX \\
-$\rightarrow$ ccaabX \\
-$\rightarrow$ ccaabbX \\
-$\rightarrow$ ccaabb 
+$\Rightarrow$ XaaX \\
+$\Rightarrow$ cXaaX \\
+$\Rightarrow$ ccXaaX \\
+$\Rightarrow$ ccXaaX \\
+$\Rightarrow$ ccaaX \\
+$\Rightarrow$ ccaabX \\
+$\Rightarrow$ ccaabbX \\
+$\Rightarrow$ ccaabb \\ \\
 
 
 \paragraph{ii} CFG: \\
@@ -205,17 +205,17 @@ U $\rightarrow$ aUa $\mid$ bUb $\mid$ aUb $\mid$ bUa $\mid$ a $\mid$ b $\mid$ $\
 Derivations: \\
 \textbf{\underline{aab}} \\
 S\\
-$\rightarrow$ T \\
-$\rightarrow$ aUb \\
-$\rightarrow$ aab 
+$\Rightarrow$ T \\
+$\Rightarrow$ aUb \\
+$\Rightarrow$ aab 
 
 \textbf{\underline{abbaba}} \\
 S\\
-$\rightarrow$ aSa \\
-$\rightarrow$ abSba \\
-$\rightarrow$ abTba \\
-$\rightarrow$ abbUaba \\
-$\rightarrow$ abbaba \\
+$\Rightarrow$ aSa \\
+$\Rightarrow$ abSba \\
+$\Rightarrow$ abTba \\
+$\Rightarrow$ abbUaba \\
+$\Rightarrow$ abbaba \\
 
 
 \paragraph{iii} CFG: \\
@@ -227,21 +227,21 @@ U $\rightarrow$ 1U1 $\mid$ $\stackrel{?}{=}$
 Derivations:\\
 \textbf{\underline{111+1 $\stackrel{?}{=}$1111}} \\
 S\\
-$\rightarrow$1S1 \\
-$\rightarrow$11S11 \\
-$\rightarrow$111T111 \\
-$\rightarrow$111+U111 \\
-$\rightarrow$111+1U1111 \\
-$\rightarrow$111+1 $\stackrel{?}{=}$1111
+$\Rightarrow$1S1 \\
+$\Rightarrow$11S11 \\
+$\Rightarrow$111T111 \\
+$\Rightarrow$111+U111 \\
+$\Rightarrow$111+1U1111 \\
+$\Rightarrow$111+1 $\stackrel{?}{=}$1111
 
 
 
 \textbf{\underline{+1$\stackrel{?}{=}$1}} \\
 S\\
-$\rightarrow$ T\\
-$\rightarrow$ +U\\
-$\rightarrow$ +1U1\\
-$\rightarrow$ +1$\stackrel{?}{=}$1
+$\Rightarrow$ T\\
+$\Rightarrow$ +U\\
+$\Rightarrow$ +1U1\\
+$\Rightarrow$ +1$\stackrel{?}{=}$1
 
 \paragraph{iv} CFG: \\
 Start symbol: S \\
@@ -251,33 +251,33 @@ X $\rightarrow$ a $\mid$ b
 Derivations: \\
 \textbf{\underline{baaa}} \\
 S\\
-$\rightarrow$ bXXX \\
-$\rightarrow$ baXX \\
-$\rightarrow$ baaX \\
-$\rightarrow$ baaa
+$\Rightarrow$ bXXX \\
+$\Rightarrow$ baXX \\
+$\Rightarrow$ baaX \\
+$\Rightarrow$ baaa
 
 \textbf{\underline{abaaaaaa}} \\
 S\\
-$\rightarrow$ aSXXX \\
-$\rightarrow$ abXXXXXX \\
-$\rightarrow$ abaXXXXX \\
-$\rightarrow$ abaaXXXX \\
-$\rightarrow$ abaaaXXX \\
-$\rightarrow$ abaaaaXX \\
-$\rightarrow$ abaaaaaX \\
-$\rightarrow$ abaaaaaa 
+$\Rightarrow$ aSXXX \\
+$\Rightarrow$ abXXXXXX \\
+$\Rightarrow$ abaXXXXX \\
+$\Rightarrow$ abaaXXXX \\
+$\Rightarrow$ abaaaXXX \\
+$\Rightarrow$ abaaaaXX \\
+$\Rightarrow$ abaaaaaX \\
+$\Rightarrow$ abaaaaaa 
 
 \textbf{\underline{baaaaaaa}} \\
 S \\
-$\rightarrow$ SXXXX \\
-$\rightarrow$ bXXXXXXX \\
-$\rightarrow$ baXXXXXX \\
-$\rightarrow$ baaXXXXX \\
-$\rightarrow$ baaaXXXX \\
-$\rightarrow$ baaaaXXX \\
-$\rightarrow$ baaaaaXX \\
-$\rightarrow$ baaaaaaX \\
-$\rightarrow$ baaaaaaa 
+$\Rightarrow$ SXXXX \\
+$\Rightarrow$ bXXXXXXX \\
+$\Rightarrow$ baXXXXXX \\
+$\Rightarrow$ baaXXXXX \\
+$\Rightarrow$ baaaXXXX \\
+$\Rightarrow$ baaaaXXX \\
+$\Rightarrow$ baaaaaXX \\
+$\Rightarrow$ baaaaaaX \\
+$\Rightarrow$ baaaaaaa \\ \\
 
 \paragraph{v} CFG: \\
 Start Symbol: S \\
@@ -286,24 +286,24 @@ S $\rightarrow$ ySd $\mid$ dSyySd $\mid$ ySddSy $\mid$ dSy $\mid$ $\mathcal{E}$
 Derivations: \\
 \textbf{\underline{yyyddd}} \\
 S \\
-$\rightarrow$ ySd \\
-$\rightarrow$ yySdd \\
-$\rightarrow$ yyySddd \\
-$\rightarrow$ yyyddd
+$\Rightarrow$ ySd \\
+$\Rightarrow$ yySdd \\
+$\Rightarrow$ yyySddd \\
+$\Rightarrow$ yyyddd
 
 \textbf{\underline{ydyd}} \\
 S \\
-$\rightarrow$ ySd \\
-$\rightarrow$ ydSyd \\
-$\rightarrow$ ydyd
+$\Rightarrow$ ySd \\
+$\Rightarrow$ ydSyd \\
+$\Rightarrow$ ydyd
 
 \textbf{\underline{yyddddyy}} \\
 S \\
-$\rightarrow$ ySddSy \\
-$\rightarrow$ yySdddSy \\
-$\rightarrow$ yydddSy \\
-$\rightarrow$ yyddddSyy \\
-$\rightarrow$ yyddddyy
+$\Rightarrow$ ySddSy \\
+$\Rightarrow$ yySdddSy \\
+$\Rightarrow$ yydddSy \\
+$\Rightarrow$ yyddddSyy \\
+$\Rightarrow$ yyddddyy
 \end{document}
 %%% Local Variables:
 %%% mode: latex
