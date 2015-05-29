@@ -48,8 +48,19 @@
 \section*{Problem 2}
 \section*{Problem 3}
 \section*{Problem 4}
-\section*{Problem 5}
-\section*{Problem 6}
+\section*{Problem 5 (Richard)}
+If we wanted to build a TM password checker, “entering your password” would correspond to starting up the TM on some string, and “gaining access” would mean that the TM accepts your string. Let $p \in \Sigma^*$ be your password. A TM that would work as a valid password checker would be a TM $M$ where $L(M) = {p}$; the TM accepts your string, and it doesn't accept anything else.
+
+Given a TM, is there some way you could tell whether the TM was a valid password checker? Let $p \in \Sigma^*$ be your password and consider the following language: $$ L = \{ \langle M \rangle \ | \ M \text{ is a TM and } L(M) = \{p\}\}.$$ Prove that $L$ is undecidable. This means there is no algorithm that can mechanically check whether TM is suitable as a password checker.
+
+\paragraph{i.} Suppose there is a function \texttt{bool isPasswordChecker(string program)} that accepts as input a program and returns whether or not that program only accepts the string $p$. Using the programs from lecture as a template, write the pseudocode for a self-referential program that uses the \texttt{isPasswordChecker} method to obtain a contradiction. 
+
+\texttt{isPasswordChecker(isPasswordChecker)}
+
+\paragraph{ii.} 
+
+\section*{Problem 6 (Richard)}
+
 \section*{Problem 7}
 \section*{Problem 8}
 
