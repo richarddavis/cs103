@@ -85,7 +85,7 @@ We also know that $\textbf{R} \subseteq \textbf{RE}$, and by definition of a sub
 \section*{Problem 5}
 
 \paragraph{i.} Suppose there is a function \texttt{bool isPasswordChecker(string program)} that accepts as input a program and returns whether or not that program only accepts the string $p$. Using the programs from lecture as a template, write the pseudocode for a self-referential program that uses the \texttt{isPasswordChecker} method to obtain a contradiction. 
-
+{\fontfamily{qcr}\selectfont
 \begin{lstlisting}
 bool isPasswordChecker(string program) {
   // If the program only accepts the string p, return true.
@@ -119,6 +119,7 @@ int main() {
 &\text{If D says M is not a valid password checker, make M only return true when passed the password } p"
 \end{align*}
 Choose any string $w$ and trace through the execution of the machine, focusing on the answer given back by the machine $D$. If $D$ says that $M$ is a valid password checker, notice that $M$ returns false when passed the password $p$, contradicting with $D$ says. Otherwise, if $D$ says that $M$ is not a valid password checker, notice that $M$ only returns true when passed the password $p$, contradicting what $D$ says. In both cases we reach a contradiction, so our assumption must have been wrong. Therefore, the language $L$ is not decidable.
+\end{proof}
 
 \section*{Problem 6}
 In class we learned about the halting problem, which tells us that it is not possible to write a decider that will determine if a program halts or loops forever. This means it is not possible for the operating system to detect when a program has gone into an infinite loop, because that would require it to have access to this impossible decider. So, the best the operating system can do is to pop up a dialog asking if it should terminate a program that is not responsive.
