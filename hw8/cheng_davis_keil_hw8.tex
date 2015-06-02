@@ -48,6 +48,22 @@
 
 \section*{Problem 1: Closure Properties of RE}
 
+\begin{enumerate}
+\item[i.] 
+bool inL1nL2(string w) \{\\
+return inL1(w) \&\& inL2(w);\\
+\}
+
+Will return true when true, returns false or loops infinitely otherwise.
+\item[ii.] Evaluates left to right (confirm?), so if the first function is an infinite loop, will not evaluate the second function (which might be true)
+\item[iii.] 
+bool imConvincedIsInL1uL2(string w, string c) \{\\
+return imConvincedIsInL1(w, c) $||$  imConvincedIsInL2(w, c);\\
+\}
+
+Now won't get caught in an infinite loop.
+\end{enumerate}
+
 \section*{Problem 2: Password Checking}
 
 \section*{Problem 3: Equivalent TMs}
