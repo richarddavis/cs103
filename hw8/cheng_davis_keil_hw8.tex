@@ -57,7 +57,7 @@ $\qquad$$\qquad$return inL1(w) \&\& inL2(w);\\
 $\qquad$\}
 }
 
-This method, which models the language L1 $cap$ L2, satisfies the properties of a recognizer. When $w \in L1 $cap$ L2$ the method will return true, and the method returns false or loops infinitely otherwise.
+This method, which models the language L1 $\cap$ L2, satisfies the properties of a recognizer. When $w \in L1 $cap$ L2$ the method will return true, and the method returns false or loops infinitely otherwise.
 \item[ii.] Since the RE languages are closed under union, we would expect L1 $\cup$ L2 to be recognizable. By definition of a recognizable language, this means that the method should return true for any string $w \in L1 \cup L2$. Because the line {\fontfamily{qcr}\selectfont return inL1(w) || inL2(w);} evaluates left to right, if {\fontfamily{qcr}\selectfont inL1(w)} enters an infinite loop, the statement will never evaluate the second function, {\fontfamily{qcr}\selectfont inL2(w)}. If {\fontfamily{qcr}\selectfont inL2(w)} evaluates to true, the recognizer should return true - however, since this portion of the statement is never evaluated, this method not properly model the behavior of a recognizer.
 \item[iii.] 
 {\fontfamily{qcr}\selectfont
