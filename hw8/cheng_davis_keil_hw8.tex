@@ -106,10 +106,20 @@ if in RE, if I give you a machine, deep down I know this is in the machine, mach
 
 \section*{Problem 5: 4-Colorability}
 \begin{enumerate}
-\item[1.]
+\item[i.] 3COLOR $\in$ NP because it is NP-complete and NP-complete is a subset of NP. Therefore if 3COLOR can be reduced to 4COLOR, then 4COLOR is also an element of NP. Take every 3COLOR graph, in which there exists a way to color each of the nodes one of 3 colors, such that no two nodes of the same color are connected by an edge. Each of these graphs is also by definition 4-colorable, just one of the 4 colors will go unused. Therefore, there is polynomial time reduction that shows that 4COLOR must also be in NP. 
+
+I'm am not sure about this explanation. I actually think they might be looking for: 
+
+We can guess different 4Colorings of a graph using a nondeterministic turing machine. We can then deterministically check whether the coloring option is a legal 4-coloring of G. This non-deterministic turing machine us in polynomial time, because it would only take the number of nodes, n, to check if this was a valid coloring for the graph. 
+\item[ii.]
+Take an arbitrary graph G and contrast Graph G' by adding a new node that is connected to all other nodes. 
+\item[1.] If the original graph G is 3-colorable, then the new graph G' must be 4-colorable because in the original graph G at most three colors were used so that no two nodes of the same color were connected by an edge. If a new node is added that connects to all other nodes, then this node must be of a new color. This new graph would require one additional color to prevent the same color from being connected by an edge, bringing the total to at most 4 colors, the definition of  a 4-colorable graph. 
 \item[2.]
+If we take G' and complete the transformation that removes the node that connects to all other nodes, we have then reduced the colorable number by 1. This is because that node must have been a different color than all other nodes, by definition of colorability. Since G' was 4-colorable(had at most 4 colors needed), G is therefore 3-colorable(has at most 3 colors needed). 
+\item[3.]
+This reduction can be completed in polynomial time n+1. The reduction must add one node to graph G, then make n (the number of nodes in graph G) edges between the new node and all previous nodes in G. 
 \end{enumerate}
-3COLOR polynomial time reducible to 4COLOR
+
 \section*{Problem 6: Resolving P $\stackrel{?}{=}$ NP}
 
 \begin{enumerate}
