@@ -145,8 +145,6 @@ In both cases we reach a contradiction, so our assumption must have been wrong. 
 \begin{enumerate}
 \item[i.] 3COLOR $\in$ NP because it is NP-complete and NP-complete is a subset of NP. Therefore if 3COLOR can be reduced to 4COLOR, then 4COLOR is also an element of NP. Take every 3COLOR graph, in which there exists a way to color each of the nodes one of 3 colors, such that no two nodes of the same color are connected by an edge. Each of these graphs is also by definition 4-colorable, just one of the 4 colors will go unused. Therefore, there is polynomial time reduction that shows that 4COLOR must also be in NP. 
 
-I'm am not sure about this explanation. I actually think they might be looking for: 
-
 We can guess different 4Colorings of a graph using a nondeterministic turing machine. We can then deterministically check whether the coloring option is a legal 4-coloring of G. This non-deterministic turing machine us in polynomial time, because it would only take the number of nodes, n, to check if this was a valid coloring for the graph. 
 \item[ii.]
 Take an arbitrary graph G and contrast Graph G' by adding a new node that is connected to all other nodes. 
