@@ -57,7 +57,7 @@ $\qquad$$\qquad$return inL1(w) \&\& inL2(w);\\
 $\qquad$\}
 }
 
-This method, which models the language L1 $cap$ L2, satisfies the properties of a recognizer. When $w \in L1 $cap$ L2$ the method will return true, and the method returns false or loops infinitely otherwise.
+This method, which models the language L1 $\cap$ L2, satisfies the properties of a recognizer. When $w \in L1 \cap L2$ the method will return true, and otherwise the method returns false or loops infinitely.
 \item[ii.] Since the RE languages are closed under union, we would expect L1 $\cup$ L2 to be recognizable. By definition of a recognizable language, this means that the method should return true for any string $w \in L1 \cup L2$. Because the line {\fontfamily{qcr}\selectfont return inL1(w) || inL2(w);} evaluates left to right, if {\fontfamily{qcr}\selectfont inL1(w)} enters an infinite loop, the statement will never evaluate the second function, {\fontfamily{qcr}\selectfont inL2(w)}. If {\fontfamily{qcr}\selectfont inL2(w)} evaluates to true, the recognizer should return true - however, since this portion of the statement is never evaluated, this method not properly model the behavior of a recognizer.
 \item[iii.] 
 {\fontfamily{qcr}\selectfont
@@ -110,7 +110,7 @@ In both cases we reach a contradiction, so our assumption must have been wrong. 
 \begin{thm} $EQ_{TM} \not \in $ \textbf{RE}. \end{thm}
 \begin{proof} 
 
-By contradiction; assume that $EQ_{TM} \in$ \textbf{RE}. Then there is some verifier $V$ for $EQ_{TM}$. This verifier has the property that if $M1$ and $M2$ are TMs and $L(M1) = L(M2)$, there is a certificate $c$ such that $V$ accepts $\langle M1, M2, c \rangle$, and if $M1$ and $M2$ are TMs and $L(M1) \not = L(M2)$, $V$ will never accept $\langle M, M2, c \rangle$ for any certificate $c$.
+By contradiction; assume that $EQ_{TM} \in$ \textbf{RE}. Then there is some verifier $V$ for $EQ_{TM}$. This verifier has the property that if $M1$ and $M2$ are TMs and $L(M1) = L(M2)$, there is a certificate $c$ such that $V$ accepts $\langle M1, M2, c \rangle$, and if $M1$ and $M2$ are TMs and $L(M1) \not = L(M2)$, $V$ will never accept $\langle M1, M2, c \rangle$ for any certificate $c$.
 
 Given this, we could then construct the following TM:
 \begin{align*}
@@ -124,6 +124,7 @@ M = &\text{“On input w:}\\
 Choose any string $w$ and trace through the execution of the machine. If $V$ ever accepts $\langle M1, M2, c \rangle$, we are guaranteed that $M1$ and $M2$ are TMs and $L(M1) = L(M2)$, but in this case we find that $M1$ accepts any input while $M2$ accepts no inputs, a contradiction. If $V$ never accepts $\langle M1, M2, c \rangle$, then we are guaranteed that $L(M1) \not = L(M2)$, but in this case we find that $M1$ loops on all inputs. This means it does not accept any inputs, which means that $L(M1) = L(M2)$, a contradiction.
 
 In both cases we reach a contradiction, so our assumption must have been wrong. Therefore, $EQ_{TM} \not \in$ \textbf{RE}.
+\end{proof}
 
 \section*{Problem 4: The Big Picture}
 
@@ -132,22 +133,19 @@ In both cases we reach a contradiction, so our assumption must have been wrong. 
 \item[2.] ALL
 \item[3.] REG
 \item[4.] REG
-\item[5.] REG (regular languages closed under union)
-\item[6.] R (M-N so not REG, but CFG so R)
-\item[7.] RE (?)
-\item[8.] ALL (there is a TM where L=\{$\emptyset$\} will loop forever, can't be RE)
-\item[9.] RE (n is the certificate) (what happens when it loops? don't worry about that)
+\item[5.] REG
+\item[6.] R 
+\item[7.] RE
+\item[8.] ALL
+\item[9.] RE
 \item[10.] ALL
 \item[11.] ALL
 \item[12.] RE 
 \end{enumerate}
-if in RE, if I give you a machine, deep down I know this is in the machine, machine will halt. R if not in language, will halt, which is not guaranteed. Not in RE, I can give you (M,n) that's in the language and you can't conclusively tell me it's in the language. ex) at most length 5, run on all strings on at most length 5, if in language, will accept it. I'm giving you something in the language, if you halt
 
 \section*{Problem 5: 4-Colorability}
 \begin{enumerate}
 \item[i.] 3COLOR $\in$ NP because it is NP-complete and NP-complete is a subset of NP. Therefore if 3COLOR can be reduced to 4COLOR, then 4COLOR is also an element of NP. Take every 3COLOR graph, in which there exists a way to color each of the nodes one of 3 colors, such that no two nodes of the same color are connected by an edge. Each of these graphs is also by definition 4-colorable, just one of the 4 colors will go unused. Therefore, there is polynomial time reduction that shows that 4COLOR must also be in NP. 
-
-I'm am not sure about this explanation. I actually think they might be looking for: 
 
 We can guess different 4Colorings of a graph using a nondeterministic turing machine. We can then deterministically check whether the coloring option is a legal 4-coloring of G. This non-deterministic turing machine us in polynomial time, because it would only take the number of nodes, n, to check if this was a valid coloring for the graph. 
 \item[ii.]
