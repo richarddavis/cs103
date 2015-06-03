@@ -65,6 +65,20 @@ Now won't get caught in an infinite loop.
 \end{enumerate}
 
 \section*{Problem 2: Password Checking}
+\begin{enumerate}
+\item[1.] 
+meta level - by contradiction that password checking language is RE/verifiable. Then we can create this. now (i). there is some certificate c where imConvinced will return true, we accept(). If we accept, the language of the machine is (we have 2 levels of machines, (1) candidate password checkers, (2) looks at machines and says if it's a password checker) higher machine has said you're only going to accept p. Now, reach a contradiction. If we are a passwordchecker, just accepts always regardless of the input. input of the machine is everything.
+
+contradiction: if it is a password checker then it accepts all inputs
+\item[2.]
+it'll infinitely loop 
+
+we're guaranteed the pass checker returns p and only p
+
+if we loop infinitely on every string, 
+\item[3.]
+input equal to p?
+\end{enumerate}
 
 \paragraph{i.} We begin with the assumption that this program is a valid password checker. If this is the case, this means the program only accepts a single string $p$. However, because of the way this program is constructed, we see that if it is a valid password checker we will be able to find some certificate $c$ such that the program will always accept no matter the input string. This is a contradiction.
 
@@ -119,6 +133,26 @@ Choose any string $w$ and trace through the execution of the machine. If $V$ eve
 In both cases we reach a contradiction, so our assumption must have been wrong. Therefore, $L \not \in$ \textbf{RE}.
 
 \section*{Problem 3: Equivalent TMs}
+m1 takes an input, it will accept/reject/loop
+m2 has some other language
+if imConvinced true, then language does not match what you have coded
+
+
+\begin{enumerate}
+\item[1.] REG
+\item[2.] ALL
+\item[3.] REG
+\item[4.] REG
+\item[5.] REG (regular languages closed under union)
+\item[6.] R (M-N so not REG, but CFG so R)
+\item[7.] RE (?)
+\item[8.] ALL (there is a TM where L=\{$\emptyset$\} will loop forever, can't be RE)
+\item[9.] RE (n is the certificate) (what happens when it loops? don't worry about that)
+\item[10.] ALL
+\item[11.] ALL
+\item[12.] RE 
+\end{enumerate}
+if in RE, if I give you a machine, deep down I know this is in the machine, machine will halt. R if not in language, will halt, which is not guaranteed. Not in RE, I can give you (M,n) that's in the language and you can't conclusively tell me it's in the language. ex) at most length 5, run on all strings on at most length 5, if in language, will accept it. I'm giving you something in the language, if you halt
 
 \paragraph{i.} 
 
@@ -151,11 +185,51 @@ int main() {
 \section*{Problem 4: The Big Picture}
 
 \section*{Problem 5: 4-Colorability}
+\begin{enumerate}
+\item[i.] 3COLOR $\in$ NP because it is NP-complete and NP-complete is a subset of NP. Therefore if 3COLOR can be reduced to 4COLOR, then 4COLOR is also an element of NP. Take every 3COLOR graph, in which there exists a way to color each of the nodes one of 3 colors, such that no two nodes of the same color are connected by an edge. Each of these graphs is also by definition 4-colorable, just one of the 4 colors will go unused. Therefore, there is polynomial time reduction that shows that 4COLOR must also be in NP. 
 
-\section*{Problem 6: Resolving P \stackrel{?}{=} NP}
+I'm am not sure about this explanation. I actually think they might be looking for: 
+
+We can guess different 4Colorings of a graph using a nondeterministic turing machine. We can then deterministically check whether the coloring option is a legal 4-coloring of G. This non-deterministic turing machine us in polynomial time, because it would only take the number of nodes, n, to check if this was a valid coloring for the graph. 
+\item[ii.]
+Take an arbitrary graph G and contrast Graph G' by adding a new node that is connected to all other nodes. 
+\item[1.] If the original graph G is 3-colorable, then the new graph G' must be 4-colorable because in the original graph G at most three colors were used so that no two nodes of the same color were connected by an edge. If a new node is added that connects to all other nodes, then this node must be of a new color. This new graph would require one additional color to prevent the same color from being connected by an edge, bringing the total to at most 4 colors, the definition of  a 4-colorable graph. 
+\item[2.]
+If we take G' and complete the transformation that removes the node that connects to all other nodes, we have then reduced the colorable number by 1. This is because that node must have been a different color than all other nodes, by definition of colorability. Since G' was 4-colorable(had at most 4 colors needed), G is therefore 3-colorable(has at most 3 colors needed). 
+\item[3.]
+This reduction can be completed in polynomial time n+1. The reduction must add one node to graph G, then make n (the number of nodes in graph G) edges between the new node and all previous nodes in G. 
+\end{enumerate}
+
+\section*{Problem 6: Resolving P $\stackrel{?}{=}$ NP}
+
+\begin{enumerate}
+\item[1.] neither
+\item[2.] neither
+\item[3.] P = NP
+\item[4.] P = NP
+\item[5.] P $\neq$ NP
+\item[6.] P $\neq$ NP
+\item[7.] neither
+\item[8.] neither
+\item[9.] neither
+\item[10.] neither
+\item[11.] neither
+\item[12.] neither
+\item[13.] P = NP
+\item[14.] P = NP
+\item[15.] neither
+\item[16.] neither
+\end{enumerate}
 
 \section*{Problem 7: The Big Picture}
-
+\begin{enumerate}
+\item[i.] you can make a DFA
+\item[ii.] prove context free? provide grammar. Prove not regular? M-H
+\item[iii.] give a regular language, since regular languages $\subseteq$ P
+\item[iv.] traveling salesman, 3SAT, we don't know if it's in P because we don't know if P=NP
+\item[v.]$A_{TM}$, can't be a decider
+\item[vi.]looping, can't be a verifier
+\end{enumerate}
 \end{document}
 %%% Local Variables:
 %%% mode: latex
