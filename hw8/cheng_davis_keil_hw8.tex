@@ -122,6 +122,7 @@ M = &\text{“On input w:}\\
 Choose any string $w$ and trace through the execution of the machine. If $V$ ever accepts $\langle M1, M2, c \rangle$, we are guaranteed that $M1$ and $M2$ are TMs and $L(M1) = L(M2)$, but in this case we find that $M1$ accepts any input while $M2$ accepts no inputs, a contradiction. If $V$ never accepts $\langle M1, M2, c \rangle$, then we are guaranteed that $L(M1) \not = L(M2)$, but in this case we find that $M1$ loops on all inputs. This means it does not accept any inputs, which means that $L(M1) = L(M2)$, a contradiction.
 
 In both cases we reach a contradiction, so our assumption must have been wrong. Therefore, $EQ_{TM} \not \in$ \textbf{RE}.
+\end{proof}
 
 \section*{Problem 4: The Big Picture}
 
