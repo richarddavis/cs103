@@ -139,27 +139,6 @@ In both cases we reach a contradiction, so our assumption must have been wrong. 
 \end{proof}
 
 \section*{Problem 3: Equivalent TMs}
-m1 takes an input, it will accept/reject/loop
-m2 has some other language
-if imConvinced true, then language does not match what you have coded
-
-
-\begin{enumerate}
-\item[1.] REG
-\item[2.] ALL
-\item[3.] REG
-\item[4.] REG
-\item[5.] REG (regular languages closed under union)
-\item[6.] R (M-N so not REG, but CFG so R)
-\item[7.] RE (?)
-\item[8.] ALL (there is a TM where L=\{$\emptyset$\} will loop forever, can't be RE)
-\item[9.] RE (n is the certificate) (what happens when it loops? don't worry about that)
-\item[10.] ALL
-\item[11.] ALL
-\item[12.] RE 
-\end{enumerate}
-if in RE, if I give you a machine, deep down I know this is in the machine, machine will halt. R if not in language, will halt, which is not guaranteed. Not in RE, I can give you (M,n) that's in the language and you can't conclusively tell me it's in the language. ex) at most length 5, run on all strings on at most length 5, if in language, will accept it. I'm giving you something in the language, if you halt
-
 \paragraph{i.} 
 
 \begin{lstlisting}
@@ -189,6 +168,26 @@ int main() {
 \end{lstlisting}
 
 \section*{Problem 4: The Big Picture}
+m1 takes an input, it will accept/reject/loop
+m2 has some other language
+if imConvinced true, then language does not match what you have coded
+
+
+\begin{enumerate}
+\item[1.] REG
+\item[2.] ALL
+\item[3.] REG
+\item[4.] REG
+\item[5.] REG (regular languages closed under union)
+\item[6.] R (M-N so not REG, but CFG so R)
+\item[7.] RE (?)
+\item[8.] ALL (there is a TM where L=\{$\emptyset$\} will loop forever, can't be RE)
+\item[9.] RE (n is the certificate) (what happens when it loops? don't worry about that)
+\item[10.] ALL
+\item[11.] ALL
+\item[12.] RE 
+\end{enumerate}
+if in RE, if I give you a machine, deep down I know this is in the machine, machine will halt. R if not in language, will halt, which is not guaranteed. Not in RE, I can give you (M,n) that's in the language and you can't conclusively tell me it's in the language. ex) at most length 5, run on all strings on at most length 5, if in language, will accept it. I'm giving you something in the language, if you halt
 
 \section*{Problem 5: 4-Colorability}
 \begin{enumerate}
