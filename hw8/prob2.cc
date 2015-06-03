@@ -10,9 +10,7 @@ int main() {
 
   for (int i = 0 to infinity) {
     for (each string c of length i) {
-      if (imConvincedIsPasswordChecker(me, c)) {                
-	accept(); // Once the certificate is found, accept any input
-      } else {
+      if (!imConvincedIsPasswordChecker(me, c)) {
 	if (actualAnswer) {
 	  accept();
 	} else {
