@@ -8,6 +8,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{ mathrsfs }
+\usepackage{upgreek}
 	% packages that allow mathematical formatting
 
 
@@ -36,7 +37,7 @@
 \begin{document}
 	% line of code telling latex that your document is beginning
 
-\title{Problem Set 7: CS103}
+\title{Problem Set 8: CS103}
 
 \author{Katherine Cheng, Richard Davis, Marty Keil}
 
@@ -50,18 +51,22 @@
 
 \begin{enumerate}
 \item[i.] 
-bool inL1nL2(string w) \{\\
-return inL1(w) \&\& inL2(w);\\
-\}
+{\fontfamily{qcr}\selectfont
+$\qquad$bool inL1nL2(string w) \{\\
+$\qquad$$\qquad$return inL1(w) \&\& inL2(w);\\
+$\qquad$\}
+}
 
-Will return true when true, returns false or loops infinitely otherwise.
-\item[ii.] Evaluates left to right (confirm?), so if the first function is an infinite loop, will not evaluate the second function (which might be true)
+This method, which models the language L1 $cap$ L2, satisfies the properties of a recognizer. When $w \in L1 $cap$ L2$ the method will return true, and the method returns false or loops infinitely otherwise.
+\item[ii.] Since the RE languages are closed under union, we would expect L1 $\cup$ L2 to be recognizable. By definition of a recognizable language, this means that the method should return true for any string $w \in L1 \cup L2$. Because the line {\fontfamily{qcr}\selectfont return inL1(w) || inL2(w);} evaluates left to right, if {\fontfamily{qcr}\selectfont inL1(w)} enters an infinite loop, the statement will never evaluate the second function, {\fontfamily{qcr}\selectfont inL2(w)}. If {\fontfamily{qcr}\selectfont inL2(w)} evaluates to true, the recognizer should return true - however, since this portion of the statement is never evaluated, this method not properly model the behavior of a recognizer.
 \item[iii.] 
-bool imConvincedIsInL1uL2(string w, string c) \{\\
-return imConvincedIsInL1(w, c) $||$  imConvincedIsInL2(w, c);\\
-\}
+{\fontfamily{qcr}\selectfont
+$\qquad$bool imConvincedIsInL1uL2(string w, string c) \{\\
+$\qquad$$\qquad$return imConvincedIsInL1(w, c) $||$  imConvincedIsInL2(w, c);\\
+$\qquad$\}
+}
 
-Now won't get caught in an infinite loop.
+As opposed to the method in part ii of this problem, this new method {\fontfamily{qcr}\selectfont imConvincedIsInL1uL2()} will not get caught in an infinite loop. This is because both {\fontfamily{qcr}\selectfont imConvincedIsInL1(w, c)} and {\fontfamily{qcr}\selectfont imConvincedIsInL2(w, c)} always return a true or false value, so the return statement evaluates both sides of the `or' properly.
 \end{enumerate}
 
 \section*{Problem 2: Password Checking}
@@ -133,12 +138,19 @@ if in RE, if I give you a machine, deep down I know this is in the machine, mach
 
 \section*{Problem 7: The Big Picture}
 \begin{enumerate}
-\item[i.] you can make a DFA
-\item[ii.] prove context free? provide grammar. Prove not regular? M-H
-\item[iii.] give a regular language, since regular languages $\subseteq$ P
-\item[iv.] traveling salesman, 3SAT, we don't know if it's in P because we don't know if P=NP
-\item[v.]$A_{TM}$, can't be a decider
-\item[vi.]looping, can't be a verifier
+\item[i.] \{$a^n\ |\ n \in \mathbb{N}$\} is an example of a regular language. You can prove that this language is regular by creating a regular expression for it, namely $a^*$. We could also have proven the language is regular by creating a DFA or NFA for it.
+\item[ii.] \{$a^nb^n\ |\ n \in \mathbb{N}$\} is an example of a context-free language that is not regular. You can prove that it is context free by providing the context-free grammar, aka production rules, for deriving the language. The CFG for this example is $S \rightarrow aSb | \epsilon$. We can prove that this language is not regular using the Myhill-Nerode Theorem.
+\item[iii.]  \{$a^n\ |\ n \in \mathbb{N}$\} is an example of a language in P. Since we know this language is a regular language, and regular languages $\subseteq$ P, it follows that the language is in P. In general, you can prove a language is in P by creating a Turing machine decider for the language that decides in polynomial time.
+
+\item[iv.] INDSET = \{$\langle G, n \rangle\ |\ G$ is an undirected graph with an independent set of size at least $n$\} is an example of a language in NP that is not known to be in P. You can prove INDSET is in NP by building a polynomial-time verifier for the language. For this language, the polynomial-time verifier checks whether S is an n-element independent set.
+
+In general, you can prove that a language is in NP by building a polynomial-time verifier for the language. Specifically, you would create a NTM that nondeterministically guesses a certificate, then deterministically runs the verifier to check it. Then, you would argue that the NTM runs in nondeterministic polynomial time. 
+
+We don't know whether INDSET is in P because INDSET $\in$ NP-complete. All known algorithms for NP-complete problems run in worst-case exponential time, and are infeasible for reasonably-sized inputs. We do not know whether INDSET is in P because P$\stackrel{?}{=}$NP.
+
+\item[v.] $A_{TM}$, the language of the Universal Turing machine, is an example of a language in RE not contained in R. You can prove that $A_{TM}$ is RE by simulating the machine, which will accept if string $w$ is in the language of machine $M$, and reject/loop otherwise. You can prove that $A_{TM}$ is not contained in R by contradiction - you'd show that if there were a decider for $A_{TM}$, then you could construct a self-referential TM that flips its response based on the decider's answer, thus contradicting the decider in all cases.
+
+\item[vi.] \{ $\langle M \rangle\ |\ M$ is a Turing machine and $L(M) = \emptyset$\} is an example of a language that is not in RE. You can prove it is not contained in RE by constructing a case of a TM where the language cannot be verified - for example, a TM that loops infinitely and does not halt.
 \end{enumerate}
 \end{document}
 %%% Local Variables:
