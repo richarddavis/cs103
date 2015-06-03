@@ -99,21 +99,24 @@ int main() {
 }
 \end{lstlisting}
 
-This program leads to a contradiction regardless of whether it is a password checker. If the program is a password checker, by the same argument as in part i. we can show that this leads to a contradiciton. If the program is not a password checker, we know that \texttt{imConvincedIsPasswordChecker} returns false for all values of $c$. However, the program is constructed such that for all values of $c$, the program behaves like a password checker, only accepting input strings that are equal to $p$. In other words, if the program is not a password checker (as determined by \texttt{imConvincedIsPasswordChecker}) the program is a password checker. This is a contradiction. 
+This program leads to a contradiction regardless of whether it is a password checker. If the program is a password checker, by the same argument as in part i. we can show that this leads to a contradiciton. If the program is not a password checker, we know that \texttt{imConvincedIsPasswordChecker} returns false for all values of $c$. However, the program is constructed such that for all values of $c$, the program behaves like a password checker, only accepting input strings that are equal to $p$. In other words, if the program is not a password checker (as determined by \texttt{imConvincedIsPasswordChecker}) the program always behaves as a password checker. This is a contradiction. 
 
-\paragraph{iv.} \begin{thm} $L \not \in $ RE. \end{thm}
-\begin{proof} By contradiction; assume that $L \in$ RE. Then there is some verifier $V$ for $L$. This verifier has the property that if $M$ is a TM that is a password checker, there is a certificate $c$ such that $V$ accepts $\langle M, c \rangle$, and if $M$ is not a password checker, $V$ will never accept $\langle M, c \rangle$ for any certificate $c$.
+\paragraph{iv.} \begin{thm} $L \not \in $ \textbf{RE}. \end{thm}
+\begin{proof} 
+
+By contradiction; assume that $L \in$ \textbf{RE}. Then there is some verifier $V$ for $L$. This verifier has the property that if $M$ is a TM that is a password checker, there is a certificate $c$ such that $V$ accepts $\langle M, c \rangle$, and if $M$ is not a password checker, $V$ will never accept $\langle M, c \rangle$ for any certificate $c$.
 
 Given this, we could then construct the following TM:
 \begin{align*}
 M = &\text{“On input w:}\\
 &\text{Have $M$ obtain its own description, $\langle M \rangle$. For all strings c:}\\
 &\text{If $V$ accepts $\langle M, c \rangle$, accept.}\\
-&\text{If $V$ does not accept $\langle M, c \rangle$,...}
+&\text{Otherwise, if $V$ does not accept $\langle M, c \rangle$, accept if the input string is equal to $p$ and return false otherwise.}
 \end{align*}
 
-Choose any string w and trace through the execution of the machine. If V ever accepts ⟨M, w, c⟩, we are guaranteed that M loops on w, but in this case we find that M accepts w, a contradiction. If V never accepts ⟨M, w, c⟩, then we are guaranteed that M halts on w, but in this case we find that M loops infinitely on w, a contradiction.
-In both cases we reach a contradiction, so our assumption must have been wrong. Therefore, LOOP ∉ RE.
+Choose any string $w$ and trace through the execution of the machine. If $V$ ever accepts $\langle M, c \rangle$, we are guaranteed that $M$ only accepts $p$, but in this case we find that $M$ accepts any input, a contradiction. If $V$ never accepts $\langle M, c \rangle$, then we are guaranteed that $M$ is not a password checker, but in this case we find that $M$ always behaves as a password checker, a contradiction.
+
+In both cases we reach a contradiction, so our assumption must have been wrong. Therefore, $L \not \in$ \textbf{RE}.
 
 \section*{Problem 3: Equivalent TMs}
 
