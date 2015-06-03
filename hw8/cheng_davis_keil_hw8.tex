@@ -57,7 +57,7 @@ $\qquad$$\qquad$return inL1(w) \&\& inL2(w);\\
 $\qquad$\}
 }
 
-This method, which models the language L1 $\cap$ L2, satisfies the properties of a recognizer. When $w \in L1 \cap L2$ the method will return true, and the method returns false or loops infinitely otherwise.
+This method, which models the language L1 $\cap$ L2, satisfies the properties of a recognizer. When $w \in L1 \cap L2$ the method will return true, and otherwise the method returns false or loops infinitely.
 \item[ii.] Since the RE languages are closed under union, we would expect L1 $\cup$ L2 to be recognizable. By definition of a recognizable language, this means that the method should return true for any string $w \in L1 \cup L2$. Because the line {\fontfamily{qcr}\selectfont return inL1(w) || inL2(w);} evaluates left to right, if {\fontfamily{qcr}\selectfont inL1(w)} enters an infinite loop, the statement will never evaluate the second function, {\fontfamily{qcr}\selectfont inL2(w)}. If {\fontfamily{qcr}\selectfont inL2(w)} evaluates to true, the recognizer should return true - however, since this portion of the statement is never evaluated, this method not properly model the behavior of a recognizer.
 \item[iii.] 
 {\fontfamily{qcr}\selectfont
@@ -108,7 +108,7 @@ In both cases we reach a contradiction, so our assumption must have been wrong. 
 \begin{thm} $EQ_{TM} \not \in $ \textbf{RE}. \end{thm}
 \begin{proof} 
 
-By contradiction; assume that $EQ_{TM} \in$ \textbf{RE}. Then there is some verifier $V$ for $EQ_{TM}$. This verifier has the property that if $M1$ and $M2$ are TMs and $L(M1) = L(M2)$, there is a certificate $c$ such that $V$ accepts $\langle M1, M2, c \rangle$, and if $M1$ and $M2$ are TMs and $L(M1) \not = L(M2)$, $V$ will never accept $\langle M, M2, c \rangle$ for any certificate $c$.
+By contradiction; assume that $EQ_{TM} \in$ \textbf{RE}. Then there is some verifier $V$ for $EQ_{TM}$. This verifier has the property that if $M1$ and $M2$ are TMs and $L(M1) = L(M2)$, there is a certificate $c$ such that $V$ accepts $\langle M1, M2, c \rangle$, and if $M1$ and $M2$ are TMs and $L(M1) \not = L(M2)$, $V$ will never accept $\langle M1, M2, c \rangle$ for any certificate $c$.
 
 Given this, we could then construct the following TM:
 \begin{align*}
@@ -131,16 +131,15 @@ In both cases we reach a contradiction, so our assumption must have been wrong. 
 \item[2.] ALL
 \item[3.] REG
 \item[4.] REG
-\item[5.] REG (regular languages closed under union)
-\item[6.] R (M-N so not REG, but CFG so R)
-\item[7.] RE (?)
-\item[8.] ALL (there is a TM where L=\{$\emptyset$\} will loop forever, can't be RE)
-\item[9.] RE (n is the certificate) (what happens when it loops? don't worry about that)
+\item[5.] REG
+\item[6.] R 
+\item[7.] RE
+\item[8.] ALL
+\item[9.] RE
 \item[10.] ALL
 \item[11.] ALL
 \item[12.] RE 
 \end{enumerate}
-if in RE, if I give you a machine, deep down I know this is in the machine, machine will halt. R if not in language, will halt, which is not guaranteed. Not in RE, I can give you (M,n) that's in the language and you can't conclusively tell me it's in the language. ex) at most length 5, run on all strings on at most length 5, if in language, will accept it. I'm giving you something in the language, if you halt
 
 \section*{Problem 5: 4-Colorability}
 \begin{enumerate}
