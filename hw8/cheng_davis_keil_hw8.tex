@@ -65,14 +65,71 @@ Now won't get caught in an infinite loop.
 \end{enumerate}
 
 \section*{Problem 2: Password Checking}
+\begin{enumerate}
+\item[1.] 
+meta level - by contradiction that password checking language is RE/verifiable. Then we can create this. now (i). there is some certificate c where imConvinced will return true, we accept(). If we accept, the language of the machine is (we have 2 levels of machines, (1) candidate password checkers, (2) looks at machines and says if it's a password checker) higher machine has said you're only going to accept p. Now, reach a contradiction. If we are a passwordchecker, just accepts always regardless of the input. input of the machine is everything.
+
+contradiction: if it is a password checker then it accepts all inputs
+\item[2.]
+it'll infinitely loop 
+
+we're guaranteed the pass checker returns p and only p
+
+if we loop infinitely on every string, 
+\item[3.]
+input equal to p?
+\end{enumerate}
 
 \section*{Problem 3: Equivalent TMs}
+m1 takes an input, it will accept/reject/loop
+m2 has some other language
+if imConvinced true, then language does not match what you have coded
+
+
+\begin{enumerate}
+\item[1.] REG
+\item[2.] ALL
+\item[3.] REG
+\item[4.] REG
+\item[5.] REG (regular languages closed under union)
+\item[6.] R (M-N so not REG, but CFG so R)
+\item[7.] RE (?)
+\item[8.] ALL (there is a TM where L=\{$\emptyset$\} will loop forever, can't be RE)
+\item[9.] RE (n is the certificate) (what happens when it loops? don't worry about that)
+\item[10.] ALL
+\item[11.] ALL
+\item[12.] RE 
+\end{enumerate}
+if in RE, if I give you a machine, deep down I know this is in the machine, machine will halt. R if not in language, will halt, which is not guaranteed. Not in RE, I can give you (M,n) that's in the language and you can't conclusively tell me it's in the language. ex) at most length 5, run on all strings on at most length 5, if in language, will accept it. I'm giving you something in the language, if you halt
 
 \section*{Problem 4: The Big Picture}
 
 \section*{Problem 5: 4-Colorability}
-
+\begin{enumerate}
+\item[1.]
+\item[2.]
+\end{enumerate}
+3COLOR polynomial time reducible to 4COLOR
 \section*{Problem 6: Resolving P $\stackrel{?}{=}$ NP}
+
+\begin{enumerate}
+\item[1.] neither
+\item[2.] neither
+\item[3.] P = NP
+\item[4.] P = NP
+\item[5.] P $\neq$ NP
+\item[6.] P $\neq$ NP
+\item[7.] neither
+\item[8.] neither
+\item[9.] neither
+\item[10.] neither
+\item[11.] neither
+\item[12.] neither
+\item[13.] P = NP
+\item[14.] P = NP
+\item[15.] neither
+\item[16.] neither
+\end{enumerate}
 
 \section*{Problem 7: The Big Picture}
 
