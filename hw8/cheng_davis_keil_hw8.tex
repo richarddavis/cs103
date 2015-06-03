@@ -61,12 +61,12 @@ This method, which models the language L1 $\cap$ L2, satisfies the properties of
 \item[ii.] Since the RE languages are closed under union, we would expect L1 $\cup$ L2 to be recognizable. By definition of a recognizable language, this means that the method should return true for any string $w \in L1 \cup L2$. Because the line {\fontfamily{qcr}\selectfont return inL1(w) || inL2(w);} evaluates left to right, if {\fontfamily{qcr}\selectfont inL1(w)} enters an infinite loop, the statement will never evaluate the second function, {\fontfamily{qcr}\selectfont inL2(w)}. If {\fontfamily{qcr}\selectfont inL2(w)} evaluates to true, the recognizer should return true - however, since this portion of the statement is never evaluated, this method not properly model the behavior of a recognizer.
 \item[iii.] 
 {\fontfamily{qcr}\selectfont
-$\qquad$bool imConvincedIsInL1uL2(string w, string c) \{\\
-$\qquad$$\qquad$return imConvincedIsInL1(w, c) $||$  imConvincedIsInL2(w, c);\\
+$\qquad$bool imConvincedIsInL1uL2(string w, string c1, string c2) \{\\
+$\qquad$$\qquad$return imConvincedIsInL1(w, c1) $||$  imConvincedIsInL2(w, c2);\\
 $\qquad$\}
 }
 
-As opposed to the method in part ii of this problem, this new method {\fontfamily{qcr}\selectfont imConvincedIsInL1uL2()} will not get caught in an infinite loop. This is because both {\fontfamily{qcr}\selectfont imConvincedIsInL1(w, c)} and {\fontfamily{qcr}\selectfont imConvincedIsInL2(w, c)} always return a true or false value, so the return statement evaluates both sides of the `or' properly.
+As opposed to the method in part ii of this problem, this new method {\fontfamily{qcr}\selectfont imConvincedIsInL1uL2()} will not get caught in an infinite loop. This is because both {\fontfamily{qcr}\selectfont imConvincedIsInL1(w, c1)} and {\fontfamily{qcr}\selectfont imConvincedIsInL2(w, c2)} always return a true or false value, so the return statement evaluates both sides of the `or' properly.
 \end{enumerate}
 
 \section*{Problem 2: Password Checking}
@@ -135,7 +135,7 @@ In both cases we reach a contradiction, so our assumption must have been wrong. 
 \item[4.] REG
 \item[5.] REG
 \item[6.] R 
-\item[7.] RE
+\item[7.] REG
 \item[8.] ALL
 \item[9.] RE
 \item[10.] ALL
