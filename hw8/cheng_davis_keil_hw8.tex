@@ -77,32 +77,7 @@ As opposed to the method in part ii of this problem, this new method {\fontfamil
 
 \paragraph{iii.} The modified program is as follows:\\
 
-\begin{lstlisting}
-bool imConvincedIsPasswordChecker(string program, string certificate) { 
-/* ... some implementation ... */ 
-}
-
-int main() {
-    string me = mySource();
-    string input = getInput();
-
-    bool actualAnswer = (input == p);
-
-    for (int i = 0 to infinity) {
-        for (each string c of length i) {
-            if (imConvincedIsPasswordChecker(me, c)) {                
-                accept(); // Once the certificate is found, accept any input
-            } else {
-                if (actualAnswer) {
-                    accept();
-                } else {
-                    reject();
-                }
-            }
-        }
-    }
-}
-\end{lstlisting}
+\lstinputlisting{prob2.cc}
 
 This program leads to a contradiction regardless of whether it is a password checker. If the program is a password checker, by the same argument as in part i. we can show that this leads to a contradiciton. If the program is not a password checker, we know that \texttt{imConvincedIsPasswordChecker} returns false for all values of $c$. However, the program is constructed such that for all values of $c$, the program behaves like a password checker, only accepting input strings that are equal to $p$. In other words, if the program is not a password checker (as determined by \texttt{imConvincedIsPasswordChecker}) the program always behaves as a password checker. This is a contradiction. 
 
