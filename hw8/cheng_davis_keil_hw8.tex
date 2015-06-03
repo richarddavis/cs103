@@ -65,20 +65,6 @@ Now won't get caught in an infinite loop.
 \end{enumerate}
 
 \section*{Problem 2: Password Checking}
-\begin{enumerate}
-\item[1.] 
-meta level - by contradiction that password checking language is RE/verifiable. Then we can create this. now (i). there is some certificate c where imConvinced will return true, we accept(). If we accept, the language of the machine is (we have 2 levels of machines, (1) candidate password checkers, (2) looks at machines and says if it's a password checker) higher machine has said you're only going to accept p. Now, reach a contradiction. If we are a passwordchecker, just accepts always regardless of the input. input of the machine is everything.
-
-contradiction: if it is a password checker then it accepts all inputs
-\item[2.]
-it'll infinitely loop 
-
-we're guaranteed the pass checker returns p and only p
-
-if we loop infinitely on every string, 
-\item[3.]
-input equal to p?
-\end{enumerate}
 
 \paragraph{i.} We begin with the assumption that this program is a valid password checker. If this is the case, this means the program only accepts a single string $p$. However, because of the way this program is constructed, we see that if it is a valid password checker we will be able to find some certificate $c$ such that the program will always accept no matter the input string. This is a contradiction.
 
@@ -133,11 +119,30 @@ Choose any string $w$ and trace through the execution of the machine. If $V$ eve
 In both cases we reach a contradiction, so our assumption must have been wrong. Therefore, $L \not \in$ \textbf{RE}.
 
 \section*{Problem 3: Equivalent TMs}
-m1 takes an input, it will accept/reject/loop
-m2 has some other language
-if imConvinced true, then language does not match what you have coded
 
+\paragraph{i.} 
+\lstinputlisting{prob3.cc}
 
+\paragraph{ii.}
+\begin{thm} $EQ_{TM} \not \in $ \textbf{RE}. \end{thm}
+\begin{proof} 
+
+By contradiction; assume that $EQ_{TM} \in$ \textbf{RE}. Then there is some verifier $V$ for $EQ_{TM}$. This verifier has the property that if $M1$ and $M2$ are TMs and $L(M1) = L(M2)$, there is a certificate $c$ such that $V$ accepts $\langle M1, M2, c \rangle$, and if $M1$ and $M2$ are TMs and $L(M1) \not = L(M2)$, $V$ will never accept $\langle M, M2, c \rangle$ for any certificate $c$.
+
+Given this, we could then construct the following TM:
+\begin{align*}
+M = &\text{“On input w:}\\
+&\text{Have $M$ obtain its own description, $\langle M1 \rangle$.}\\
+&\text{Let $M2$ be a TM that accepts $\varnothing$. Have $M$ obtain its description, $\langle M2 \rangle$.}\\
+&\text{For all strings c:}\\
+&\text{If $V$ accepts $\langle M1, M2, c \rangle$, accept.}
+\end{align*}
+
+Choose any string $w$ and trace through the execution of the machine. If $V$ ever accepts $\langle M1, M2, c \rangle$, we are guaranteed that $M1$ and $M2$ are TMs and $L(M1) = L(M2)$, but in this case we find that $M1$ accepts any input while $M2$ accepts no inputs, a contradiction. If $V$ never accepts $\langle M1, M2, c \rangle$, then we are guaranteed that $L(M1) \not = L(M2)$, but in this case we find that $M1$ loops on all inputs. This means it does not accept any inputs, which means that $L(M1) = L(M2)$, a contradiction.
+
+In both cases we reach a contradiction, so our assumption must have been wrong. Therefore, $EQ_{TM} \not \in$ \textbf{RE}.
+
+\section*{Problem 4: The Big Picture}
 \begin{enumerate}
 \item[1.] REG
 \item[2.] ALL
@@ -153,36 +158,6 @@ if imConvinced true, then language does not match what you have coded
 \item[12.] RE 
 \end{enumerate}
 if in RE, if I give you a machine, deep down I know this is in the machine, machine will halt. R if not in language, will halt, which is not guaranteed. Not in RE, I can give you (M,n) that's in the language and you can't conclusively tell me it's in the language. ex) at most length 5, run on all strings on at most length 5, if in language, will accept it. I'm giving you something in the language, if you halt
-
-\paragraph{i.} 
-
-\begin{lstlisting}
-bool imConvincedAreEqual(string p1, string p2, string certificate) {
-  // Returns true if p1 and p2 are both turing machines that have the same language, false otherwise.
-}
-
-bool simulateTM(string tm, string inp) {
-  // simulate the tm run on the string inp and return whatever tm returns
-}
-
-int main() {
-  string me = mySource();
-  string m2 = getOtherTMSource();
-  string input = getInput();
-
-  for (i = 0 to infinity) {
-    for (each string c of length i) {
-      if (imConvincedAreEqual(me, m2, c)) {
-	return !simulateTM(m2, input);
-      } else {
-	return simulateTM(m2, input);
-      }
-    }
-  }
-}
-\end{lstlisting}
-
-\section*{Problem 4: The Big Picture}
 
 \section*{Problem 5: 4-Colorability}
 \begin{enumerate}
