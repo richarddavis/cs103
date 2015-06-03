@@ -79,7 +79,9 @@ As opposed to the method in part ii of this problem, this new method {\fontfamil
 
 \lstinputlisting{prob2.cc}
 
-This program leads to a contradiction regardless of whether it is a password checker. If the program is a password checker, by the same argument as in part i. we can show that this leads to a contradiciton. If the program is not a password checker, we know that \texttt{imConvincedIsPasswordChecker} returns false for all values of $c$. However, the program is constructed such that for all values of $c$, the program behaves like a password checker, only accepting input strings that are equal to $p$. In other words, if the program is not a password checker (as determined by \texttt{imConvincedIsPasswordChecker}) the program always behaves as a password checker. This is a contradiction. 
+This program leads to a contradiction regardless of whether or not it is a password checker. If the program is a password checker, \texttt{imConvincedIsPasswordChecker} will return true for some $c$. However, for this $c$ the program will accept all inputs, which makes it not a valid password checker, a contradiction. 
+
+If the program is not a password checker, we know that \texttt{imConvincedIsPasswordChecker} returns false for all values of $c$. However, the program is constructed such that whenever \texttt{imConvincedIsPasswordChecker} returns false, the program behaves like a password checker, accepting all inputs that are equal to $p$ and looping forever otherwise. In other words, if the program is not a password checker (as determined by \texttt{imConvincedIsPasswordChecker}) the program always behaves as a password checker. This is a contradiction. 
 
 \paragraph{iv.} \begin{thm} $L \not \in $ \textbf{RE}. \end{thm}
 \begin{proof} 
@@ -91,10 +93,10 @@ Given this, we could then construct the following TM:
 M = &\text{“On input w:}\\
 &\text{Have $M$ obtain its own description, $\langle M \rangle$. For all strings c:}\\
 &\text{If $V$ accepts $\langle M, c \rangle$, accept.}\\
-&\text{Otherwise, if $V$ does not accept $\langle M, c \rangle$, accept if the input string is equal to $p$ and return false otherwise.}
+&\text{Otherwise, if $V$ does not accept $\langle M, c \rangle$, accept if the input string is equal to $p$ and loop otherwise.}
 \end{align*}
 
-Choose any string $w$ and trace through the execution of the machine. If $V$ ever accepts $\langle M, c \rangle$, we are guaranteed that $M$ only accepts $p$, but in this case we find that $M$ accepts any input, a contradiction. If $V$ never accepts $\langle M, c \rangle$, then we are guaranteed that $M$ is not a password checker, but in this case we find that $M$ always behaves as a password checker, a contradiction.
+Choose any string $w$ and trace through the execution of the machine. If $V$ ever accepts $\langle M, c \rangle$, we are guaranteed that $M$ only accepts $p$, but in this case we find that $M$ accepts any input, a contradiction. If $V$ never accepts $\langle M, c \rangle$, then we are guaranteed that $M$ is not a password checker, but in this case we find that $M$ only accepts the string $p$ and loops otherwise, which is consistent with the behavior of a password checker, a contradiction.
 
 In both cases we reach a contradiction, so our assumption must have been wrong. Therefore, $L \not \in$ \textbf{RE}.
 \end{proof}
